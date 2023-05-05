@@ -297,7 +297,6 @@ case 1:
 
 logger.info("please enter the information about your product:\n");
 
-product p=new product();
 logger.info("Category: ");
 category=s1.next();
 logger.info("name: ");
@@ -366,7 +365,7 @@ case 3:
 logger.info("please enter the SN of your product\n");
 logger.info("SN\n");
 sn=s1.next();
-product p2=new product();
+
 db.delete_prod(sn);
 for (int i=0 ;i <db.dbproduct.size();i++)
 {

@@ -21,7 +21,7 @@ public class worker_steps {
 
 	@When("the worker with email {string} and pass {string} logs in to the application")
 	public void the_worker_with_email_and_pass_logs_in_to_the_application(String string, String string2) {
-	   if (work.log_worker==true)
+	   if (work.logworker==true)
 	   {
 		   log_wo=true;
 	   }

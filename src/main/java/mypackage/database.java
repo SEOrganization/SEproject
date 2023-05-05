@@ -96,7 +96,7 @@ obj.StartDate=currentDate;
 	 if(dbworker.get(i).available) {
 		obj.id_worker= dbworker.get(i).id;
 		obj.name_worker= dbworker.get(i).name;
-		 dbworker.get(i).id_order=idord;
+		 dbworker.get(i).idorder=idord;
 		 dbworker.get(i).available=false;
 	 }
  }
@@ -231,8 +231,8 @@ return	 null;
 		obj8.phone="056928521";
 		obj8.name="farahjabe";
 		obj8.balance="0";
-		obj8.wage_for_houre="50";
-		obj8.work_houers="0";
+		obj8.wageforhoure="50";
+		obj8.workhouers="0";
 		obj8.available=false;
 		//obj9.available=true;
 		dbworker.add(obj8);
@@ -244,8 +244,8 @@ return	 null;
 		obj9.phone="056928522";
 		obj9.name="salehshakhshir";
 		obj9.balance="2500";
-		obj9.wage_for_houre="50";
-		obj9.work_houers="50";
+		obj9.wageforhoure="50";
+		obj9.workhouers="50";
 		obj9.available=false;
 		dbworker.add(obj9);
 		
@@ -257,8 +257,8 @@ return	 null;
 		obj10.phone="056935522";
 		obj10.name="noorjabe";
 		obj10.balance="5000";
-		obj10.wage_for_houre="50";
-		obj10.work_houers="100";
+		obj10.wageforhoure="50";
+		obj10.workhouers="100";
 		obj10.available=true;
 		dbworker.add(obj10);
 		
@@ -481,7 +481,7 @@ public boolean check_if_exi8(String string, String string2) {
 		for(int i=0;i<dbworker.size();i++) {
 			if( dbworker.get(i).email.equals(string) &&  dbworker.get(i).password.equals(string2)) {
 		
-			dbworker.get(i).log_worker=true;
+			dbworker.get(i).logworker=true;
 				return true;}
 		
 		}
@@ -496,12 +496,12 @@ if(hourse.equals("")||hourse.equals(null)) {
  for(int i=0;i<dbworker.size();i++) {
 		if( dbworker.get(i).id.equals(id) ){
 			
-			v=Integer.parseInt(hourse)+Integer.parseInt(dbworker.get(i).work_houers);
-		int x=(v*Integer.parseInt( dbworker.get(i).wage_for_houre));
+			v=Integer.parseInt(hourse)+Integer.parseInt(dbworker.get(i).workhouers);
+		int x=(v*Integer.parseInt( dbworker.get(i).wageforhoure));
 dbworker.get(i).balance= Integer.toString(x);
 
 ret=dbworker.get(i).balance;
-dbworker.get(i).work_houers+=Integer.parseInt(hourse);
+dbworker.get(i).workhouers+=Integer.parseInt(hourse);
 dbworker.get(i).balance=ret;
 
 		}
