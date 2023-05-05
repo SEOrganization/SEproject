@@ -9,7 +9,6 @@ public class Main {
 	
 static void menuuser()
 { 
-	System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
     System.out.print("*   press 1 if you want to modify your information in the cleaning Application.               * \n");
 	System.out.print("|   press 2 if you want to delete your account from the cleaning Application.                 | \n");
 	System.out.print("|   press 3 if you want to create new order.                                                  | \n");
@@ -20,7 +19,6 @@ static void menuuser()
 	System.out.print("|   press 8 if you want to log out                                                            | \n");
 	System.out.print("|   press 9 if you want to go to main page                                                    | \n");
 
-	System.out.print("**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-** \n");
 	System.out.print("\n choose one of the options: ");	
 	
 	
@@ -30,7 +28,6 @@ static void menuuser()
 static void menuadmin()
 {
 	
-	System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 	System.out.print("|   press 1 if you want to create new product in the cleaning Application.                    | \n");
 	System.out.print("*   press 2 if you want to update your information about product in the cleaning Application. * \n");
 	System.out.print("|   press 3 if you want to delete your product from the cleaning Application.                 | \n");
@@ -43,50 +40,42 @@ static void menuadmin()
 	System.out.print("|   press 10 if you want to log out                                                           | \n");
 	System.out.print("|   press 11 if you want to go to main page                                                   | \n");
 
-    System.out.print("**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-** \n");
 	System.out.print("\n choose one of the options: ");	
 }
 
 static void menuworker()
 {
-	System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 	System.out.print("|   press 1 if you want to enter the number of hours.                                             | \n");
 	System.out.print("|   press 2 if you want to know your balance.                                                     | \n");
 	System.out.print("|   press 3 if you have finished working on a specific order and want to send an email to the user| \n");
 	System.out.print("|   press 4 if you want to log out                                                                | \n");
 	System.out.print("|   press 5 if you want to go to main page                                                        | \n");
 
-    System.out.print("**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-** \n");
     System.out.print("\n choose one of the options: ");
 
 	
 }
 static void choice()
-{System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+{
  System.out.print("|   press 1 if you are user                                                                    | \n");
  System.out.print("*   press 2 if you are worker                                                                  * \n");
  System.out.print("|   press 3 if you are admin                                                                   | \n");
- System.out.print("**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-** \n");
  System.out.print("\n choose one of the options: ");	
 }
 
 static void account()
 {
-	System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 	 System.out.print("|   press 1 if you have an account                                                            | \n");
 	 System.out.print("*   press 2 if you want to creat account                                                       * \n");
 	 System.out.print("|   press 3 if you want to exite from app                                                     | \n");
-	 System.out.print("**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-** \n");
 	 System.out.print("\n choose one of the options: ");	
 	
 }
 
 static void account2()
 {
-	System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 	 System.out.print("|   press 1 if you have an account                                                            | \n");
 	 System.out.print("|   press 2 if you want to exite from app                                                     | \n");
-	 System.out.print("**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-** \n");
 	 System.out.print("\n choose one of the options: ");	
 	
 }
