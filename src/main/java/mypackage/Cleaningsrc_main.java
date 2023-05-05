@@ -1,10 +1,8 @@
 package mypackage;
-import mypackage.*;
+
 import java.util.Scanner;
 
-
 import javax.swing.JOptionPane;
-
 
 public class Cleaningsrc_main {
 
