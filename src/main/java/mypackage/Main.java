@@ -1,25 +1,26 @@
 package mypackage;
 
 import java.util.Scanner;
-
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Main {
 
-	
+	private static final Logger logger = Logger.getLogger(Main.class.getName());
+
 static void menuuser()
 { 
-    System.out.print("*   press 1 if you want to modify your information in the cleaning Application.               * \n");
-	System.out.print("|   press 2 if you want to delete your account from the cleaning Application.                 | \n");
-	System.out.print("|   press 3 if you want to create new order.                                                  | \n");
-	System.out.print("|   press 4 if you want to delete order.                                                      | \n");
-	System.out.print("|   press 5 if you want to order status request.                                              | \n");
-	System.out.print("|   press 6 if you want to show specific order information.                                   | \n");
-	System.out.print("|   press 7 if you want to get the invoice.                                                   | \n");
-	System.out.print("|   press 8 if you want to log out                                                            | \n");
-	System.out.print("|   press 9 if you want to go to main page                                                    | \n");
+	logger.info("*   press 1 if you want to modify your information in the cleaning Application.               * \n");
+	logger.info("|   press 2 if you want to delete your account from the cleaning Application.                 | \n");
+	logger.info("|   press 3 if you want to create new order.                                                  | \n");
+	logger.info("|   press 4 if you want to delete order.                                                      | \n");
+	logger.info("|   press 5 if you want to order status request.                                              | \n");
+	logger.info("|   press 6 if you want to show specific order information.                                   | \n");
+	logger.info("|   press 7 if you want to get the invoice.                                                   | \n");
+	logger.info("|   press 8 if you want to log out                                                            | \n");
+	logger.info("|   press 9 if you want to go to main page                                                    | \n");
 
-	System.out.print("\n choose one of the options: ");	
+	logger.info("\n choose one of the options: ");	
 	
 	
 	
@@ -28,55 +29,55 @@ static void menuuser()
 static void menuadmin()
 {
 	
-	System.out.print("|   press 1 if you want to create new product in the cleaning Application.                    | \n");
-	System.out.print("*   press 2 if you want to update your information about product in the cleaning Application. * \n");
-	System.out.print("|   press 3 if you want to delete your product from the cleaning Application.                 | \n");
-	System.out.print("|   press 4 if you want to show report.                                                       | \n");
-	System.out.print("|   press 5 if you want to request the company's income.                                      | \n");
-	System.out.print("|   press 6 if you want to show all orders in the company.                                    | \n");
-    System.out.print("|   press 7 if you want to view unpaid orderes.                                               | \n");
-    System.out.print("|   press 8 if you want to search for user.                                                   | \n");
-    System.out.print("|   press 9 if you want to search for product.                                                | \n");
-	System.out.print("|   press 10 if you want to log out                                                           | \n");
-	System.out.print("|   press 11 if you want to go to main page                                                   | \n");
+	logger.info("|   press 1 if you want to create new product in the cleaning Application.                    | \n");
+	logger.info("*   press 2 if you want to update your information about product in the cleaning Application. * \n");
+	logger.info("|   press 3 if you want to delete your product from the cleaning Application.                 | \n");
+	logger.info("|   press 4 if you want to show report.                                                       | \n");
+	logger.info("|   press 5 if you want to request the company's income.                                      | \n");
+	logger.info("|   press 6 if you want to show all orders in the company.                                    | \n");
+	logger.info("|   press 7 if you want to view unpaid orderes.                                               | \n");
+	logger.info("|   press 8 if you want to search for user.                                                   | \n");
+	logger.info("|   press 9 if you want to search for product.                                                | \n");
+	logger.info("|   press 10 if you want to log out                                                           | \n");
+	logger.info("|   press 11 if you want to go to main page                                                   | \n");
 
-	System.out.print("\n choose one of the options: ");	
+	logger.info("\n choose one of the options: ");	
 }
 
 static void menuworker()
 {
-	System.out.print("|   press 1 if you want to enter the number of hours.                                             | \n");
-	System.out.print("|   press 2 if you want to know your balance.                                                     | \n");
-	System.out.print("|   press 3 if you have finished working on a specific order and want to send an email to the user| \n");
-	System.out.print("|   press 4 if you want to log out                                                                | \n");
-	System.out.print("|   press 5 if you want to go to main page                                                        | \n");
+	logger.info("|   press 1 if you want to enter the number of hours.                                             | \n");
+	logger.info("|   press 2 if you want to know your balance.                                                     | \n");
+	logger.info("|   press 3 if you have finished working on a specific order and want to send an email to the user| \n");
+	logger.info("|   press 4 if you want to log out                                                                | \n");
+	logger.info("|   press 5 if you want to go to main page                                                        | \n");
 
-    System.out.print("\n choose one of the options: ");
+	logger.info("\n choose one of the options: ");
 
 	
 }
 static void choice()
 {
- System.out.print("|   press 1 if you are user                                                                    | \n");
- System.out.print("*   press 2 if you are worker                                                                  * \n");
- System.out.print("|   press 3 if you are admin                                                                   | \n");
- System.out.print("\n choose one of the options: ");	
+	logger.info("|   press 1 if you are user                                                                    | \n");
+	logger.info("*   press 2 if you are worker                                                                  * \n");
+	logger.info("|   press 3 if you are admin                                                                   | \n");
+	logger.info("\n choose one of the options: ");	
 }
 
 static void account()
 {
-	 System.out.print("|   press 1 if you have an account                                                            | \n");
-	 System.out.print("*   press 2 if you want to creat account                                                       * \n");
-	 System.out.print("|   press 3 if you want to exite from app                                                     | \n");
-	 System.out.print("\n choose one of the options: ");	
+	logger.info("|   press 1 if you have an account                                                            | \n");
+	logger.info("*   press 2 if you want to creat account                                                       * \n");
+	logger.info("|   press 3 if you want to exite from app                                                     | \n");
+	logger.info("\n choose one of the options: ");	
 	
 }
 
 static void account2()
 {
-	 System.out.print("|   press 1 if you have an account                                                            | \n");
-	 System.out.print("|   press 2 if you want to exite from app                                                     | \n");
-	 System.out.print("\n choose one of the options: ");	
+	logger.info("|   press 1 if you have an account                                                            | \n");
+	logger.info("|   press 2 if you want to exite from app                                                     | \n");
+	logger.info("\n choose one of the options: ");	
 	
 }
 
@@ -147,20 +148,20 @@ static void account2()
 				one:
 				{
 					
-			System.out.println("\n Your email:");
+					logger.info("\n Your email:");
 			email=s.next();
 			
-			System.out.print("\n Your Password:");
+			logger.info("\n Your Password:");
 			password=s.next();
 			user_log=db.check_email(email)&&db.check_pass(password);
 			String id_user=db.return_id2(email,password);
 			
 			
 			if (user_log ==false)
-			System.out.print("\n Your email or password is incorrect, please check it ");
+				logger.info("\n Your email or password is incorrect, please check it ");
 		    else 
 		    {
-	        System.out.print("welcome\n");
+		    	logger.info("welcome\n");
 	        
 	       
 	        while(true) {
@@ -179,7 +180,7 @@ static void account2()
 			
 			case 1:
 			{boolean existing=false;
-				System.out.print(" \n enter your id:");
+			logger.info(" \n enter your id:");
 	    	
 	    	id1=scan.nextLine();
 	    	//scan.nextLine();
@@ -189,21 +190,21 @@ static void account2()
 	    		
 	    		
 	    		
-	    		System.out.print(" enter your new information: \n");
-	        	System.out.print(" enter new name: ");	
+	    		logger.info(" enter your new information: \n");
+	    		logger.info(" enter new name: ");	
 	        	name1=scan.nextLine();
 	        	  scan.nextLine();
-	        	System.out.print(" enter new address: ");
+	        	  logger.info(" enter new address: ");
 	        	address1=scan.nextLine();		
-	        	System.out.print(" enter new phone: ");	
+	        	logger.info(" enter new phone: ");	
 	        	phone1=scan.nextLine();
-	            System.out.print(" enter new email: ");	
+	        	logger.info(" enter new email: ");	
 	            email=scan.nextLine();	
-	        	System.out.print("  enter new password:");	
+	            logger.info("  enter new password:");	
 	        	password=scan.nextLine();
 	        	fill=db.check_fill_fields(id1, phone1, name1, email, address1, password);
 	    		if(!fill) {
-	    			System.out.println("All fields are required! Please re_enter your information ");
+	    			logger.info("All fields are required! Please re_enter your information ");
 	    			menuuser();		continue;
 	    		}
 	    		info=db.check_info_True(2,id1,phone1,email,password);	
@@ -229,16 +230,16 @@ static void account2()
 				
 				boolean e=false,log=false,debt=true,logout=false ;
 				logout=db.logout_completely(id_user);	
-				System.out.print("id_user:"+id_user);
+				logger.info("id_user:"+id_user);
 		    		
 		    	
-		     if(logout)System.out.print("Your account has been cancelled");
+		     if(logout)logger.info("Your account has been cancelled");
 		     
 		     for (int i=0 ;i <db.dbuser.size();i++)
 			 	{
 			 		
-			 			System.out.println(db.dbuser.get(i).name);
-			 			 			System.out.print("\n");
+		    	 logger.info(db.dbuser.get(i).name);
+		    	 logger.info("\n");
 			 	}
 				break ;
 			}
@@ -247,16 +248,16 @@ static void account2()
 			
 			case 3:
 			{
-				 System.out.print(" enter your information about order:");
+				logger.info(" enter your information about order:");
 				
-				 System.out.print(" enter your id of order:");
+				logger.info(" enter your id of order:");
 			       	
 		        id_order=scan.nextLine();
 		          scan.nextLine();
 		        
-		    		 System.out.print(" enter your type: "); 
+		          logger.info(" enter your type: "); 
 		    		 type=scan.nextLine();
-		    		 System.out.print(" enter your count: ");
+		    		 logger.info(" enter your count: ");
 		    		 count=scan.nextInt();
 		    		 
 		    		 db.createNewOrder(id_order, id_user, count, type);
@@ -264,7 +265,7 @@ static void account2()
 		    		 
 		    		 for(int i=0;i<db.dborder.size();i++) {
 		    			 if ( db.dborder.get(i).id.equals(id_user)&&db.dborder.get(i).idorder.equals(id_order))
-		    				{System.out.println("id= "+db.dborder.get(i).idorder+" , id user= "+db.dborder.get(i).id+" , type of order= "+db.dborder.get(i).name+" , discount= "+db.dborder.get(i).discount
+		    				{logger.info("id= "+db.dborder.get(i).idorder+" , id user= "+db.dborder.get(i).id+" , type of order= "+db.dborder.get(i).name+" , discount= "+db.dborder.get(i).discount
 		    						+" , price= "+db.dborder.get(i).price+" , received date= "+db.dborder.get(i).lateDate+" , days left= "+db.dborder.get(i).timeReceipt+" , count= "+db.dborder.get(i).count);}
 		    				}
 		    		 
@@ -285,7 +286,7 @@ static void account2()
 			{
 				Scanner san=new Scanner(System.in);
 				
-				 System.out.print(" enter your id of order:");
+				logger.info(" enter your id of order:");
 				id_order=san.nextLine();
 		         
 				
@@ -306,14 +307,14 @@ static void account2()
 			
 			case 5 :
 			{
-				 System.out.print(" enter your id of order:");
+				logger.info(" enter your id of order:");
 					id_order=scan.nextLine();
 			          scan.nextLine();
 				db.request_status(id_user, id_order);
-				System.out.println();
+				
 				for(int i=0;i<db.dborder.size();i++) {
 	    			 
-    				System.out.println("id= "+db.dborder.get(i).idorder+" , id user= "+db.dborder.get(i).id+" , type of order= "+db.dborder.get(i).name+" , discount= "+db.dborder.get(i).discount
+					logger.info("id= "+db.dborder.get(i).idorder+" , id user= "+db.dborder.get(i).id+" , type of order= "+db.dborder.get(i).name+" , discount= "+db.dborder.get(i).discount
     						+" , price= "+db.dborder.get(i).price+" , received date= "+db.dborder.get(i).lateDate+" , days left= "+db.dborder.get(i).timeReceipt+" , count= "+db.dborder.get(i).count);
     				}
 				break;
@@ -325,7 +326,7 @@ static void account2()
 			{
 				Scanner sca = new Scanner(System.in);
 
-				System.out.print(" enter your id of order:");
+				logger.info(" enter your id of order:");
 				
 				id_order=sca.nextLine();
 		         
@@ -342,7 +343,7 @@ static void account2()
 			{String nuser="";
 			String addres="";
 				boolean  com;
-				System.out.print(" enter your id of order:");
+				logger.info(" enter your id of order:");
 				id_order=scan.nextLine();
 		          scan.nextLine();
 
@@ -350,7 +351,7 @@ static void account2()
 				
 				if (!com)
 				{
-					System.out.print("The order is'n completed ,I can'n to view the invoce");	
+					logger.info("The order is'n completed ,I can'n to view the invoce");	
 				}
 				if(com) 
 				{
@@ -362,7 +363,7 @@ static void account2()
 						addres=db.dbuser.get(i).address;
 					}
 				}
-				System.out.print("wait for the invoice to be ready...... ");	
+				logger.info("wait for the invoice to be ready...... ");	
 				JOptionPane.showMessageDialog(null,"The user name: "+ nuser+"\nThe user address: "+addres +"\n The id user:"
 				        +o.id+"\n The id order:"+o.idorder+"\n The type "
 				        +o.name+"\n The price: "+o.price+
@@ -401,19 +402,19 @@ static void account2()
 			case 2: 
 			{
 				
-				 System.out.print(" enter your id:");
+				logger.info(" enter your id:");
 			       	
 		        	id1=scan.nextLine();
 		          scan.nextLine();
-		        	System.out.print("enter your name: ");
+		          logger.info("enter your name: ");
 		        	name1=scan.nextLine();
-		    		 System.out.print(" enter your address: "); 
+		        	logger.info(" enter your address: "); 
 		    		 address1=scan.nextLine();
-		    		 System.out.print(" enter your phone: ");
+		    		 logger.info(" enter your phone: ");
 		    		 phone1=scan.nextLine();
-		    		 System.out.print(" enter your email: ");
+		    		 logger.info(" enter your email: ");
 		    		 email=scan.nextLine();
-		    		 System.out.print(" enter your password:");
+		    		 logger.info(" enter your password:");
 		    		 password=scan.nextLine();
 		    		
 		    	
@@ -422,12 +423,12 @@ static void account2()
 			
 		    		 fill=db.check_fill_fields(id1, phone1, name1, email, address1, password);
 			if(!fill) {
-				System.out.print("All fields are required! Please re_enter your information ");
+				logger.info("All fields are required! Please re_enter your information ");
 				menuuser(); continue;
 			} 
 			exist=db.check_if_exist(id1);
 			if(!exist) {
-				System.out.print("You already have an account.Please re_enter your information 1010 ");
+				logger.info("You already have an account.Please re_enter your information 1010 ");
 				menuuser();continue;
 			}
 			
@@ -439,13 +440,13 @@ static void account2()
 			}
 			
 			 db.creatNewUser( id1, phone1, name1, email,  address1,  password);
-			 System.out.print("An account has been created successfully ");
+			 logger.info("An account has been created successfully ");
 			 
 			 for (int i=0 ;i <db.dbuser.size();i++)
 		 	{
 		 		
-		 			System.out.print(db.dbuser.get(i).name);
-		 			 			System.out.print("\n");
+				 logger.info(db.dbuser.get(i).name);
+				 logger.info("\n");
 		 	}
 				
 				break;
@@ -454,7 +455,7 @@ static void account2()
 			case 3:
 				{
 					
-					      System.out.println("\n Exiting the program");
+					logger.info("\n Exiting the program");
 					      return;
 					  
 				}
@@ -492,10 +493,10 @@ static void account2()
 					two:
 					{
 						
-					System.out.println("\n Your email:");
+						logger.info("\n Your email:");
 					 e_w=s.next();
 					
-					System.out.print("\n Your Password:");
+					 logger.info("\n Your Password:");
 					p_w=s.next();
 					
 					
@@ -504,10 +505,10 @@ static void account2()
 					
 					
 					if (wor_login ==false)
-					System.out.print("\n Your email or password is incorrect, please check it ");
+						logger.info("\n Your email or password is incorrect, please check it ");
 				    else 
 				    {
-			        System.out.print("welcome\n");
+				    	logger.info("welcome\n");
 				    
 					
 			while(true) {
@@ -521,10 +522,10 @@ static void account2()
 				case 1:
 				{
 					
-					 System.out.print("please enter number of houres :\n");
+					logger.info("please enter number of houres :\n");
 					houres=s.nextLine();
 					houres=s.nextLine();
-					 System.out.print("regested number of houres  succissfly.\n");
+					logger.info("regested number of houres  succissfly.\n");
 					
 					
 					
@@ -541,7 +542,7 @@ static void account2()
 					
 					
 					id_w=db.return_id(e_w,p_w);
-					System.out.print("The Balance of worker with email "+e_w+"\t is:"+db.clac_balace(id_w, houres));
+					logger.info("The Balance of worker with email "+e_w+"\t is:"+db.clac_balace(id_w, houres));
 					
 					
 					break;
@@ -555,15 +556,15 @@ static void account2()
 					String id_u;
 					boolean f;
 					email_new e=new email_new();
-					System.out.print("enter the id order :");
+					logger.info("enter the id order :");
 					id_o=scan.nextLine();
 					e_o=db.re_id(id_o);
 					id_u=db.re_id_user(id_o);
 					f=db.is_complete(id_u, id_o);
 					if (f) {
-					System.out.print("wait to send email........");
+						logger.info("wait to send email........");
 					e.send_email(e_o,id_o);
-					System.out.print(e_o+id_o);
+					logger.info(e_o+id_o);
 					}
 					
 					break;
@@ -596,7 +597,7 @@ static void account2()
 				 
 				case 2:
 				{
-					 System.out.println("\n Exiting the program");
+					logger.info("\n Exiting the program");
 				      return;
 				     
 					
@@ -639,10 +640,10 @@ static void account2()
 						three:{
 					
 					
-					System.out.println("\n Your email:");
+							logger.info("\n Your email:");
 					email=s1.next();
 					
-					System.out.print("\n Your Password:");
+					logger.info("\n Your Password:");
 					password=s1.next();
 					
 					
@@ -651,10 +652,10 @@ static void account2()
 					
 					
 					if (ad_login ==0)
-					System.out.print("\n Your email or password is incorrect, please check it ");
+						logger.info("\n Your email or password is incorrect, please check it ");
 				    else 
 				    {
-			        System.out.print("welcome\n");
+				    	logger.info("welcome\n");
 				    
 					
 			while(true) {
@@ -676,33 +677,33 @@ static void account2()
 		{
 			
 
-        	System.out.print("please enter the information about your product:\n");
+			logger.info("please enter the information about your product:\n");
        
         	product p=new product();
-        	System.out.print("Category: ");
+        	logger.info("Category: ");
         	Category=s1.next();
-        	System.out.print("name: ");
+        	logger.info("name: ");
         	name=s1.next();
-        	System.out.print("picture: ");
+        	logger.info("picture: ");
         	picture=s1.next();
-        	System.out.print("description: ");
+        	logger.info("description: ");
         	description=s1.next();
         	
    		
 
-        	System.out.print("Product created successfully, if you want to check it enter 1  ");
+        	logger.info("Product created successfully, if you want to check it enter 1  ");
         	if (s1.nextInt()==1)
         	{db.create_prod( Category, name, picture, description,10);
         	for (int i=0 ;i < db.dbproduct.size();i++)
         	{
         		
-        			System.out.print("  "+db.dbproduct.get(i).SN);
-        			System.out.print("  "+db.dbproduct.get(i).name);
-        			System.out.print("  "+db.dbproduct.get(i).Category);
-        			System.out.print("  "+db.dbproduct.get(i).description);
+        		logger.info("  "+db.dbproduct.get(i).SN);
+        		logger.info("  "+db.dbproduct.get(i).name);
+        		logger.info("  "+db.dbproduct.get(i).Category);
+        		logger.info("  "+db.dbproduct.get(i).description);
         			
-        			System.out.print("  "+db.dbproduct.get(i).picture);
-        			System.out.print("\n");
+        		logger.info("  "+db.dbproduct.get(i).picture);
+        		logger.info("\n");
         	}
         	}
         	break;
@@ -715,28 +716,27 @@ static void account2()
 			
 			
 
-        	System.out.print("please enter the  new information about your product\n");
-        	System.out.print("SN of your product:\n");
+			logger.info("please enter the  new information about your product\n");
+			logger.info("SN of your product:\n");
         	SN=s1.next();
-        	System.out.print("new Category:\\n");
+        	logger.info("new Category:\\n");
         	Category=s1.next();
-        	System.out.print("new name:\n");
+        	logger.info("new name:\n");
         	name=s1.next();
-        	System.out.print("new picture:\n");
+        	logger.info("new picture:\n");
         	picture=s1.next();
-        	System.out.print("new pdescription:\n");
+        	logger.info("new pdescription:\n");
         	description=s1.next();
-        	//product p3=new product();
+        	
         	db.update_prod(SN, Category, name, picture, description);
         	for (int i=0 ;i < db.dbproduct.size();i++)
         	{
         		
-        			System.out.print(db.dbproduct.get(i).SN);
-        			System.out.print(db.dbproduct.get(i).Category);
-        			System.out.print(db.dbproduct.get(i).description);
-        			System.out.print(db.dbproduct.get(i).name);
-        			System.out.print(db.dbproduct.get(i).picture);
-        			System.out.println("\n");
+        		logger.info(db.dbproduct.get(i).SN);
+        		logger.info(db.dbproduct.get(i).Category);
+        		logger.info(db.dbproduct.get(i).description);
+        			logger.info(db.dbproduct.get(i).name);
+        			logger.info("\n");
         			
         	}
         	break;
@@ -745,20 +745,20 @@ static void account2()
 		
 		case 3:
 		{
-			System.out.print("please enter the SN of your product\n");
-        	System.out.print("SN\n");
+			logger.info("please enter the SN of your product\n");
+			logger.info("SN\n");
         	SN=s1.next();
         	product p2=new product();
         	db.delete_prod(SN);
           	for (int i=0 ;i <db.dbproduct.size();i++)
         	{
         		
-        			System.out.print(db.dbproduct.get(i).SN);
-        			System.out.print(db.dbproduct.get(i).Category);
-        			System.out.print(db.dbproduct.get(i).description);
-        			System.out.print(db.dbproduct.get(i).name);
-        			System.out.print(db.dbproduct.get(i).picture);
-        			System.out.print("\n");
+          		logger.info(db.dbproduct.get(i).SN);
+          		logger.info(db.dbproduct.get(i).Category);
+          		logger.info(db.dbproduct.get(i).description);
+          		logger.info(db.dbproduct.get(i).name);
+          		logger.info(db.dbproduct.get(i).picture);
+          		logger.info("\n");
         	}
         	break;
         	
@@ -808,7 +808,7 @@ static void account2()
 		{Scanner s8=new Scanner(System.in);
 			
 			String nam_user;
-			System.out.print("enter the name of the user you want to search for:\n");
+			logger.info("enter the name of the user you want to search for:\n");
 			
 		 nam_user=	s8.nextLine ();
 			
@@ -821,7 +821,7 @@ static void account2()
 			Scanner s9=new Scanner(System.in);
 			String nam_PRO;
 			
-			System.out.print("enter the name of the product you want to search for:\n");
+			logger.info("enter the name of the product you want to search for:\n");
 		
 		nam_PRO=	s9.nextLine ();
 		
@@ -851,7 +851,7 @@ static void account2()
 				
 				case 2:
 				{
-					 System.out.println("\n Exiting the program");
+					logger.info("\n Exiting the program");
 				      return;
 				}
 					
