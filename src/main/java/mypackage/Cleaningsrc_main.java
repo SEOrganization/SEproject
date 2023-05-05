@@ -7,10 +7,6 @@ import javax.swing.JOptionPane;
 public class Cleaningsrc_main {
 
 	
-
-	
-	
-	
 static void menu_user()
 { 
 	//System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
