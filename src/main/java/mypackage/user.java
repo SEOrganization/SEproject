@@ -22,6 +22,8 @@ public class user {
 	
 	
 	
+	
+	
 	//public boolean paid ;
 	user u1;
 	 public static ArrayList <user> user_array=new ArrayList <user> ();

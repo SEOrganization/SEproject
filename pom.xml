@@ -46,7 +46,7 @@
 </dependencies>
 
 <properties>
-  <sonar.organization>softmrarh-hala</sonar.organization>
+  <sonar.organization>seorganization</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 </properties>
 </project>
