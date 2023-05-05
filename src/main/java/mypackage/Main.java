@@ -1,5 +1,6 @@
 package mypackage;
 
+import java.lang.System.Logger.Level;
 import java.util.Scanner;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -82,7 +83,7 @@ public class Main {
 					
 					
 					idw=db.return_id(ew,pw);
-					logger.info("The Balance of worker with email "+ew+"\t is:"+db.clac_balace(idw, houres));
+					logger.log(null,"The Balance of worker with email "+ew+"\t is:"+db.clac_balace(idw, houres));
 					
 					
 					break;
@@ -93,18 +94,18 @@ public class Main {
 					
 					String ido;
 					String eo;
-					String id_u;
+					String idu;
 					boolean f;
 					email_new e=new email_new();
 					logger.info("enter the id order :");
 					ido=scan.nextLine();
 					eo=db.re_id(ido);
-					id_u=db.re_id_user(ido);
-					f=db.is_complete(id_u, ido);
+					idu=db.re_id_user(ido);
+					f=db.is_complete(idu, ido);
 					if (f) {
 						logger.info("wait to send email........");
 					e.send_email(eo,ido);
-					logger.info(eo+ido);
+					logger.log(null, eo+ido);
 					}
 					
 					break;
@@ -135,13 +136,12 @@ public class Main {
 	  static void ca1() {
 			while (true)
 			{
-				//two:
-				//{
+				
 					
-					logger.info("\n Your email:");
+					logger.info("\n Your email::");
 				 ew=s.next();
 				
-				 logger.info("\n Your Password:");
+				 logger.info("\n Your Password::");
 				pw=s.next();
 				
 				
@@ -150,7 +150,7 @@ public class Main {
 				
 				
 				if (worlogin ==false)
-					logger.info("\n Your email or password is incorrect, please check it ");
+					logger.info("\n Your email or password is incorrect, please check it .");
 			    else 
 			    {
 			    	 els() ;	
@@ -158,7 +158,7 @@ public class Main {
 		
 	
 		
-	//}
+
 				
 			
 			
@@ -185,7 +185,7 @@ public class Main {
 				case 1:
 				{
 					ca1();
-				}//case1
+				}
 				
 				 
 				case 2:
@@ -264,10 +264,10 @@ static void admin() {
 				three:{
 			
 			
-					logger.info("\n Your email:");
+					logger.info("\n Your email:::");
 			email=s1.next();
 			
-			logger.info("\n Your Password:");
+			logger.info("\n Your Password:::");
 			password=s1.next();
 			
 			
@@ -276,7 +276,7 @@ static void admin() {
 			
 			
 			if (adlogin ==0)
-				logger.info("\n Your email or password is incorrect, please check it ");
+				logger.info("\n Your email or password is incorrect, please check it.. ");
 		    else 
 		    {
 		    	logger.info("welcome..\n");
@@ -562,17 +562,17 @@ account ();
 		one:
 		{
 			
-			logger.info("\n Your email:");
+			logger.info("\n Your email::::");
 	email=s.next();
 	
-	logger.info("\n Your Password:");
+	logger.info("\n Your Password::::");
 	password=s.next();
 	userlog=db.check_email(email)&&db.check_pass(password);
 	String iduser=db.return_id2(email,password);
 	
 	
 	if (userlog ==false)
-		logger.info("\n Your email or password is incorrect, please check it ");
+		logger.info("\n Your email or password is incorrect, please check it..... ");
     else 
     {
     	logger.info("welcome...\n");
@@ -597,7 +597,7 @@ account ();
 	logger.info(" \n enter your id:");
 	
 	id1=scan.nextLine();
-	//scan.nextLine();
+	
 	
 	existing=db.check_if_exist(id1);
 	if(!existing) {
@@ -902,7 +902,7 @@ static void test(int ch8)
 	{
 		 user ();
 	
-	}//case user
+	}
 	
 	
 	
@@ -911,7 +911,7 @@ static void test(int ch8)
 	case 2:
 	{
 		worker();
-	}//case workser
+	}
 			
 	
 	
