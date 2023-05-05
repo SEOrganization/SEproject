@@ -16,11 +16,18 @@ public class Main {
 	  static states sta=new states ();
 	  static work wok =new work ();
 	  static	int m;
-	  static String id1="",phone1="",name1="",address1="";
-	  static String  id_order="",type="";
+	  static String id1="";
+	 static String phone1="";
+	  static String name1="";
+	  static String address1="";
+	  static String  id_order="";
+			static String type="";
 	  static int count;
-	  static boolean fill=false,exist=false,info=false;
-	  static String email,password;
+	  static boolean fill=false;
+	  static boolean exist=false;
+	  static boolean info=false;
+	  static String email;
+	  static String  password;
 	  static int num;
 	  static int num1;
 		
