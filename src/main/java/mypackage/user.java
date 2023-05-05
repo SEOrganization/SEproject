@@ -24,7 +24,7 @@ public class user {
 	
 	
 	
-	//public boolean paid ;
+
 	user u1;
 	 public static ArrayList <user> user_array=new ArrayList <user> ();
 	 public boolean log=false;
@@ -37,37 +37,13 @@ public class user {
 	 }
 	 
 	 
-	 
-	/* 
-	public  static boolean check_email(String email)
-	{  for (int i=0 ;i < user_array.size();i++)
-		{
-			if (user_array.get(i).email.equals(email))
-		{return true;}
-		}
-	return false;
-		
-	}
 	
-	
-	
-	public  static boolean check_pass(String pass)
-	{  for (int i=0 ;i < user_array.size();i++)
-		{
-			if (user_array.get(i).password.equals(pass))
-		{return true;
-		
-		}
-		}
-	return false;
-		
-	}*/
 	
 	
 	public  void initial_user() {
 		this.address="nablus";
 		this.email="ahmad@gmail.com";
-		this.id="1";// befor 2 
+		this.id="1";
 		this.password="1";
 		this.phone="056998521";
 		this.name="ahmadjabe";
