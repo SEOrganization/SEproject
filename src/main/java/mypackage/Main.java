@@ -34,11 +34,11 @@ public class Main {
 	  static user d=new user();
 	  static boolean userlog = false;
 	  static	boolean adm;
-	  static String SN = "";
-	  static String Category = null;
-	  static  String name = null;
-	  static String picture = null;
-	  static String description = null;
+	  static String sn ;
+	  static String category ;
+	  static  String name ;
+	  static String picture ;
+	  static String description;
 	  static void worker() {
 
 		   boolean worlogin =false;
@@ -278,7 +278,7 @@ case 1:
 
 	product p=new product();
 	logger.info("Category: ");
-	Category=s1.next();
+	category=s1.next();
 	logger.info("name: ");
 	name=s1.next();
 	logger.info("picture: ");
@@ -290,7 +290,7 @@ case 1:
 
 	logger.info("Product created successfully, if you want to check it enter 1  ");
 	if (s1.nextInt()==1)
-	{db.create_prod( Category, name, picture, description,10);
+	{db.create_prod( category, name, picture, description,10);
 	for (int i=0 ;i < db.dbproduct.size();i++)
 	{
 		
@@ -315,9 +315,9 @@ case 2:
 
 	logger.info("please enter the  new information about your product\n");
 	logger.info("SN of your product:\n");
-	SN=s1.next();
+	sn=s1.next();
 	logger.info("new Category:\\n");
-	Category=s1.next();
+	category=s1.next();
 	logger.info("new name:\n");
 	name=s1.next();
 	logger.info("new picture:\n");
@@ -325,7 +325,7 @@ case 2:
 	logger.info("new pdescription:\n");
 	description=s1.next();
 	
-	db.update_prod(SN, Category, name, picture, description);
+	db.update_prod(sn, category, name, picture, description);
 	for (int i=0 ;i < db.dbproduct.size();i++)
 	{
 		
@@ -344,9 +344,9 @@ case 3:
 {
 	logger.info("please enter the SN of your product\n");
 	logger.info("SN\n");
-	SN=s1.next();
+	sn=s1.next();
 	product p2=new product();
-	db.delete_prod(SN);
+	db.delete_prod(sn);
   	for (int i=0 ;i <db.dbproduct.size();i++)
 	{
 		
