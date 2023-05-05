@@ -20,9 +20,7 @@ public class invoice_step {
 	
 	String  id_user;
 	database db=new database();
-	//int  delv;
-
-	// first senrio
+	
 	@Given("order with id {string} for the user with id {string} has been completed")
 	public void order_with_id_for_the_user_with_id_has_been_completed(String string, String string2) {
 		flag_completed=	db.is_complete(string2,string);
@@ -45,7 +43,7 @@ public class invoice_step {
 
 	@When("the price for delivery is {string}")
 	public void the_price_for_delivery_is(String string) {
-	//	delv=Integer.parseInt(string);
+	
 		toloal_price+=Integer.parseInt(string);
 		
 	}
@@ -53,7 +51,7 @@ public class invoice_step {
 	@When("the toltal price is {string}")
 	public void the_toltal_price_is(String string) {
 		totoal_price_act=Integer.parseInt(string);
-	//	o_obj1.price_1(toloal_price,delv);
+
 	}
 	
 	@Then("create invoice success")

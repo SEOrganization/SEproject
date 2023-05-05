@@ -9,17 +9,16 @@ import io.cucumber.java.en.*;
 public class login_logout_test{
 	admin adm;
 	 static user user1;
-	//flage admin
-	static boolean flag_login;
 	
-//constracter
+	static boolean flag_login;
+
 	public login_logout_test(admin adm1,user user2) {
 		adm=adm1;
 		user1=user2;
 	}
 	
 
-//login admin
+
 	@Given("that the admin is not logged in")
 	public void that_the_admin_is_not_logged_in() {
 		 flag_login=false ;
@@ -47,7 +46,6 @@ public class login_logout_test{
 		assertTrue(flag_login);
 	}
 
-//login user
 
 
 	static boolean flag_user;
@@ -93,7 +91,7 @@ public void the_user_log_in_fails() {
 
 
 
-//logout
+
 @Given("that the admin is logged in")
 public void that_the_admin_is_logged_in() {
 	flag_login=true;

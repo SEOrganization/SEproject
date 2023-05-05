@@ -21,11 +21,11 @@ public class product_test {
 	
 	boolean flag_email;
 	boolean delete;
-	//create
+	
 	@Given("that the user with email {string} is log in")
 	public void that_the_user_with_email_is_log_in(String email) {
 		 flag_created=false;
-		// u1.email=email;
+		
 		 
 		flag_email=db.check_email(email);
 		 
@@ -45,7 +45,7 @@ public class product_test {
 	}
 
 	
-	//delete
+	
 	@Given("that the user with email {string} want to delete product")
 	public void that_the_user_with_email_want_to_delete_product(String email2) {
 		delete =false;
@@ -70,7 +70,7 @@ public class product_test {
 	
 	boolean update;
 	
-	//update
+	
 	
 	@Given("that the user is created product with SN {string} successfully")
 	public void that_the_user_is_created_product_with_sn_successfully(String string) {

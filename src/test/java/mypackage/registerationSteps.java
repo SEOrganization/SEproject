@@ -41,7 +41,7 @@ public class registerationSteps {
 	 
 	  
 	  
-	  //if satament then is logg -> }
+	  
 	@When("there is a user with id {string} phone {string} , name {string},email {string} ,address {string} , and password {string}")
 	public void there_is_a_user_with_id_phone_name_email_address_and_password(String string, String string2, String string3, String string4, String string5, String string6) {
 		 if(register) {
@@ -54,8 +54,7 @@ public class registerationSteps {
 	public void the_user_with_id_phone_name_email_address_and_password_is_registered_in_the_application(String string, String string2, String string3, String string4, String string5, String string6) {
 		assertTrue(login);
 	}
-	  
-	/////////scenario no 2
+	
 	
 	public boolean signup;
 	public boolean register2;
@@ -64,7 +63,7 @@ public class registerationSteps {
 
 @Given("that the user opened sign up page")
 public void that_the_user_opened_sign_up_page() {
-	signup=true; ///how i can make function in this step
+	signup=true; 
 	
 }
 @When("the user with id {string} , phone {string} , name {string},email {string} ,address {string} , and password {string} is register")
@@ -88,7 +87,7 @@ public void error_message_is_given(String string) {
 	assertTrue(ass2);
 }
 
-	///////scenario no 3
+	
 
 
 public boolean logApp=false; 
@@ -117,7 +116,7 @@ public void error_message_appears_to_the_user(String string) {
 	
 
 
-//////scenario no 4
+
 public boolean logApp1; 
 String id3;
 boolean f;
@@ -128,7 +127,7 @@ public void that_the_user_with_id_register(String string) {
    f=dbu.check_if_exist(string);
    id3=string;
 }
-// we must make this step to be correct 
+
 @When("the user has no dabts to the company")
 public void the_user_has_no_dabts_to_the_company() {
    debt=dbu.check_if_debt(id3);
