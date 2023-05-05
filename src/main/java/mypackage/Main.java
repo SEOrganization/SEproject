@@ -39,128 +39,148 @@ public class Main {
 	  static  String name ;
 	  static String picture ;
 	  static String description;
+	  
+	  static boolean worlogin =false;
+	  static  int ch2;
+	  static int numw ;
+	  static String idw;
+	  static  String houres="0";
+	  static String ew;
+	  static String pw;
+	  static void ca1() {
+			while (true)
+			{
+				two:
+				{
+					
+					logger.info("\n Your email:");
+				 ew=s.next();
+				
+				 logger.info("\n Your Password:");
+				pw=s.next();
+				
+				
+				worlogin=	db.check_if_exi8(ew,pw);
+			
+				
+				
+				if (worlogin ==false)
+					logger.info("\n Your email or password is incorrect, please check it ");
+			    else 
+			    {
+			    	logger.info("welcome\n");
+			    
+				
+		while(true) {
+			
+			menuworker();
+			
+			numw=s.nextInt();
+			
+			switch(numw)
+			{
+			case 1:
+			{
+				
+				logger.info("please enter number of houres :\n");
+				houres=s.nextLine();
+				houres=s.nextLine();
+				logger.info("regested number of houres  succissfly.\n");
+				
+				
+				
+				
+				
+				
+				
+				
+				break;
+			}
+			
+			case 2:
+			{
+				
+				
+				idw=db.return_id(ew,pw);
+				logger.info("The Balance of worker with email "+ew+"\t is:"+db.clac_balace(idw, houres));
+				
+				
+				break;
+			}
+			
+			case 3:
+			{
+				
+				String ido;
+				String eo;
+				String id_u;
+				boolean f;
+				email_new e=new email_new();
+				logger.info("enter the id order :");
+				ido=scan.nextLine();
+				eo=db.re_id(ido);
+				id_u=db.re_id_user(ido);
+				f=db.is_complete(id_u, ido);
+				if (f) {
+					logger.info("wait to send email........");
+				e.send_email(eo,ido);
+				logger.info(eo+ido);
+				}
+				
+				break;
+			}
+			case 4:
+			{
+				break two;
+			}
+			case 5:
+			{
+			 worker();
+			 break;
+			}
+			
+			
+			}
+			
+		
+			
+				
+			}
+			
+			
+			
+		}
+		
+	
+		
+	}
+				
+			
+			
+			
+			
+			
+			
+			
+			}
+	  }
+	  
+	  
 	  static void worker() {
 
-		   boolean worlogin =false;
-		   int ch2;
-		   int numw ;
-		   String idw;
-		  String houres="0";
-		  String ew,pw;
+		   
 		   while(true)
 			{
-			   two2:{
+			   
 				account2();
 				ch2=s.nextInt();
 				
 				switch(ch2)
 				{
 				case 1:
-				{	while (true)
 				{
-					two:
-					{
-						
-						logger.info("\n Your email:");
-					 ew=s.next();
-					
-					 logger.info("\n Your Password:");
-					pw=s.next();
-					
-					
-					worlogin=	db.check_if_exi8(ew,pw);
-				
-					
-					
-					if (worlogin ==false)
-						logger.info("\n Your email or password is incorrect, please check it ");
-				    else 
-				    {
-				    	logger.info("welcome\n");
-				    
-					
-			while(true) {
-				
-				menuworker();
-				
-				numw=s.nextInt();
-				
-				switch(numw)
-				{
-				case 1:
-				{
-					
-					logger.info("please enter number of houres :\n");
-					houres=s.nextLine();
-					houres=s.nextLine();
-					logger.info("regested number of houres  succissfly.\n");
-					
-					
-					
-					
-					
-					
-					
-					
-					break;
-				}
-				
-				case 2:
-				{
-					
-					
-					idw=db.return_id(ew,pw);
-					logger.info("The Balance of worker with email "+ew+"\t is:"+db.clac_balace(idw, houres));
-					
-					
-					break;
-				}
-				
-				case 3:
-				{
-					
-					String ido;
-					String eo;
-					String id_u;
-					boolean f;
-					email_new e=new email_new();
-					logger.info("enter the id order :");
-					ido=scan.nextLine();
-					eo=db.re_id(ido);
-					id_u=db.re_id_user(ido);
-					f=db.is_complete(id_u, ido);
-					if (f) {
-						logger.info("wait to send email........");
-					e.send_email(eo,ido);
-					logger.info(eo+ido);
-					}
-					
-					break;
-				}
-				case 4:
-				{
-					break two;
-				}
-				case 5:
-				{
-					break two2;
-				}
-				
-				
-				}
-				
-			
-				
-					
-				}
-				
-				
-				
-			}
-			
-		
-			
-		}}}
+					ca1();
+				}//case1
 				
 				 
 				case 2:
@@ -174,7 +194,7 @@ public class Main {
 				
 				
 			
-				}}
+				}
 			
 		
 		
