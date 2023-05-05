@@ -26,15 +26,3 @@ public class admin {
 }
 	
 
-/*
-	public int checkpass(String string) {
-
-		if(string.equals("adminadmin")) {
-			return 1;
-		}
-		
-		return 0;
-	}
-}*/
-//&& string2.equals("hala12")) ||
-//(string1.equals("marah@gmail.com") && string2.equals("marah34")) )

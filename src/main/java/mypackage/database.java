@@ -26,20 +26,12 @@ public  ArrayList <work> dbworker=new ArrayList <work> ();
 		public work obj10=new work();
 		
 
-//	public order ob=new order();
 
 	public database() {
 		f();
 		
 	}
-/*
-	
-	void initial_worker() {
-		// TODO Auto-generated method stub
-		
-	}
-*/
-	
+
 	
 	public  boolean createNewOrder(String idord,String iduser, Integer quantity, String type) {
 		order obj=new order();
@@ -58,15 +50,15 @@ public  ArrayList <work> dbworker=new ArrayList <work> ();
 			if(dbuser.get(i).id.equals(iduser)) {
 				dbuser.get(i).point+=(quantity*equ);
 				pnt=dbuser.get(i).point;
-			//	System.out.println( "point real= "+dbuser.get(i).point);
+			
 			}
 		}
 		obj.price=(quantity*equ);
-		//System.out.println( "point= "+pnt);
+		
 		for(int i=0;i<dbuser.size();i++) {
-			//System.out.println("inside for...");
+		
 			if(dbuser.get(i).id.equals(iduser)) {
-			//	System.out.println("insid if user");
+			
 			if(pnt>=400 ) {
 				dis=(float)(0.1*obj.price);
 			}else dis=0;
@@ -74,23 +66,17 @@ public  ArrayList <work> dbworker=new ArrayList <work> ();
 		}
 		
 		obj.discount=(quantity*equ)-dis;
-		//System.out.println( "dis= "+dis);
-		////System.out.println( "equ= "+equ);
-		////System.out.println( "price= "+obj.price);
-		//System.out.println( "discount= "+obj.discount);
-			//day
+		
 		LocalDate currentDate  = LocalDate.now();
-    // Get day from date when he request the order 
-  //  int day = currentDate.getDayOfMonth();
-    
+   
 obj.StartDate=currentDate;
 	long days=0;
     for(int j=0;j<dborder.size();j++) {
-    	//if(db.dborder.get(j).id.equals(iduser)) {
+    	
     	days+=dborder.get(j).timeReceipt;
-    //
+    
     }
-    //the date when add no. days of progress 
+    
  	LocalDate date2=currentDate.plusDays(days+2);
  	long daysDiff = 0;
  	 try {
@@ -101,16 +87,10 @@ obj.StartDate=currentDate;
  	   }catch(Exception e){
             e.printStackTrace();
         }
-		//this is the number of date
+		
  	obj.timeReceipt=daysDiff;
     obj.paid=false;
- /*   for(int i=0;i<db.dbworker.size();i++) {
-    	if(db.dbworker.get(i).available) {
-    		obj.work_man=db.dbworker.get(i).id;
-    		db.dbworker.get(i).available=false;
-    		break;
-    	}
-    }	*/		
+	
 			
  for(int i=0;i<dbworker.size();i++) {
 	 if(dbworker.get(i).available) {
@@ -143,12 +123,12 @@ return	 null;
 }
 	public boolean cancleorder(String iduser, String idord) {
 		 for(int k=0;k<dborder.size();k++) {
-			// System.out.println("for"+iduser+idord);
+			
 			 if(dborder.get(k).id.equals(iduser)&&dborder.get(k).idorder.equals(idord)) {
-				// System.out.println("if chweak");
+				
 				if(dborder.get(k).timeReceipt>2) {
 				dborder.remove(k);
-				// System.out.println("if time");
+				
 				for(int i=0;i<dborder.size();i++) {
 	    			 
     				System.out.println("id= "+dborder.get(i).idorder+" , id user= "+dborder.get(i).id+" , type of order= "+dborder.get(i).name+" , discount= "+dborder.get(i).discount
@@ -158,10 +138,8 @@ return	 null;
 			
 				 return true;
 				}
-			//	JOptionPane.showMessageDialog(null,"you cannot cancel the order because it is in progress","Error",JOptionPane.ERROR_MESSAGE);
 			 }
 		 }
-		// JOptionPane.showMessageDialog(null,"There is no order with this number to be cancelled","Error",JOptionPane.ERROR_MESSAGE);
 		return false;
 	}
 	
@@ -269,7 +247,6 @@ return	 null;
 		obj9.wage_for_houre="50";
 		obj9.work_houers="50";
 		obj9.available=false;
-		//obj9.available=true;
 		dbworker.add(obj9);
 		
 		
@@ -283,25 +260,11 @@ return	 null;
 		obj10.wage_for_houre="50";
 		obj10.work_houers="100";
 		obj10.available=true;
-		//obj9.available=true;
 		dbworker.add(obj10);
 		
 		
 		
-		
-/*		
-		ob.id="3";
-		ob.idorder="4";
-		ob.name="covers saxony";
-		ob.count=3;
-		ob.discount=0;
-	  ob.SN="5";
-	  ob.timeReceipt=0;
-		ob.lateDate= LocalDate.of(2023, 4, 20);;
-		ob.price=60;
-		
-		dborder.add(ob);*/
-		
+
 	
 		
 	}
@@ -311,12 +274,10 @@ return	 null;
 			if(dborder.get(i).id.equals(iduser)&&dborder.get(i).idorder.equals(id)) {
 				if(dborder.get(i).timeReceipt==0) {
 					System.out.println("The order is ready for pickup.cash payment upon receipt of the order");
-				//	 JOptionPane.showMessageDialog(null,"The order is ready for pickup.cash payment upon receipt of the order.","Error",JOptionPane.ERROR_MESSAGE);
 					dborder.get(i).paid=true;
 						return true;
 				}else {
 					System.out.println("The order is not ready for pickup.");
-				//	 JOptionPane.showMessageDialog(null,"The order is not ready for pickup.","Error",JOptionPane.ERROR_MESSAGE);
 						
 					return false;
 				}
@@ -325,7 +286,6 @@ return	 null;
 			
 		}
 		System.out.println("There is no order with this number to request its information.");
-		// JOptionPane.showMessageDialog(null,"There is no order with this number to request its information.","Error",JOptionPane.ERROR_MESSAGE);
 	
 		return false;
 	}
@@ -348,7 +308,6 @@ return	 null;
 			}
 		}
 			System.out.println("There is no order with this number to request its status.");
-		//	 JOptionPane.showMessageDialog(null,"There is no order with this number to request its status.","Error",JOptionPane.ERROR_MESSAGE);
 				
 		
 			return false;
@@ -364,7 +323,6 @@ return	 null;
 			
 		}
 		System.out.println("There is no order with this number to request its information.");
-		// JOptionPane.showMessageDialog(null,"There is no order with this number to request its information.","Error",JOptionPane.ERROR_MESSAGE);
 		return false;
 	}
 	public void creatNewUser(String id,String phone,String name,String email, String address, String password ) {
@@ -379,7 +337,7 @@ return	 null;
 	}
 	public  void create_prod(String Category1,String name1,String picture1,String description1,int price1)
 	{ product obj1=new product();
-		//this.SN=SN1;
+		
 		
 			obj1.SN=Integer.toString(1+dbproduct.size());
 
@@ -401,7 +359,7 @@ return	 null;
 	}
 	public void modify_information(String id2, String phone, String name, String email, String adders,
 			String password) {
-		for(int i=0;i< dbuser.size();i++ ) {///i need to loop on users
+		for(int i=0;i< dbuser.size();i++ ) {
 			if(dbuser.get(i).id.equals(id2)){
 				dbuser.get(i).phone=phone;
 				dbuser.get(i).name=name;
@@ -411,7 +369,7 @@ return	 null;
 				dbuser.get(i).log=true;
 			}}	
 		System.out.print("Your information has been modified ,this is your new information:");
-		for(int i=0;i< dbuser.size();i++ ) {///i need to loop on users
+		for(int i=0;i< dbuser.size();i++ ) {
 			if(dbuser.get(i).id.equals(id2)){
 				System.out.print("name: "+dbuser.get(i).name);
 				System.out.print(" phone:"+dbuser.get(i).phone);
@@ -428,17 +386,17 @@ return	 null;
 	
 	public boolean logout_completely(String id3) {
 		
-		for(int i=0;i< dbuser.size();i++ ) {///i need to loop on users
+		for(int i=0;i< dbuser.size();i++ ) {
 			if(dbuser.get(i).id.equals(id3)) {
 				dbuser.remove(i);
-//				System.out.println("inside logout");
+
 				for (int j=0 ;j <dbuser.size();j++)
 				{
 				System.out.print(dbuser.get(j).name+"  ");
 				}
 				return true;
 			}
-			//System.out.println("inside else");
+		
 			}
 		
 		return false;
@@ -541,7 +499,7 @@ if(hourse.equals("")||hourse.equals(null)) {
 			v=Integer.parseInt(hourse)+Integer.parseInt(dbworker.get(i).work_houers);
 		int x=(v*Integer.parseInt( dbworker.get(i).wage_for_houre));
 dbworker.get(i).balance= Integer.toString(x);
-//JOptionPane.showMessageDialog(null,balance,"Error",JOptionPane.ERROR_MESSAGE);
+
 ret=dbworker.get(i).balance;
 dbworker.get(i).work_houers+=Integer.parseInt(hourse);
 dbworker.get(i).balance=ret;
@@ -551,7 +509,7 @@ dbworker.get(i).balance=ret;
 		
 	}
  
-	//JOptionPane.showMessageDialog(null,balance,"Error",JOptionPane.ERROR_MESSAGE);
+	
 	return ret;
 		
 	}
@@ -560,23 +518,9 @@ dbworker.get(i).balance=ret;
 
 
 
-/*/*
-
-	public String  get_balace()
-	{
-		for(int i=0;i<dbworker.size();i++) {
-			if( dbworker.get(i).id.equals(id)) {
-		return  dbworker.get(i).balance;
-		}}
-		//default value 
-		return "0";
-		
-	}
-
-	*/
 
 public boolean search_user(String nameuser)
-{//System.out.println("hi");
+{
 	for(int i=0;i<dbuser.size();i++ ) {
 		if(dbuser.get(i).name.equals(nameuser)) {
 			System.out.println("user's id: "+dbuser.get(i).id);
@@ -595,11 +539,11 @@ public boolean search_user(String nameuser)
 }
 
 public boolean search_product(String name)
-{//System.out.println("hi  "+name);
+{
 
 	for(int i=0;i<dbproduct.size();i++ ) {
 		if(dbproduct.get(i).name.equals(name)) {
-		//	System.out.println("hi  "+name);
+		
 			System.out.println("product's SN: "+dbproduct.get(i).SN);
 			System.out.println("product's Name: "+dbproduct.get(i).name);
 			System.out.println("product's description: "+dbproduct.get(i).description);
@@ -684,7 +628,7 @@ return false;
 
 
 
-//new from user
+
 public   boolean check_email(String email)
 {  for (int i=0 ;i < dbuser.size();i++)
 	{
@@ -711,24 +655,9 @@ return false;
 
 
 
-/*public   void add (String id,String phone,String name,String email,String address,String password) {
-
-	this.address=address;
-	this.email=email;
-	this.id=id;
-	this.name=name;
-	this.address=address;
-	this.address=address;
-	this.log=true;
-	if (!db.dbuser.contains(this))
-		db.dbuser.add(this);
-	
-	
-}*/
-
 public boolean logApp(String iduser) {
 
-	for(int i=0;i< dbuser.size();i++ ) {///i need to loop on users
+	for(int i=0;i< dbuser.size();i++ ) {
 	if(dbuser.get(i).id.equals(iduser)) {
 		return dbuser.get(i).log;
 	}
@@ -741,11 +670,10 @@ public boolean logApp(String iduser) {
 
 
 	public  boolean check_if_exist(String id){
-		//boolean flag=true; //the use is not exit 
 		
-		for(int i=0;i< dbuser.size();i++ ) {///i need to loop on users
+		for(int i=0;i< dbuser.size();i++ ) {
 		if(dbuser.get(i).id.equals(id)) {
-			return false; //the use is exit
+			return false; 
 		}
 		}
 	
@@ -765,56 +693,28 @@ public boolean logApp(String iduser) {
 		return fill;
 	}
 	public void message_for_user() {
-		  // JOptionPane.showMessageDialog(null,"There are required fields that you did not fill out.","Error",JOptionPane.ERROR_MESSAGE);
 		
 	}
 	
 	public void message_for_user1() {
-		//JOptionPane.showMessageDialog(null,"This user is already registered.","Error",JOptionPane.ERROR_MESSAGE);
 		
 		
 	}
-/*	
-	public boolean logout_completely(String id3) {
-	
-		for(int i=0;i< db.dbuser.size();i++ ) {///i need to loop on users
-			if(db.dbuser.get(i).id.equals(id3)) {
-				db.dbuser.remove(i);
-				return true;
-			}
-			
-			}
-		
-		return false;
-	}*/
-	//***// i need to change it 
+
 	public boolean check_if_debt(String id3) {
-		for(int i=0;i< dbuser.size();i++ ) {///i need to loop on users
+		for(int i=0;i< dbuser.size();i++ ) {
 			if(dbuser.get(i).id.equals(id3)) {
-			///check if the user that in a debt 
+			
 				return true;
 			}}
 		return false;
 		
 	}
 	public void message_to_fail_logout() {
-	//	JOptionPane.showMessageDialog(null,"you have an order ready and have not received and paid for it.","Error",JOptionPane.ERROR_MESSAGE);
 		
 	}
 
-/*	public void modify_information(String id2, String phone, String name, String email, String adders,
-			String password) {
-		for(int i=0;i< db.dbuser.size();i++ ) {///i need to loop on users
-			if(db.dbuser.get(i).id.equals(id2)){
-				db.dbuser.get(i).phone=phone;
-				db.dbuser.get(i).name=name;
-				db.dbuser.get(i).email=email;
-				db.dbuser.get(i).address=adders;
-				db.dbuser.get(i).password=password;
-				db.dbuser.get(i).log=true;
-			}}	 
-		
-	}*/
+
 	public boolean check_info_True(int num,String id,String phon, String mail, String passwor) {
 		boolean f=false,f1=false,f2=false,f4=false;
 String a="";
@@ -831,26 +731,22 @@ for(int i=0;i< dbuser.size();i++ ) {
 		else {
 			for(int i=0;i< dbuser.size();i++ ) {
 				
-				//JOptionPane.showMessageDialog(null," yes inside loop","Error",JOptionPane.ERROR_MESSAGE);
 				if(!id.equals(dbuser.get(i).id)) {
 			
 				 if(dbuser.get(i).phone.equals(phon)){
 				
 					f=true;
-					//JOptionPane.showMessageDialog(null," yes inside phone","Error",JOptionPane.ERROR_MESSAGE);
 				}
 				 if(dbuser.get(i).email.equals(mail)) {
 					
 					f1=true;
-					//JOptionPane.showMessageDialog(null," yes inside email","Error",JOptionPane.ERROR_MESSAGE);
 				}
 				 if(dbuser.get(i).password.equals(passwor)) {
-                	//JOptionPane.showMessageDialog(null," yes inside pass","Error",JOptionPane.ERROR_MESSAGE);
 					
                 	f2=true;
 				}
 				}
-				} //for
+				} 
 				
 				 if(!(mail.contains("@"))) {
 					f4=true;
@@ -874,7 +770,7 @@ for(int i=0;i< dbuser.size();i++ ) {
 				System.out.println("You already have an account.Please re_enter your information ");
 				else if(num==2)	System.out.println("The email and password are not valid. Please enter another ");
 			}
-			return false; //that means there are phone or email or password the same entry
+			return false; 
 		}
 		return true;
 		}
@@ -882,7 +778,7 @@ for(int i=0;i< dbuser.size();i++ ) {
 	
 	public boolean logout(String id3) {
 		
-		for(int i=0;i< dbuser.size();i++ ) {///i need to loop on users
+		for(int i=0;i< dbuser.size();i++ ) {
 			if(dbuser.get(i).id.equals(id3)) {
 				dbuser.get(i).log=false;
 				return true;
