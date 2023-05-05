@@ -7,6 +7,174 @@ import javax.swing.JOptionPane;
 public class Main {
 
 	private static final Logger logger = Logger.getLogger(Main.class.getName());
+	  static Scanner s=new Scanner(System.in);
+	  static	user testu=new user();
+	  static	Scanner scan = new Scanner(System.in);
+	  static	database db=new database();
+	  static user u=new user();
+	  static order o=new order();
+	  static states sta=new states ();
+	  static work wok =new work ();
+	  static	int m;
+	  static String id1="",phone1="",name1="",address1="";
+	  static String  id_order="",type="";
+	  static int count;
+	  static boolean fill=false,exist=false,info=false;
+	  static String email,password;
+	  static int num;
+	  static int num1;
+		
+	  static user d=new user();
+	  static boolean user_log = false;
+	  static	boolean adm;
+	  static String SN = "";
+	  static String Category = null;
+	  static  String name = null;
+	  static String picture = null;
+	  static String description = null;
+	  static void worker() {
+
+		   boolean wor_login =false;
+		   int ch2;
+		   int numw ;
+		   String id_w;
+		  String houres="0";
+		  String e_w,p_w;
+		   while(true)
+			{
+			   two2:{
+				account2();
+				ch2=s.nextInt();
+				
+				switch(ch2)
+				{
+				case 1:
+				{	while (true)
+				{
+					two:
+					{
+						
+						logger.info("\n Your email:");
+					 e_w=s.next();
+					
+					 logger.info("\n Your Password:");
+					p_w=s.next();
+					
+					
+					wor_login=	db.check_if_exi8(e_w,p_w);
+				
+					
+					
+					if (wor_login ==false)
+						logger.info("\n Your email or password is incorrect, please check it ");
+				    else 
+				    {
+				    	logger.info("welcome\n");
+				    
+					
+			while(true) {
+				
+				menuworker();
+				
+				numw=s.nextInt();
+				
+				switch(numw)
+				{
+				case 1:
+				{
+					
+					logger.info("please enter number of houres :\n");
+					houres=s.nextLine();
+					houres=s.nextLine();
+					logger.info("regested number of houres  succissfly.\n");
+					
+					
+					
+					
+					
+					
+					
+					
+					break;
+				}
+				
+				case 2:
+				{
+					
+					
+					id_w=db.return_id(e_w,p_w);
+					logger.info("The Balance of worker with email "+e_w+"\t is:"+db.clac_balace(id_w, houres));
+					
+					
+					break;
+				}
+				
+				case 3:
+				{
+					
+					String id_o;
+					String e_o;
+					String id_u;
+					boolean f;
+					email_new e=new email_new();
+					logger.info("enter the id order :");
+					id_o=scan.nextLine();
+					e_o=db.re_id(id_o);
+					id_u=db.re_id_user(id_o);
+					f=db.is_complete(id_u, id_o);
+					if (f) {
+						logger.info("wait to send email........");
+					e.send_email(e_o,id_o);
+					logger.info(e_o+id_o);
+					}
+					
+					break;
+				}
+				case 4:
+				{
+					break two;
+				}
+				case 5:
+				{
+					break two2;
+				}
+				
+				
+				}
+				
+			
+				
+					
+				}
+				
+				
+				
+			}
+			
+		
+			
+		}}}
+				
+				 
+				case 2:
+				{
+					logger.info("\n Exiting the program");
+				      return;
+				     
+					
+				}
+				
+				
+				
+			
+				}}
+			
+		
+		
+		
+			}
+		  
+	  }
 	
 static void menuuser()
 { 
@@ -40,6 +208,259 @@ static void menuadmin()
 	logger.info("|   press 10 if you want to log out                                                           | \n");
 	logger.info("|   press 11 if you want to go to main page                                                   | \n");
 
+}
+static void admin() {
+	int  ad_login =0;
+	
+	int ad_num;
+	int ch ;
+	
+	Scanner s1=new Scanner(System.in);
+	while(true) {
+		three2:{
+	account2();
+		ch=s1.nextInt();
+		
+		switch(ch)
+	
+		{
+		case 1:
+		{	
+			while(true) {
+				three:{
+			
+			
+					logger.info("\n Your email:");
+			email=s1.next();
+			
+			logger.info("\n Your Password:");
+			password=s1.next();
+			
+			
+			ad_login=	admin.check(email,password);
+		
+			
+			
+			if (ad_login ==0)
+				logger.info("\n Your email or password is incorrect, please check it ");
+		    else 
+		    {
+		    	logger.info("welcome\n");
+		    
+			
+	while(true) {
+		
+		menuadmin();
+		ad_num=s1.nextInt();
+		
+		
+		
+		
+		
+		
+		
+switch(ad_num)
+{
+
+
+case 1:
+{
+	
+
+	logger.info("please enter the information about your product:\n");
+
+	product p=new product();
+	logger.info("Category: ");
+	Category=s1.next();
+	logger.info("name: ");
+	name=s1.next();
+	logger.info("picture: ");
+	picture=s1.next();
+	logger.info("description: ");
+	description=s1.next();
+	
+	
+
+	logger.info("Product created successfully, if you want to check it enter 1  ");
+	if (s1.nextInt()==1)
+	{db.create_prod( Category, name, picture, description,10);
+	for (int i=0 ;i < db.dbproduct.size();i++)
+	{
+		
+		logger.info("  "+db.dbproduct.get(i).SN);
+		logger.info("  "+db.dbproduct.get(i).name);
+		logger.info("  "+db.dbproduct.get(i).Category);
+		logger.info("  "+db.dbproduct.get(i).description);
+			
+		logger.info("  "+db.dbproduct.get(i).picture);
+		logger.info("\n");
+	}
+	}
+	break;
+}
+
+
+
+case 2:
+{
+	
+	
+
+	logger.info("please enter the  new information about your product\n");
+	logger.info("SN of your product:\n");
+	SN=s1.next();
+	logger.info("new Category:\\n");
+	Category=s1.next();
+	logger.info("new name:\n");
+	name=s1.next();
+	logger.info("new picture:\n");
+	picture=s1.next();
+	logger.info("new pdescription:\n");
+	description=s1.next();
+	
+	db.update_prod(SN, Category, name, picture, description);
+	for (int i=0 ;i < db.dbproduct.size();i++)
+	{
+		
+		logger.info(db.dbproduct.get(i).SN);
+		logger.info(db.dbproduct.get(i).Category);
+		logger.info(db.dbproduct.get(i).description);
+			logger.info(db.dbproduct.get(i).name);
+			logger.info("\n");
+			
+	}
+	break;
+	
+}
+
+case 3:
+{
+	logger.info("please enter the SN of your product\n");
+	logger.info("SN\n");
+	SN=s1.next();
+	product p2=new product();
+	db.delete_prod(SN);
+  	for (int i=0 ;i <db.dbproduct.size();i++)
+	{
+		
+  		logger.info(db.dbproduct.get(i).SN);
+  		logger.info(db.dbproduct.get(i).Category);
+  		logger.info(db.dbproduct.get(i).description);
+  		logger.info(db.dbproduct.get(i).name);
+  		logger.info(db.dbproduct.get(i).picture);
+  		logger.info("\n");
+	}
+	break;
+	
+	
+}
+
+case 4:
+{
+	
+	report.showall();
+	
+	
+	break;
+	
+	
+	
+	
+}
+
+
+case 5:
+{
+	db.encome();
+	break;
+	
+	
+	
+}
+case 6:
+{
+	
+	
+	db.showAllOrder();
+	break;
+}
+ 
+
+case 7:
+{
+	db.dept();
+	break;
+}
+
+
+
+case 8:
+{Scanner s8=new Scanner(System.in);
+	
+	String nam_user;
+	logger.info("enter the name of the user you want to search for:\n");
+	
+ nam_user=	s8.nextLine ();
+	
+db.search_user(nam_user);
+break;
+	
+}
+case 9:
+{
+	Scanner s9=new Scanner(System.in);
+	String nam_PRO;
+	
+	logger.info("enter the name of the product you want to search for:\n");
+
+nam_PRO=	s9.nextLine ();
+
+db.search_product(nam_PRO);
+break;
+	
+}
+
+case 10:
+{
+	break three;
+}
+
+
+case 11:
+{
+	break three2;
+}
+
+}
+
+}
+		} 
+				}}	
+		
+}
+		
+		case 2:
+		{
+			logger.info("\n Exiting the program");
+		      return;
+		}
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		}
+	}}
 }
 
 static void menuworker()
@@ -75,796 +496,400 @@ static void account2()
 	logger.info("|   press 2 if you want to exite from app                                                     | \n");
 	
 }
+
+
+
+static void user ()
+{
+	while(true)
+	{
+	one2:
+	{
+account ();
+	 
+	 
+	 
+	 
+	 
+	num=s.nextInt();
+	
+	switch (num)
+	{
+
+	case 1: 
+	{
+	while(true) {
+		one:
+		{
+			
+			logger.info("\n Your email:");
+	email=s.next();
+	
+	logger.info("\n Your Password:");
+	password=s.next();
+	user_log=db.check_email(email)&&db.check_pass(password);
+	String id_user=db.return_id2(email,password);
+	
+	
+	if (user_log ==false)
+		logger.info("\n Your email or password is incorrect, please check it ");
+    else 
+    {
+    	logger.info("welcome\n");
+    
+   
+    while(true) {
+    	menuuser();
+        num1=s.nextInt();	
+    switch (num1)
+    {
+    
+    
+    
+ 
+    
+    
+  
+
+	
+	case 1:
+	{boolean existing=false;
+	logger.info(" \n enter your id:");
+	
+	id1=scan.nextLine();
+	//scan.nextLine();
+	
+	existing=db.check_if_exist(id1);
+	if(!existing) {
+		
+		
+		
+		logger.info(" enter your new information: \n");
+		logger.info(" enter new name: ");	
+    	name1=scan.nextLine();
+    	  scan.nextLine();
+    	  logger.info(" enter new address: ");
+    	address1=scan.nextLine();		
+    	logger.info(" enter new phone: ");	
+    	phone1=scan.nextLine();
+    	logger.info(" enter new email: ");	
+        email=scan.nextLine();	
+        logger.info("  enter new password:");	
+    	password=scan.nextLine();
+    	fill=db.check_fill_fields(id1, phone1, name1, email, address1, password);
+		if(!fill) {
+			logger.info("All fields are required! Please re_enter your information ");
+			menuuser();		continue;
+		}
+		info=db.check_info_True(2,id1,phone1,email,password);	
+		if(!info) {
+			menuuser();	continue;
+		}
+	
+		db.modify_information(id1, phone1, name1, email, address1, password);
+		
+		
+		
+	}
+
+	
+
+		
+		
+		break;
+	}
+	case 2:
+	{
+		
+		
+		boolean e=false,log=false,debt=true,logout=false ;
+		logout=db.logout_completely(id_user);	
+		logger.info("id_user:"+id_user);
+    		
+    	
+     if(logout)logger.info("Your account has been cancelled");
+     
+     for (int i=0 ;i <db.dbuser.size();i++)
+	 	{
+	 		
+    	 logger.info(db.dbuser.get(i).name);
+    	 logger.info("\n");
+	 	}
+		break ;
+	}
+	
+	
+	
+	case 3:
+	{
+		logger.info(" enter your information about order:");
+		
+		logger.info(" enter your id of order:");
+	       	
+        id_order=scan.nextLine();
+          scan.nextLine();
+        
+          logger.info(" enter your type: "); 
+    		 type=scan.nextLine();
+    		 logger.info(" enter your count: ");
+    		 count=scan.nextInt();
+    		 
+    		 db.createNewOrder(id_order, id_user, count, type);
+    		 System.out.print(" your order is created  ");
+    		 
+    		 for(int i=0;i<db.dborder.size();i++) {
+    			 if ( db.dborder.get(i).id.equals(id_user)&&db.dborder.get(i).idorder.equals(id_order))
+    				{logger.info("id= "+db.dborder.get(i).idorder+" , id user= "+db.dborder.get(i).id+" , type of order= "+db.dborder.get(i).name+" , discount= "+db.dborder.get(i).discount
+    						+" , price= "+db.dborder.get(i).price+" , received date= "+db.dborder.get(i).lateDate+" , days left= "+db.dborder.get(i).timeReceipt+" , count= "+db.dborder.get(i).count);}
+    				}
+    		 
+		
+		break;
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	case 4:
+		
+	{
+		Scanner san=new Scanner(System.in);
+		
+		logger.info(" enter your id of order:");
+		id_order=san.nextLine();
+         
+		
+		db.cancleorder(id_user,id_order);
+		
+		
+		
+		
+		
+		
+		break;
+		
+		
+		
+		
+		
+	}
+	
+	case 5 :
+	{
+		logger.info(" enter your id of order:");
+			id_order=scan.nextLine();
+	          scan.nextLine();
+		db.request_status(id_user, id_order);
+		
+		for(int i=0;i<db.dborder.size();i++) {
+			 
+			logger.info("id= "+db.dborder.get(i).idorder+" , id user= "+db.dborder.get(i).id+" , type of order= "+db.dborder.get(i).name+" , discount= "+db.dborder.get(i).discount
+					+" , price= "+db.dborder.get(i).price+" , received date= "+db.dborder.get(i).lateDate+" , days left= "+db.dborder.get(i).timeReceipt+" , count= "+db.dborder.get(i).count);
+			}
+		break;
+	}
+	
+	
+	
+	case 6:
+	{
+		Scanner sca = new Scanner(System.in);
+
+		logger.info(" enter your id of order:");
+		
+		id_order=sca.nextLine();
+         
+		db.info_order(id_user,id_order );
+		
+		break;
+	}
+    
+	
+	
+	
+	
+	case 7:
+	{String nuser="";
+	String addres="";
+		boolean  com;
+		logger.info(" enter your id of order:");
+		id_order=scan.nextLine();
+          scan.nextLine();
+
+		com=db.is_complete(id_user, id_order);
+		
+		if (!com)
+		{
+			logger.info("The order is'n completed ,I can'n to view the invoce");	
+		}
+		if(com) 
+		{
+		o=db.ret(id_user, id_order);
+		
+		for(int i=0;i<db.dbuser.size();i++) {
+			if(db.dbuser.get(i).id.equals(id_user)) {
+				nuser=db.dbuser.get(i).name;
+				addres=db.dbuser.get(i).address;
+			}
+		}
+		logger.info("wait for the invoice to be ready...... ");	
+		JOptionPane.showMessageDialog(null,"The user name: "+ nuser+"\nThe user address: "+addres +"\n The id user:"
+		        +o.id+"\n The id order:"+o.idorder+"\n The type "
+		        +o.name+"\n The price: "+o.price+
+		         "\n The price after discount: "+o.discount+"\n The count :"
+				+o.count+" \n delvery= 15 "+"\n The total price"+o.total_price1,"Invoice",JOptionPane.INFORMATION_MESSAGE);
+		
+		}
+		break;
+	}
+	case 8:
+	{
+		
+		break one;
+	}
+	case 9:
+	{
+		break one2;
+	}
+	
+    }
+    
+   
+    
+    }
+    }
+	
+	break;
+	
+	
+	
+	
+		}
+		}
+	}
+	
+	case 2: 
+	{
+		
+		logger.info(" enter your id:");
+	       	
+        	id1=scan.nextLine();
+          scan.nextLine();
+          logger.info("enter your name: ");
+        	name1=scan.nextLine();
+        	logger.info(" enter your address: "); 
+    		 address1=scan.nextLine();
+    		 logger.info(" enter your phone: ");
+    		 phone1=scan.nextLine();
+    		 logger.info(" enter your email: ");
+    		 email=scan.nextLine();
+    		 logger.info(" enter your password:");
+    		 password=scan.nextLine();
+    		
+    	
+   
+	
+	
+    		 fill=db.check_fill_fields(id1, phone1, name1, email, address1, password);
+	if(!fill) {
+		logger.info("All fields are required! Please re_enter your information ");
+		menuuser(); continue;
+	} 
+	exist=db.check_if_exist(id1);
+	if(!exist) {
+		logger.info("You already have an account.Please re_enter your information 1010 ");
+		menuuser();continue;
+	}
+	
+	 
+	info=db.check_info_True(1,id1,phone1,email,password);	
+	
+	if(!info) {
+		menuuser();		continue;
+	}
+	
+	 db.creatNewUser( id1, phone1, name1, email,  address1,  password);
+	 logger.info("An account has been created successfully ");
+	 
+	 for (int i=0 ;i <db.dbuser.size();i++)
+ 	{
+ 		
+		 logger.info(db.dbuser.get(i).name);
+		 logger.info("\n");
+ 	}
+		
+		break;
+	}
+	
+	case 3:
+		{
+			
+			logger.info("\n Exiting the program");
+			      return;
+			  
+		}
+	
+	
+	
+	
+}
+}
+	}
+}
+
+
+
+
+
+
+
+
+
 static void test(int ch8)
 {
-	 Scanner s=new Scanner(System.in);
-	user testu=new user();
-	Scanner scan = new Scanner(System.in);
-	database db=new database();
-	 user u=new user();
-	order o=new order();
-	states sta=new states ();
-	work wok =new work ();
-	int m;
-	String id1="",phone1="",name1="",address1="";
-	String  id_order="",type="";
-	int count;
-	boolean fill=false,exist=false,info=false;
-	String email,password;
-	int num;
-	int num1;
-	
-	user d=new user();
-	boolean user_log = false;
-	boolean adm;
-	String SN = "";
-	 String Category = null;
-	 String name = null;
-	 String picture = null;
-	 String description = null;
-	
+	 
 	switch(ch8)
 	{
 	case 1:
 	{
-
-	while(true)
-		{
-		one2:
-		{
-	account ();
-		 
-		 
-		 
-		 
-		 
-		num=s.nextInt();
-		
-		switch (num)
-		{
+		 user ();
 	
-		case 1: 
-		{
-		while(true) {
-			one:
-			{
-				
-				logger.info("\n Your email:");
-		email=s.next();
-		
-		logger.info("\n Your Password:");
-		password=s.next();
-		user_log=db.check_email(email)&&db.check_pass(password);
-		String id_user=db.return_id2(email,password);
-		
-		
-		if (user_log ==false)
-			logger.info("\n Your email or password is incorrect, please check it ");
-	    else 
-	    {
-	    	logger.info("welcome\n");
-        
-       
-        while(true) {
-        	menuuser();
-            num1=s.nextInt();	
-        switch (num1)
-        {
-        
-        
-        
-     
-        
-        
-      
- 
-		
-		case 1:
-		{boolean existing=false;
-		logger.info(" \n enter your id:");
-    	
-    	id1=scan.nextLine();
-    	//scan.nextLine();
-    	
-    	existing=db.check_if_exist(id1);
-    	if(!existing) {
-    		
-    		
-    		
-    		logger.info(" enter your new information: \n");
-    		logger.info(" enter new name: ");	
-        	name1=scan.nextLine();
-        	  scan.nextLine();
-        	  logger.info(" enter new address: ");
-        	address1=scan.nextLine();		
-        	logger.info(" enter new phone: ");	
-        	phone1=scan.nextLine();
-        	logger.info(" enter new email: ");	
-            email=scan.nextLine();	
-            logger.info("  enter new password:");	
-        	password=scan.nextLine();
-        	fill=db.check_fill_fields(id1, phone1, name1, email, address1, password);
-    		if(!fill) {
-    			logger.info("All fields are required! Please re_enter your information ");
-    			menuuser();		continue;
-    		}
-    		info=db.check_info_True(2,id1,phone1,email,password);	
-    		if(!info) {
-    			menuuser();	continue;
-    		}
-    	
-    		db.modify_information(id1, phone1, name1, email, address1, password);
-    		
-    		
-    		
-    	}
-    
-    	
-    
-			
-			
-			break;
-		}
-		case 2:
-		{
-			
-			
-			boolean e=false,log=false,debt=true,logout=false ;
-			logout=db.logout_completely(id_user);	
-			logger.info("id_user:"+id_user);
-	    		
-	    	
-	     if(logout)logger.info("Your account has been cancelled");
-	     
-	     for (int i=0 ;i <db.dbuser.size();i++)
-		 	{
-		 		
-	    	 logger.info(db.dbuser.get(i).name);
-	    	 logger.info("\n");
-		 	}
-			break ;
-		}
-		
-		
-		
-		case 3:
-		{
-			logger.info(" enter your information about order:");
-			
-			logger.info(" enter your id of order:");
-		       	
-	        id_order=scan.nextLine();
-	          scan.nextLine();
-	        
-	          logger.info(" enter your type: "); 
-	    		 type=scan.nextLine();
-	    		 logger.info(" enter your count: ");
-	    		 count=scan.nextInt();
-	    		 
-	    		 db.createNewOrder(id_order, id_user, count, type);
-	    		 System.out.print(" your order is created  ");
-	    		 
-	    		 for(int i=0;i<db.dborder.size();i++) {
-	    			 if ( db.dborder.get(i).id.equals(id_user)&&db.dborder.get(i).idorder.equals(id_order))
-	    				{logger.info("id= "+db.dborder.get(i).idorder+" , id user= "+db.dborder.get(i).id+" , type of order= "+db.dborder.get(i).name+" , discount= "+db.dborder.get(i).discount
-	    						+" , price= "+db.dborder.get(i).price+" , received date= "+db.dborder.get(i).lateDate+" , days left= "+db.dborder.get(i).timeReceipt+" , count= "+db.dborder.get(i).count);}
-	    				}
-	    		 
-			
-			break;
-			
-			
-			
-			
-			
-			
-		}
-		
-		
-		
-		case 4:
-			
-		{
-			Scanner san=new Scanner(System.in);
-			
-			logger.info(" enter your id of order:");
-			id_order=san.nextLine();
-	         
-			
-			db.cancleorder(id_user,id_order);
-			
-			
-			
-			
-			
-			
-			break;
-			
-			
-			
-			
-			
-		}
-		
-		case 5 :
-		{
-			logger.info(" enter your id of order:");
-				id_order=scan.nextLine();
-		          scan.nextLine();
-			db.request_status(id_user, id_order);
-			
-			for(int i=0;i<db.dborder.size();i++) {
-    			 
-				logger.info("id= "+db.dborder.get(i).idorder+" , id user= "+db.dborder.get(i).id+" , type of order= "+db.dborder.get(i).name+" , discount= "+db.dborder.get(i).discount
-						+" , price= "+db.dborder.get(i).price+" , received date= "+db.dborder.get(i).lateDate+" , days left= "+db.dborder.get(i).timeReceipt+" , count= "+db.dborder.get(i).count);
-				}
-			break;
-		}
-		
-		
-		
-		case 6:
-		{
-			Scanner sca = new Scanner(System.in);
-
-			logger.info(" enter your id of order:");
-			
-			id_order=sca.nextLine();
-	         
-			db.info_order(id_user,id_order );
-			
-			break;
-		}
-        
-		
-		
-		
-		
-		case 7:
-		{String nuser="";
-		String addres="";
-			boolean  com;
-			logger.info(" enter your id of order:");
-			id_order=scan.nextLine();
-	          scan.nextLine();
-
-			com=db.is_complete(id_user, id_order);
-			
-			if (!com)
-			{
-				logger.info("The order is'n completed ,I can'n to view the invoce");	
-			}
-			if(com) 
-			{
-			o=db.ret(id_user, id_order);
-			
-			for(int i=0;i<db.dbuser.size();i++) {
-				if(db.dbuser.get(i).id.equals(id_user)) {
-					nuser=db.dbuser.get(i).name;
-					addres=db.dbuser.get(i).address;
-				}
-			}
-			logger.info("wait for the invoice to be ready...... ");	
-			JOptionPane.showMessageDialog(null,"The user name: "+ nuser+"\nThe user address: "+addres +"\n The id user:"
-			        +o.id+"\n The id order:"+o.idorder+"\n The type "
-			        +o.name+"\n The price: "+o.price+
-			         "\n The price after discount: "+o.discount+"\n The count :"
-					+o.count+" \n delvery= 15 "+"\n The total price"+o.total_price1,"Invoice",JOptionPane.INFORMATION_MESSAGE);
-			
-			}
-			break;
-		}
-		case 8:
-		{
-			
-			break one;
-		}
-		case 9:
-		{
-			break one2;
-		}
-		
-        }
-        
-       
-        
-        }
-	    }
-		
-		break;
-		
-		
-		
-		
-			}
-			}
-		}
-		
-		case 2: 
-		{
-			
-			logger.info(" enter your id:");
-		       	
-	        	id1=scan.nextLine();
-	          scan.nextLine();
-	          logger.info("enter your name: ");
-	        	name1=scan.nextLine();
-	        	logger.info(" enter your address: "); 
-	    		 address1=scan.nextLine();
-	    		 logger.info(" enter your phone: ");
-	    		 phone1=scan.nextLine();
-	    		 logger.info(" enter your email: ");
-	    		 email=scan.nextLine();
-	    		 logger.info(" enter your password:");
-	    		 password=scan.nextLine();
-	    		
-	    	
-	   
-		
-		
-	    		 fill=db.check_fill_fields(id1, phone1, name1, email, address1, password);
-		if(!fill) {
-			logger.info("All fields are required! Please re_enter your information ");
-			menuuser(); continue;
-		} 
-		exist=db.check_if_exist(id1);
-		if(!exist) {
-			logger.info("You already have an account.Please re_enter your information 1010 ");
-			menuuser();continue;
-		}
-		
-		 
-		info=db.check_info_True(1,id1,phone1,email,password);	
-		
-		if(!info) {
-			menuuser();		continue;
-		}
-		
-		 db.creatNewUser( id1, phone1, name1, email,  address1,  password);
-		 logger.info("An account has been created successfully ");
-		 
-		 for (int i=0 ;i <db.dbuser.size();i++)
-	 	{
-	 		
-			 logger.info(db.dbuser.get(i).name);
-			 logger.info("\n");
-	 	}
-			
-			break;
-		}
-		
-		case 3:
-			{
-				
-				logger.info("\n Exiting the program");
-				      return;
-				  
-			}
-		
-		
-		
-		
-	}
-	}
-		}
-	}
+	}//case user
+	
 	
 	
 	
 	
 	case 2:
 	{
-	   boolean wor_login =false;
-	   int ch2;
-	   int numw ;
-	   String id_w;
-	  String houres="0";
-	  String e_w,p_w;
-	   while(true)
-		{
-		   two2:{
-			account2();
-			ch2=s.nextInt();
-			
-			switch(ch2)
-			{
-			case 1:
-			{	while (true)
-			{
-				two:
-				{
-					
-					logger.info("\n Your email:");
-				 e_w=s.next();
-				
-				 logger.info("\n Your Password:");
-				p_w=s.next();
-				
-				
-				wor_login=	db.check_if_exi8(e_w,p_w);
-			
-				
-				
-				if (wor_login ==false)
-					logger.info("\n Your email or password is incorrect, please check it ");
-			    else 
-			    {
-			    	logger.info("welcome\n");
-			    
-				
-		while(true) {
-			
-			menuworker();
-			
-			numw=s.nextInt();
-			
-			switch(numw)
-			{
-			case 1:
-			{
-				
-				logger.info("please enter number of houres :\n");
-				houres=s.nextLine();
-				houres=s.nextLine();
-				logger.info("regested number of houres  succissfly.\n");
-				
-				
-				
-				
-				
-				
-				
-				
-				break;
-			}
-			
-			case 2:
-			{
-				
-				
-				id_w=db.return_id(e_w,p_w);
-				logger.info("The Balance of worker with email "+e_w+"\t is:"+db.clac_balace(id_w, houres));
-				
-				
-				break;
-			}
-			
-			case 3:
-			{
-				
-				String id_o;
-				String e_o;
-				String id_u;
-				boolean f;
-				email_new e=new email_new();
-				logger.info("enter the id order :");
-				id_o=scan.nextLine();
-				e_o=db.re_id(id_o);
-				id_u=db.re_id_user(id_o);
-				f=db.is_complete(id_u, id_o);
-				if (f) {
-					logger.info("wait to send email........");
-				e.send_email(e_o,id_o);
-				logger.info(e_o+id_o);
-				}
-				
-				break;
-			}
-			case 4:
-			{
-				break two;
-			}
-			case 5:
-			{
-				break two2;
-			}
-			
-			
-			}
-			
-		
-			
-				
-			}
-			
-			
-			
-		}
-		
-	
-		
-	}}}
-			
-			 
-			case 2:
-			{
-				logger.info("\n Exiting the program");
-			      return;
-			     
-				
-			}
-			
-			
-			
-		
-			}}
-		
-	
-	
-	
-		}
-	}
+		worker();
+	}//case workser
 			
 	
 	
 	
 	case 3:
 	{
-		
-	int  ad_login =0;
-		
-		int ad_num;
-		int ch ;
-		
-		Scanner s1=new Scanner(System.in);
-		while(true) {
-			three2:{
-		account2();
-			ch=s1.nextInt();
-			
-			switch(ch)
-		
-			{
-			case 1:
-			{	
-				while(true) {
-					three:{
-				
-				
-						logger.info("\n Your email:");
-				email=s1.next();
-				
-				logger.info("\n Your Password:");
-				password=s1.next();
-				
-				
-				ad_login=	admin.check(email,password);
-			
-				
-				
-				if (ad_login ==0)
-					logger.info("\n Your email or password is incorrect, please check it ");
-			    else 
-			    {
-			    	logger.info("welcome\n");
-			    
-				
-		while(true) {
-			
-			menuadmin();
-			ad_num=s1.nextInt();
-			
-			
-			
-			
-			
-			
-			
-	switch(ad_num)
-	{
-	
-	
-	case 1:
-	{
-		
-
-		logger.info("please enter the information about your product:\n");
-   
-    	product p=new product();
-    	logger.info("Category: ");
-    	Category=s1.next();
-    	logger.info("name: ");
-    	name=s1.next();
-    	logger.info("picture: ");
-    	picture=s1.next();
-    	logger.info("description: ");
-    	description=s1.next();
-    	
-		
-
-    	logger.info("Product created successfully, if you want to check it enter 1  ");
-    	if (s1.nextInt()==1)
-    	{db.create_prod( Category, name, picture, description,10);
-    	for (int i=0 ;i < db.dbproduct.size();i++)
-    	{
-    		
-    		logger.info("  "+db.dbproduct.get(i).SN);
-    		logger.info("  "+db.dbproduct.get(i).name);
-    		logger.info("  "+db.dbproduct.get(i).Category);
-    		logger.info("  "+db.dbproduct.get(i).description);
-    			
-    		logger.info("  "+db.dbproduct.get(i).picture);
-    		logger.info("\n");
-    	}
-    	}
-    	break;
-	}
-	
-	
-	
-	case 2:
-	{
-		
-		
-
-		logger.info("please enter the  new information about your product\n");
-		logger.info("SN of your product:\n");
-    	SN=s1.next();
-    	logger.info("new Category:\\n");
-    	Category=s1.next();
-    	logger.info("new name:\n");
-    	name=s1.next();
-    	logger.info("new picture:\n");
-    	picture=s1.next();
-    	logger.info("new pdescription:\n");
-    	description=s1.next();
-    	
-    	db.update_prod(SN, Category, name, picture, description);
-    	for (int i=0 ;i < db.dbproduct.size();i++)
-    	{
-    		
-    		logger.info(db.dbproduct.get(i).SN);
-    		logger.info(db.dbproduct.get(i).Category);
-    		logger.info(db.dbproduct.get(i).description);
-    			logger.info(db.dbproduct.get(i).name);
-    			logger.info("\n");
-    			
-    	}
-    	break;
-    	
-	}
-	
-	case 3:
-	{
-		logger.info("please enter the SN of your product\n");
-		logger.info("SN\n");
-    	SN=s1.next();
-    	product p2=new product();
-    	db.delete_prod(SN);
-      	for (int i=0 ;i <db.dbproduct.size();i++)
-    	{
-    		
-      		logger.info(db.dbproduct.get(i).SN);
-      		logger.info(db.dbproduct.get(i).Category);
-      		logger.info(db.dbproduct.get(i).description);
-      		logger.info(db.dbproduct.get(i).name);
-      		logger.info(db.dbproduct.get(i).picture);
-      		logger.info("\n");
-    	}
-    	break;
-    	
-		
-	}
-	
-	case 4:
-	{
-		
-		report.showall();
-		
-		
-		break;
-		
-		
-		
-		
-	}
-	
-	
-	case 5:
-	{
-		db.encome();
-		break;
-		
-		
-		
-	}
-	case 6:
-	{
-		
-		
-		db.showAllOrder();
-		break;
-	}
-	 
-	
-	case 7:
-	{
-		db.dept();
-		break;
-	}
-	
-	
-	
-	case 8:
-	{Scanner s8=new Scanner(System.in);
-		
-		String nam_user;
-		logger.info("enter the name of the user you want to search for:\n");
-		
-	 nam_user=	s8.nextLine ();
-		
-	db.search_user(nam_user);
-	break;
-		
-	}
-	case 9:
-	{
-		Scanner s9=new Scanner(System.in);
-		String nam_PRO;
-		
-		logger.info("enter the name of the product you want to search for:\n");
-	
-	nam_PRO=	s9.nextLine ();
-	
-	db.search_product(nam_PRO);
-	break;
-		
-	}
-	
-	case 10:
-	{
-		break three;
-	}
-	
-	
-	case 11:
-	{
-		break three2;
-	}
+		admin();
 	
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
-			} 
-					}}	
-			
-	}
-			
-			case 2:
-			{
-				logger.info("\n Exiting the program");
-			      return;
-			}
-				
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			}
-		}}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	}//swich
 	
 }
 
