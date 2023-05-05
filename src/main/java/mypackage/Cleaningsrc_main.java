@@ -15,7 +15,7 @@ public class Cleaningsrc_main {
 	
 static void menu_user()
 { 
-	System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+	//System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
     System.out.print("*   press 1 if you want to modify your information in the cleaning Application.               * \n");
 	System.out.print("|   press 2 if you want to delete your account from the cleaning Application.                 | \n");
 	System.out.print("|   press 3 if you want to create new order.                                                  | \n");
