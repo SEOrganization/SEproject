@@ -119,6 +119,10 @@ public class Main {
 				 worker();
 				 break;
 				}
+				default :
+				{
+					logger.info("The enteryis not correct!.");
+				}
 				
 				
 				}
@@ -192,7 +196,9 @@ public class Main {
 					
 				}
 				
-				
+				default :{
+					logger.info("\n you have entered a wrong number!");
+				}
 				
 			
 				}
@@ -458,6 +464,9 @@ case 11:
 {
 	break three2;
 }
+default :{
+	logger.info("the enter is wrong!");
+}
 
 }
 
@@ -471,6 +480,9 @@ case 11:
 		{
 			logger.info("\n Exiting the program");
 		      return;
+		}
+		default : {
+			logger.info("the enter is wrong!.");
 		}
 			
 		
@@ -784,6 +796,8 @@ account ();
 	{
 		break one2;
 	}
+	default :
+		logger.info("The enter is wrong!");
 	
     }
     
@@ -862,7 +876,8 @@ account ();
 			  
 		}
 	
-	
+	default :
+		logger.info("your entery is wrong!");
 	
 	
 }
@@ -907,7 +922,9 @@ static void test(int ch8)
 	
 	}
 	
-	
+	default :{
+		logger.info("the number of enter is wrong!");
+	}
 	
 	
 	
