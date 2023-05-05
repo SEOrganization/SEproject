@@ -190,7 +190,7 @@ public class Main {
 				 
 				case 2:
 				{
-					logger.info("\n Exiting the program");
+					logger.info("\n Exiting the program.");
 				      return;
 				     
 					
@@ -243,15 +243,242 @@ static void menuadmin()
 	logger.info("|   press 11 if you want to go to main page                                                   | \n");
 
 }
-static void admin() {
-	int  adlogin =0;
+
+
+static void cas1()
+{
+	
+int  adlogin =0;
 	
 	int adnum;
-	int ch ;
+	
 	
 	Scanner s1=new Scanner(System.in);
 	while(true) {
-		three2:{
+		three:{
+	
+	
+			logger.info("\n Your email:::");
+	email=s1.next();
+	
+	logger.info("\n Your Password:::");
+	password=s1.next();
+	
+	
+	adlogin=	admin.check(email,password);
+
+	
+	
+	if (adlogin ==0)
+		logger.info("\n Your email or password is incorrect, please check it.. ");
+    else 
+    {
+    	logger.info("welcome..\n");
+    
+	
+while(true) {
+
+menuadmin();
+adnum=s1.nextInt();
+
+
+
+
+
+
+
+switch(adnum)
+{
+
+
+case 1:
+{
+
+
+logger.info("please enter the information about your product:\n");
+
+product p=new product();
+logger.info("Category: ");
+category=s1.next();
+logger.info("name: ");
+name=s1.next();
+logger.info("picture: ");
+picture=s1.next();
+logger.info("description: ");
+description=s1.next();
+
+
+
+logger.info("Product created successfully, if you want to check it enter 1  ");
+if (s1.nextInt()==1)
+{db.create_prod( category, name, picture, description,10);
+for (int i=0 ;i < db.dbproduct.size();i++)
+{
+
+logger.info("  "+db.dbproduct.get(i).SN);
+logger.info("  "+db.dbproduct.get(i).name);
+logger.info("  "+db.dbproduct.get(i).Category);
+logger.info("  "+db.dbproduct.get(i).description);
+	
+logger.info("  "+db.dbproduct.get(i).picture);
+logger.info("\n");
+}
+}
+break;
+}
+
+
+
+case 2:
+{
+
+
+
+logger.info("please enter the  new information about your product\n");
+logger.info("SN of your product:\n");
+sn=s1.next();
+logger.info("new Category:\\n");
+category=s1.next();
+logger.info("new name:\n");
+name=s1.next();
+logger.info("new picture:\n");
+picture=s1.next();
+logger.info("new pdescription:\n");
+description=s1.next();
+
+db.update_prod(sn, category, name, picture, description);
+for (int i=0 ;i < db.dbproduct.size();i++)
+{
+
+logger.info(db.dbproduct.get(i).SN);
+logger.info(db.dbproduct.get(i).Category);
+logger.info(db.dbproduct.get(i).description);
+	logger.info(db.dbproduct.get(i).name);
+	logger.info("\n");
+	
+}
+break;
+
+}
+
+case 3:
+{
+logger.info("please enter the SN of your product\n");
+logger.info("SN\n");
+sn=s1.next();
+product p2=new product();
+db.delete_prod(sn);
+for (int i=0 ;i <db.dbproduct.size();i++)
+{
+
+	logger.info(db.dbproduct.get(i).SN);
+	logger.info(db.dbproduct.get(i).Category);
+	logger.info(db.dbproduct.get(i).description);
+	logger.info(db.dbproduct.get(i).name);
+	logger.info(db.dbproduct.get(i).picture);
+	logger.info("\n");
+}
+break;
+
+
+}
+
+case 4:
+{
+
+report.showall();
+
+
+break;
+
+
+
+
+}
+
+
+case 5:
+{
+db.encome();
+break;
+
+
+
+}
+case 6:
+{
+
+
+db.showAllOrder();
+break;
+}
+
+
+case 7:
+{
+db.dept();
+break;
+}
+
+
+
+case 8:
+{Scanner s8=new Scanner(System.in);
+
+String namuser;
+logger.info("enter the name of the user you want to search for:\n");
+
+namuser=	s8.nextLine ();
+
+db.search_user(namuser);
+break;
+
+}
+case 9:
+{
+Scanner s9=new Scanner(System.in);
+String namPRO;
+
+logger.info("enter the name of the product you want to search for:\n");
+
+namPRO=	s9.nextLine ();
+
+db.search_product(namPRO);
+break;
+
+}
+
+case 10:
+{
+break three;
+}
+
+
+case 11:
+{
+	admin();
+break ;
+}
+default :{
+logger.info("the enter is wrong!");
+}
+
+}
+
+}
+} 
+		}}	
+
+}
+static void admin() {
+
+	int ch ;
+	
+	
+	
+	Scanner s1=new Scanner(System.in);
+	while(true) {
+		
 	account2();
 		ch=s1.nextInt();
 		
@@ -260,225 +487,14 @@ static void admin() {
 		{
 		case 1:
 		{	
-			while(true) {
-				three:{
 			
-			
-					logger.info("\n Your email:::");
-			email=s1.next();
-			
-			logger.info("\n Your Password:::");
-			password=s1.next();
-			
-			
-			adlogin=	admin.check(email,password);
-		
-			
-			
-			if (adlogin ==0)
-				logger.info("\n Your email or password is incorrect, please check it.. ");
-		    else 
-		    {
-		    	logger.info("welcome..\n");
-		    
-			
-	while(true) {
-		
-		menuadmin();
-		adnum=s1.nextInt();
-		
-		
-		
-		
-		
-		
-		
-switch(adnum)
-{
-
-
-case 1:
-{
-	
-
-	logger.info("please enter the information about your product:\n");
-
-	product p=new product();
-	logger.info("Category: ");
-	category=s1.next();
-	logger.info("name: ");
-	name=s1.next();
-	logger.info("picture: ");
-	picture=s1.next();
-	logger.info("description: ");
-	description=s1.next();
-	
-	
-
-	logger.info("Product created successfully, if you want to check it enter 1  ");
-	if (s1.nextInt()==1)
-	{db.create_prod( category, name, picture, description,10);
-	for (int i=0 ;i < db.dbproduct.size();i++)
-	{
-		
-		logger.info("  "+db.dbproduct.get(i).SN);
-		logger.info("  "+db.dbproduct.get(i).name);
-		logger.info("  "+db.dbproduct.get(i).Category);
-		logger.info("  "+db.dbproduct.get(i).description);
-			
-		logger.info("  "+db.dbproduct.get(i).picture);
-		logger.info("\n");
-	}
-	}
-	break;
-}
-
-
-
-case 2:
-{
-	
-	
-
-	logger.info("please enter the  new information about your product\n");
-	logger.info("SN of your product:\n");
-	sn=s1.next();
-	logger.info("new Category:\\n");
-	category=s1.next();
-	logger.info("new name:\n");
-	name=s1.next();
-	logger.info("new picture:\n");
-	picture=s1.next();
-	logger.info("new pdescription:\n");
-	description=s1.next();
-	
-	db.update_prod(sn, category, name, picture, description);
-	for (int i=0 ;i < db.dbproduct.size();i++)
-	{
-		
-		logger.info(db.dbproduct.get(i).SN);
-		logger.info(db.dbproduct.get(i).Category);
-		logger.info(db.dbproduct.get(i).description);
-			logger.info(db.dbproduct.get(i).name);
-			logger.info("\n");
-			
-	}
-	break;
-	
-}
-
-case 3:
-{
-	logger.info("please enter the SN of your product\n");
-	logger.info("SN\n");
-	sn=s1.next();
-	product p2=new product();
-	db.delete_prod(sn);
-  	for (int i=0 ;i <db.dbproduct.size();i++)
-	{
-		
-  		logger.info(db.dbproduct.get(i).SN);
-  		logger.info(db.dbproduct.get(i).Category);
-  		logger.info(db.dbproduct.get(i).description);
-  		logger.info(db.dbproduct.get(i).name);
-  		logger.info(db.dbproduct.get(i).picture);
-  		logger.info("\n");
-	}
-	break;
-	
-	
-}
-
-case 4:
-{
-	
-	report.showall();
-	
-	
-	break;
-	
-	
-	
-	
-}
-
-
-case 5:
-{
-	db.encome();
-	break;
-	
-	
-	
-}
-case 6:
-{
-	
-	
-	db.showAllOrder();
-	break;
-}
- 
-
-case 7:
-{
-	db.dept();
-	break;
-}
-
-
-
-case 8:
-{Scanner s8=new Scanner(System.in);
-	
-	String namuser;
-	logger.info("enter the name of the user you want to search for:\n");
-	
- namuser=	s8.nextLine ();
-	
-db.search_user(namuser);
-break;
-	
-}
-case 9:
-{
-	Scanner s9=new Scanner(System.in);
-	String namPRO;
-	
-	logger.info("enter the name of the product you want to search for:\n");
-
-namPRO=	s9.nextLine ();
-
-db.search_product(namPRO);
-break;
-	
-}
-
-case 10:
-{
-	break three;
-}
-
-
-case 11:
-{
-	break three2;
-}
-default :{
-	logger.info("the enter is wrong!");
-}
-
-}
-
-}
-		} 
-				}}	
+			cas1();
 		
 }
 		
 		case 2:
 		{
-			logger.info("\n Exiting the program");
+			logger.info("\n Exiting the program..");
 		      return;
 		}
 		default : {
@@ -500,7 +516,7 @@ default :{
 		
 		
 		}
-	}}
+	}
 }
 
 static void menuworker()
@@ -871,7 +887,7 @@ account ();
 	case 3:
 		{
 			
-			logger.info("\n Exiting the program");
+			logger.info("\n Exiting the program...");
 			      return;
 			  
 		}
