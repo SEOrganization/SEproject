@@ -149,7 +149,7 @@ public class Main {
 			
 				
 				
-				if (worlogin ==false)
+				if (!worlogin)
 					logger.info("\n Your email or password is incorrect, please check it .");
 			    else 
 			    {
@@ -587,7 +587,7 @@ account ();
 	String iduser=db.return_id2(email,password);
 	
 	
-	if (userlog ==false)
+	if (!userlog )
 		logger.info("\n Your email or password is incorrect, please check it..... ");
     else 
     {
@@ -658,7 +658,10 @@ account ();
 	{
 		
 		
-		boolean e=false,log=false,debt=true,logout=false ;
+		boolean e=false;
+		boolean log=false;
+		boolean debt=true;
+		boolean logout=false ;
 		logout=db.logout_completely(iduser);	
 		logger.info("id_user:"+iduser);
     		
