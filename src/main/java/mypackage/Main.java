@@ -7,7 +7,8 @@ import javax.swing.JOptionPane;
 public class Main {
 
 	private static final Logger logger = Logger.getLogger(Main.class.getName());
-
+	static String dub = "\n choose one of the options:";
+	
 static void menuuser()
 { 
 	logger.info("*   press 1 if you want to modify your information in the cleaning Application.               * \n");
@@ -20,7 +21,7 @@ static void menuuser()
 	logger.info("|   press 8 if you want to log out                                                            | \n");
 	logger.info("|   press 9 if you want to go to main page                                                    | \n");
 
-	logger.info("\n choose one of the options: ");	
+	logger.info(String.format("%s.", dub));	
 	
 	
 	
@@ -41,7 +42,7 @@ static void menuadmin()
 	logger.info("|   press 10 if you want to log out                                                           | \n");
 	logger.info("|   press 11 if you want to go to main page                                                   | \n");
 
-	logger.info("\n choose one of the options: ");	
+	logger.info(String.format("%s.", dub));	
 }
 
 static void menuworker()
@@ -52,7 +53,7 @@ static void menuworker()
 	logger.info("|   press 4 if you want to log out                                                                | \n");
 	logger.info("|   press 5 if you want to go to main page                                                        | \n");
 
-	logger.info("\n choose one of the options: ");
+	logger.info(String.format("%s.", dub));	
 
 	
 }
@@ -61,7 +62,7 @@ static void choice()
 	logger.info("|   press 1 if you are user                                                                    | \n");
 	logger.info("*   press 2 if you are worker                                                                  * \n");
 	logger.info("|   press 3 if you are admin                                                                   | \n");
-	logger.info("\n choose one of the options: ");	
+	logger.info(String.format("%s.", dub));	
 }
 
 static void account()
@@ -69,7 +70,7 @@ static void account()
 	logger.info("|   press 1 if you have an account                                                            | \n");
 	logger.info("*   press 2 if you want to creat account                                                       * \n");
 	logger.info("|   press 3 if you want to exite from app                                                     | \n");
-	logger.info("\n choose one of the options: ");	
+	logger.info(String.format("%s.", dub));	
 	
 }
 
@@ -77,7 +78,7 @@ static void account2()
 {
 	logger.info("|   press 1 if you have an account                                                            | \n");
 	logger.info("|   press 2 if you want to exite from app                                                     | \n");
-	logger.info("\n choose one of the options: ");	
+	logger.info(String.format("%s.", dub));	
 	
 }
 
