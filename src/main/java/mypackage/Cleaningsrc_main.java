@@ -9,7 +9,7 @@ public class Cleaningsrc_main {
 	
 static void menu_user()
 { 
-	//System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+	System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
     System.out.print("*   press 1 if you want to modify your information in the cleaning Application.               * \n");
 	System.out.print("|   press 2 if you want to delete your account from the cleaning Application.                 | \n");
 	System.out.print("|   press 3 if you want to create new order.                                                  | \n");
@@ -85,7 +85,6 @@ static void account2()
 {
 	System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 	 System.out.print("|   press 1 if you have an account                                                            | \n");
-	 //System.out.print("*   press 2 if you want to creat account                                                       * \n");
 	 System.out.print("|   press 2 if you want to exite from app                                                     | \n");
 	 System.out.print("**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-** \n");
 	 System.out.print("\n choose one of the options: ");	
@@ -117,13 +116,11 @@ static void account2()
 		user d=new user();
 		boolean user_log = false;
 		boolean adm;
-	//	admin admn=new admin();
 		String SN = "";
 		 String Category = null;
 		 String name = null;
 		 String picture = null;
 		 String description = null;
-		// product pro=new product();
 		
 			 choice();
 		 
@@ -155,7 +152,7 @@ static void account2()
 			switch (num)
 			{
 		
-			case 1://user 
+			case 1: 
 			{
 			while(true) {
 				one:
@@ -203,9 +200,7 @@ static void account2()
 	    		
 	    		
 	    		
-	    		/////////////////////////
 	    		System.out.print(" enter your new information: \n");
-	    		//System.out.print(" enter new id:");id=scan.nextLine();
 	        	System.out.print(" enter new name: ");	
 	        	name1=scan.nextLine();
 	        	  scan.nextLine();
@@ -224,7 +219,6 @@ static void account2()
 	    		}
 	    		info=db.check_info_True(2,id1,phone1,email,password);	
 	    		if(!info) {
-	    		//	System.out.println("You already have an account.Please re_enter your information ");
 	    			menu_user();	continue;
 	    		}
 	    	
@@ -247,7 +241,6 @@ static void account2()
 				boolean e=false,log=false,debt=true,logout=false ;
 				logout=db.logout_completely(id_user);	
 				System.out.print("id_user:"+id_user);
-		    	//	logout=db.logout_completely(email);
 		    		
 		    	
 		     if(logout)System.out.print("Your account has been cancelled");
@@ -290,12 +283,11 @@ static void account2()
 				break;
 				
 				
-	//id_user2 must be the same id when login the app			
 				
 				
 				
 				
-			}//case 3 creat order 
+			}
 			
 			
 			
@@ -345,11 +337,11 @@ static void account2()
 				Scanner sca = new Scanner(System.in);
 
 				System.out.print(" enter your id of order:");
-				//sca.nextLine();
+				
 				id_order=sca.nextLine();
 		         
 				db.info_order(id_user,id_order );
-				//System.out.println(id_user+id_order);
+				
 				break;
 			}
 	        
@@ -391,7 +383,7 @@ static void account2()
 				}
 				break;
 			}
-			case 8://logout
+			case 8:
 			{
 				
 				break one;
@@ -401,23 +393,23 @@ static void account2()
 				break one2;
 			}
 			
-	        }//swithc2
+	        }
 	        
 	       
 	        
-	        }//while2
-		    }//else
+	        }
+		    }
 			
 			break;
 			
 			
 			
 			
-				}//while at one
-				}//one
-			}///if have account
+				}
+				}
+			}
 			
-			case 2://i am here 
+			case 2: 
 			{
 				
 				 System.out.print(" enter your id:");
@@ -438,7 +430,6 @@ static void account2()
 		    	
 		   
 			
-		    		// System.out.print("id="+id+"   phone="+phone+"   name="+name+"   email="+email+"   password="+password+"   address="+address);
 			
 		    		 fill=db.check_fill_fields(id1, phone1, name1, email, address1, password);
 			if(!fill) {
@@ -455,7 +446,6 @@ static void account2()
 			info=db.check_info_True(1,id1,phone1,email,password);	
 			
 			if(!info) {
-				//System.out.print("You already have an account.Please re_enter your information ");
 				menu_user();		continue;
 			}
 			
@@ -486,7 +476,7 @@ static void account2()
 		}
 		}
 			}
-		}//case1 in choice
+		}
 		
 		
 		
@@ -502,7 +492,6 @@ static void account2()
 		   while(true)
 			{
 			   two2:{
-				//menu_worker();
 				account2();
 				ch2=s.nextInt();
 				
@@ -577,7 +566,6 @@ static void account2()
 					String id_u;
 					boolean f;
 					email_new e=new email_new();
-					//Scanner scan10 = new Scanner(System.in);
 					System.out.print("enter the id order :");
 					id_o=scan.nextLine();
 					e_o=db.re_id(id_o);
@@ -614,9 +602,9 @@ static void account2()
 			
 		
 			
-		}}}//two,while,case
+		}}}
 				
-				//hala come here 
+				 
 				case 2:
 				{
 					 System.out.println("\n Exiting the program");
@@ -634,11 +622,11 @@ static void account2()
 		
 		
 			}
-		}//case2
+		}
 				
 		
 		
-		//amdin
+		
 		case 3:
 		{
 			
@@ -700,8 +688,7 @@ static void account2()
 			
 
         	System.out.print("please enter the information about your product:\n");
-        	//System.out.print("SN");
-        //	SN=s.next();
+       
         	product p=new product();
         	System.out.print("Category: ");
         	Category=s1.next();
@@ -712,7 +699,7 @@ static void account2()
         	System.out.print("description: ");
         	description=s1.next();
         	
-   		// product p1=new product();
+   		
 
         	System.out.print("Product created successfully, if you want to check it enter 1  ");
         	if (s1.nextInt()==1)
@@ -730,7 +717,7 @@ static void account2()
         	}
         	}
         	break;
-		}//create
+		}
 		
 		
 		
@@ -833,7 +820,7 @@ static void account2()
 			
 			String nam_user;
 			System.out.print("enter the name of the user you want to search for:\n");
-			//s.nextLine ();
+			
 		 nam_user=	s8.nextLine ();
 			
 		db.search_user(nam_user);
@@ -846,7 +833,7 @@ static void account2()
 			String nam_PRO;
 			
 			System.out.print("enter the name of the product you want to search for:\n");
-		//	s.nextLine ();
+		
 		nam_PRO=	s9.nextLine ();
 		
 		db.search_product(nam_PRO);
@@ -868,8 +855,8 @@ static void account2()
 		}
 		
 		}
-				}//else 
-						}}	//while and three
+				} 
+						}}	
 				
 		}
 				
@@ -895,7 +882,7 @@ static void account2()
 				
 				}
 			}}
-		}//case 3 admain
+		}
 		
 		
 		
@@ -907,13 +894,13 @@ static void account2()
 		
 		
 		
-		}//switch
+		}
 			
 		
 		
 		
 		
-		}//while big
+		}
 		
 	
 	
