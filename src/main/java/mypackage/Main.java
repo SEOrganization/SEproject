@@ -16,12 +16,12 @@ public class Main {
 	  static states sta=new states ();
 	  static work wok =new work ();
 	  static	int m;
-	  static String id1="";
-	 static String phone1="";
-	  static String name1="";
-	  static String address1="";
-	  static String  id_order="";
-			static String type="";
+	  static String id1;
+	 static String phone1;
+	  static String name1;
+	  static String address1;
+	  static String  idorder;
+			static String type;
 	  static int count;
 	  static boolean fill=false;
 	  static boolean exist=false;
@@ -32,7 +32,7 @@ public class Main {
 	  static int num1;
 		
 	  static user d=new user();
-	  static boolean user_log = false;
+	  static boolean userlog = false;
 	  static	boolean adm;
 	  static String SN = "";
 	  static String Category = null;
@@ -41,12 +41,12 @@ public class Main {
 	  static String description = null;
 	  static void worker() {
 
-		   boolean wor_login =false;
+		   boolean worlogin =false;
 		   int ch2;
 		   int numw ;
-		   String id_w;
+		   String idw;
 		  String houres="0";
-		  String e_w,p_w;
+		  String ew,pw;
 		   while(true)
 			{
 			   two2:{
@@ -62,17 +62,17 @@ public class Main {
 					{
 						
 						logger.info("\n Your email:");
-					 e_w=s.next();
+					 ew=s.next();
 					
 					 logger.info("\n Your Password:");
-					p_w=s.next();
+					pw=s.next();
 					
 					
-					wor_login=	db.check_if_exi8(e_w,p_w);
+					worlogin=	db.check_if_exi8(ew,pw);
 				
 					
 					
-					if (wor_login ==false)
+					if (worlogin ==false)
 						logger.info("\n Your email or password is incorrect, please check it ");
 				    else 
 				    {
@@ -109,8 +109,8 @@ public class Main {
 				{
 					
 					
-					id_w=db.return_id(e_w,p_w);
-					logger.info("The Balance of worker with email "+e_w+"\t is:"+db.clac_balace(id_w, houres));
+					idw=db.return_id(ew,pw);
+					logger.info("The Balance of worker with email "+ew+"\t is:"+db.clac_balace(idw, houres));
 					
 					
 					break;
@@ -119,20 +119,20 @@ public class Main {
 				case 3:
 				{
 					
-					String id_o;
-					String e_o;
+					String ido;
+					String eo;
 					String id_u;
 					boolean f;
 					email_new e=new email_new();
 					logger.info("enter the id order :");
-					id_o=scan.nextLine();
-					e_o=db.re_id(id_o);
-					id_u=db.re_id_user(id_o);
-					f=db.is_complete(id_u, id_o);
+					ido=scan.nextLine();
+					eo=db.re_id(ido);
+					id_u=db.re_id_user(ido);
+					f=db.is_complete(id_u, ido);
 					if (f) {
 						logger.info("wait to send email........");
-					e.send_email(e_o,id_o);
-					logger.info(e_o+id_o);
+					e.send_email(eo,ido);
+					logger.info(eo+ido);
 					}
 					
 					break;
@@ -217,9 +217,9 @@ static void menuadmin()
 
 }
 static void admin() {
-	int  ad_login =0;
+	int  adlogin =0;
 	
-	int ad_num;
+	int adnum;
 	int ch ;
 	
 	Scanner s1=new Scanner(System.in);
@@ -244,11 +244,11 @@ static void admin() {
 			password=s1.next();
 			
 			
-			ad_login=	admin.check(email,password);
+			adlogin=	admin.check(email,password);
 		
 			
 			
-			if (ad_login ==0)
+			if (adlogin ==0)
 				logger.info("\n Your email or password is incorrect, please check it ");
 		    else 
 		    {
@@ -258,7 +258,7 @@ static void admin() {
 	while(true) {
 		
 		menuadmin();
-		ad_num=s1.nextInt();
+		adnum=s1.nextInt();
 		
 		
 		
@@ -266,7 +266,7 @@ static void admin() {
 		
 		
 		
-switch(ad_num)
+switch(adnum)
 {
 
 
@@ -404,25 +404,25 @@ case 7:
 case 8:
 {Scanner s8=new Scanner(System.in);
 	
-	String nam_user;
+	String namuser;
 	logger.info("enter the name of the user you want to search for:\n");
 	
- nam_user=	s8.nextLine ();
+ namuser=	s8.nextLine ();
 	
-db.search_user(nam_user);
+db.search_user(namuser);
 break;
 	
 }
 case 9:
 {
 	Scanner s9=new Scanner(System.in);
-	String nam_PRO;
+	String namPRO;
 	
 	logger.info("enter the name of the product you want to search for:\n");
 
-nam_PRO=	s9.nextLine ();
+namPRO=	s9.nextLine ();
 
-db.search_product(nam_PRO);
+db.search_product(namPRO);
 break;
 	
 }
@@ -534,11 +534,11 @@ account ();
 	
 	logger.info("\n Your Password:");
 	password=s.next();
-	user_log=db.check_email(email)&&db.check_pass(password);
-	String id_user=db.return_id2(email,password);
+	userlog=db.check_email(email)&&db.check_pass(password);
+	String iduser=db.return_id2(email,password);
 	
 	
-	if (user_log ==false)
+	if (userlog ==false)
 		logger.info("\n Your email or password is incorrect, please check it ");
     else 
     {
@@ -610,8 +610,8 @@ account ();
 		
 		
 		boolean e=false,log=false,debt=true,logout=false ;
-		logout=db.logout_completely(id_user);	
-		logger.info("id_user:"+id_user);
+		logout=db.logout_completely(iduser);	
+		logger.info("id_user:"+iduser);
     		
     	
      if(logout)logger.info("Your account has been cancelled");
@@ -633,7 +633,7 @@ account ();
 		
 		logger.info(" enter your id of order:");
 	       	
-        id_order=scan.nextLine();
+        idorder=scan.nextLine();
           scan.nextLine();
         
           logger.info(" enter your type: "); 
@@ -641,11 +641,11 @@ account ();
     		 logger.info(" enter your count: ");
     		 count=scan.nextInt();
     		 
-    		 db.createNewOrder(id_order, id_user, count, type);
+    		 db.createNewOrder(idorder, iduser, count, type);
     		 System.out.print(" your order is created  ");
     		 
     		 for(int i=0;i<db.dborder.size();i++) {
-    			 if ( db.dborder.get(i).id.equals(id_user)&&db.dborder.get(i).idorder.equals(id_order))
+    			 if ( db.dborder.get(i).id.equals(iduser)&&db.dborder.get(i).idorder.equals(idorder))
     				{logger.info("id= "+db.dborder.get(i).idorder+" , id user= "+db.dborder.get(i).id+" , type of order= "+db.dborder.get(i).name+" , discount= "+db.dborder.get(i).discount
     						+" , price= "+db.dborder.get(i).price+" , received date= "+db.dborder.get(i).lateDate+" , days left= "+db.dborder.get(i).timeReceipt+" , count= "+db.dborder.get(i).count);}
     				}
@@ -668,10 +668,10 @@ account ();
 		Scanner san=new Scanner(System.in);
 		
 		logger.info(" enter your id of order:");
-		id_order=san.nextLine();
+		idorder=san.nextLine();
          
 		
-		db.cancleorder(id_user,id_order);
+		db.cancleorder(iduser,idorder);
 		
 		
 		
@@ -689,9 +689,9 @@ account ();
 	case 5 :
 	{
 		logger.info(" enter your id of order:");
-			id_order=scan.nextLine();
+			idorder=scan.nextLine();
 	          scan.nextLine();
-		db.request_status(id_user, id_order);
+		db.request_status(iduser, idorder);
 		
 		for(int i=0;i<db.dborder.size();i++) {
 			 
@@ -709,9 +709,9 @@ account ();
 
 		logger.info(" enter your id of order:");
 		
-		id_order=sca.nextLine();
+		idorder=sca.nextLine();
          
-		db.info_order(id_user,id_order );
+		db.info_order(iduser,idorder );
 		
 		break;
 	}
@@ -725,10 +725,10 @@ account ();
 	String addres="";
 		boolean  com;
 		logger.info(" enter your id of order:");
-		id_order=scan.nextLine();
+		idorder=scan.nextLine();
           scan.nextLine();
 
-		com=db.is_complete(id_user, id_order);
+		com=db.is_complete(iduser, idorder);
 		
 		if (!com)
 		{
@@ -736,10 +736,10 @@ account ();
 		}
 		if(com) 
 		{
-		o=db.ret(id_user, id_order);
+		o=db.ret(iduser, idorder);
 		
 		for(int i=0;i<db.dbuser.size();i++) {
-			if(db.dbuser.get(i).id.equals(id_user)) {
+			if(db.dbuser.get(i).id.equals(iduser)) {
 				nuser=db.dbuser.get(i).name;
 				addres=db.dbuser.get(i).address;
 			}
