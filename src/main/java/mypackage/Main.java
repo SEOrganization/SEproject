@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 public class Main {
 
 	
-static void menu_user()
+static void menuuser()
 { 
 	System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
     System.out.print("*   press 1 if you want to modify your information in the cleaning Application.               * \n");
@@ -27,7 +27,7 @@ static void menu_user()
 	
 	
 }
-static void menu_admin()
+static void menuadmin()
 {
 	
 	System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
@@ -47,7 +47,7 @@ static void menu_admin()
 	System.out.print("\n choose one of the options: ");	
 }
 
-static void menu_worker()
+static void menuworker()
 {
 	System.out.print("\n*-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
 	System.out.print("|   press 1 if you want to enter the number of hours.                                             | \n");
@@ -175,7 +175,7 @@ static void account2()
 	        
 	       
 	        while(true) {
-	        	menu_user();
+	        	menuuser();
 	            num1=s.nextInt();	
 	        switch (num1)
 	        {
@@ -215,11 +215,11 @@ static void account2()
 	        	fill=db.check_fill_fields(id1, phone1, name1, email, address1, password);
 	    		if(!fill) {
 	    			System.out.println("All fields are required! Please re_enter your information ");
-	    			menu_user();		continue;
+	    			menuuser();		continue;
 	    		}
 	    		info=db.check_info_True(2,id1,phone1,email,password);	
 	    		if(!info) {
-	    			menu_user();	continue;
+	    			menuuser();	continue;
 	    		}
 	    	
 	    		db.modify_information(id1, phone1, name1, email, address1, password);
@@ -434,19 +434,19 @@ static void account2()
 		    		 fill=db.check_fill_fields(id1, phone1, name1, email, address1, password);
 			if(!fill) {
 				System.out.print("All fields are required! Please re_enter your information ");
-				menu_user(); continue;
+				menuuser(); continue;
 			} 
 			exist=db.check_if_exist(id1);
 			if(!exist) {
 				System.out.print("You already have an account.Please re_enter your information 1010 ");
-				menu_user();continue;
+				menuuser();continue;
 			}
 			
 			 
 			info=db.check_info_True(1,id1,phone1,email,password);	
 			
 			if(!info) {
-				menu_user();		continue;
+				menuuser();		continue;
 			}
 			
 			 db.creatNewUser( id1, phone1, name1, email,  address1,  password);
@@ -523,7 +523,7 @@ static void account2()
 					
 			while(true) {
 				
-				menu_worker();
+				menuworker();
 				
 				numw=s.nextInt();
 				
@@ -670,7 +670,7 @@ static void account2()
 					
 			while(true) {
 				
-				menu_admin();
+				menuadmin();
 				ad_num=s1.nextInt();
 				
 				
