@@ -48,7 +48,7 @@ public class Main {
 	  static String ew;
 	  static String pw;
 	  static void els() {
-		  logger.info("welcome\n");
+		  logger.info("welcome.\n");
 		    
 			
 			while(true) {
@@ -273,7 +273,7 @@ static void admin() {
 				logger.info("\n Your email or password is incorrect, please check it ");
 		    else 
 		    {
-		    	logger.info("welcome\n");
+		    	logger.info("welcome..\n");
 		    
 			
 	while(true) {
@@ -563,7 +563,7 @@ account ();
 		logger.info("\n Your email or password is incorrect, please check it ");
     else 
     {
-    	logger.info("welcome\n");
+    	logger.info("welcome...\n");
     
    
     while(true) {
