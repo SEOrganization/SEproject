@@ -60,6 +60,7 @@ static void choice()
 	logger.info("|   press 3 if you are admin                                                                   | \n");
 }
 
+
 static void account()
 {
 	logger.info("|   press 1 if you have an account                                                            | \n");
