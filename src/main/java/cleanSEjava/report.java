@@ -16,11 +16,11 @@ public class report {
 		   db4.showAllOrder();
 		   dep= db4.dept();
 		   if(!dep) {
-			   System.out.println("There is no dept to the users.");
+			//   System.out.println("There is no dept to the users.");
 		   }
 		   paay=stat.Pay();
 		   if(!paay) {
-			   System.out.println("There are no orders delivered and depts paid by users.");
+			//   System.out.println("There are no orders delivered and depts paid by users.");
 		   }
 		return true;
 	}

@@ -13,11 +13,13 @@ public  ArrayList <work> dbworker=new ArrayList <work> ();
 
 	public user obj1=new user();
 	public user obj2=new user();
+	public user obj51=new user();
 	public product obj3=new product();
 	public product obj4=new product();
 	public product obj5=new product();
 	public order obj6=new order();
 	public order obj7=new order();
+	public order obj71=new order();
 	 int equ=0;
 		public work obj8=new work();
 		public work obj9=new work();
@@ -56,15 +58,15 @@ public  ArrayList <work> dbworker=new ArrayList <work> ();
 			if(dbuser.get(i).id.equals(iduser)) {
 				dbuser.get(i).point+=(quantity*equ);
 				pnt=dbuser.get(i).point;
-			//	System.out.println( "point real= "+dbuser.get(i).point);
+		 
 			}
 		}
 		obj.price=(quantity*equ);
-		//System.out.println( "point= "+pnt);
+	 
 		for(int i=0;i<dbuser.size();i++) {
-			//System.out.println("inside for...");
+			 
 			if(dbuser.get(i).id.equals(iduser)) {
-			//	System.out.println("insid if user");
+			 
 			if(pnt>=400 ) {
 				dis=(float)(0.1*obj.price);
 			}else dis=0;
@@ -72,23 +74,18 @@ public  ArrayList <work> dbworker=new ArrayList <work> ();
 		}
 		
 		obj.discount=(quantity*equ)-dis;
-		//System.out.println( "dis= "+dis);
-		////System.out.println( "equ= "+equ);
-		////System.out.println( "price= "+obj.price);
-		//System.out.println( "discount= "+obj.discount);
-			//day
+		 
 		LocalDate currentDate  = LocalDate.now();
-    // Get day from date when he request the order 
-  //  int day = currentDate.getDayOfMonth();
+    
     
 obj.StartDate=currentDate;
 	long days=0;
     for(int j=0;j<dborder.size();j++) {
-    	//if(db.dborder.get(j).id.equals(iduser)) {
+    	 
     	days+=dborder.get(j).timeReceipt;
-    //
+    
     }
-    //the date when add no. days of progress 
+    
  	LocalDate date2=currentDate.plusDays(days+2);
  	long daysDiff = 0;
  	 try {
@@ -99,16 +96,10 @@ obj.StartDate=currentDate;
  	   }catch(Exception e){
             e.printStackTrace();
         }
-		//this is the number of date
+		 
  	obj.timeReceipt=daysDiff;
     obj.paid=false;
- /*   for(int i=0;i<db.dbworker.size();i++) {
-    	if(db.dbworker.get(i).available) {
-    		obj.work_man=db.dbworker.get(i).id;
-    		db.dbworker.get(i).available=false;
-    		break;
-    	}
-    }	*/		
+ 	
 			
  for(int i=0;i<dbworker.size();i++) {
 	 if(dbworker.get(i).available) {
@@ -196,6 +187,17 @@ return	 null;
 		
 		dbproduct.add(obj3);
 
+		obj51.id="5";
+		obj51.address="zawata";
+		obj51.name="Rami";
+		obj51.phone="0597124134";
+		obj51.email="Rami@gmail.com";
+		obj51.password="Rami15";
+		obj51.log=true;
+		obj51.point=500;
+
+		dbuser.add(obj51);	
+		
 		obj4.Category="covers";
 		obj4.name="covers saxony";
 		obj4.picture="c2.jpg";
@@ -243,6 +245,18 @@ return	 null;
 		obj7.total_price1=55;
 		obj7.name_worker="salehshakhshir";
 		dborder.add(obj7);
+		
+		obj71.idorder="6";
+		obj71.id="5";
+		obj71.count=1;
+		obj71.lateDate=LocalDate.of(2023,4,30);
+		obj71.name="curtains";
+		obj71.timeReceipt=1;
+		obj71.price=40;
+		obj71.paid=false;
+		obj71.total_price1=40;
+		obj71.name_worker="salehshakhshir";
+		dborder.add(obj71);
 		
 		obj8.address="jenen";
 		obj8.email="farah@gmail.com";

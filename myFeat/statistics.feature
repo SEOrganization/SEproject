@@ -29,4 +29,9 @@ Scenario: view paid orders
 	When examines the orders received and pay their cost 
 	Then view information for paid orders
 	
-				
+
+Scenario: view paid an orders 
+	Given that an administrator with email "marah@gmail.com" and password "marah4" asks for debts that have been paid
+	When examines orders received and pay their cost 
+	Then view info. for paid orders
+					

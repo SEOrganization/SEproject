@@ -14,18 +14,34 @@ Scenario: Create a new order
 Then  the request is registered successfully
 
 
+Scenario: Create new order
+ Given that The user submits a new order in his bag and  he is already registered in the application
+ When  the user  number "5" enters the information of order which the number "6" quantity 3 and type is "carpet saxony"
+Then  the request is registered successfuly
+
+
 # not pass cause its in progress cause 5 day (this is the first order)
 Scenario: Cancellation of an order by the user
 Given that the user with the number "3" requests to cancel an order with number "3" before starting work on it
 When  the user with number "3" cancels his order with number "3"
 Then  the order was canceled successfully
 
+Scenario: Cancellation of  order by the user
+Given that the user with the no. "3" requests to cancel an order with number "4" before starting work on it
+When  the user with no "3" cancels his order with number "4"
+Then  the order  cancele successfully
 
 
 Scenario: Order status
 Given that the user with the number "3" requests the status of his request
 When  the user with number "3" requests the status of order number "3"
 Then  your order status will be displayed
+
+
+Scenario: Order status in app
+Given that user with the number "3" requests the status of his request
+When  the user with no "3" requests the status of order number "6"
+Then  the order status will be displayed
 
 
 

@@ -8,3 +8,5 @@ Scenario: Send an email to the user.
 	Given that order No. "3" of user No. "3" is ready
 	When order No. "3" is ready and under delivery, an email is sent to the user with hi email address "tahasoftware080@gmail.com" 
 	Then The email was sent successfully
+	
+		

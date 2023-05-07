@@ -5,6 +5,8 @@
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import cleanSEjava.admin;
@@ -89,5 +91,21 @@ public void view_information_for_paid_orders() {
 	assertTrue(pay); 
 }
 
+@Given("that an administrator with email {string} and password {string} asks for debts that have been paid")
+public void that_an_administrator_with_email_and_password_asks_for_debts_that_have_been_paid(String string, String string2) {
+	log=adm.check(string, string2); 
+}
+
+@When("examines orders received and pay their cost")
+public void examines_orders_received_and_pay_their_cost() {
+	if(log==1) {
+		pay=stat.Pay();	
+	}   
+}
+
+@Then("view info. for paid orders")
+public void view_info_for_paid_orders() {
+	assertFalse(pay); 
+}
 }
  

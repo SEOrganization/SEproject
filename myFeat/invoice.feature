@@ -8,7 +8,15 @@ Scenario: create invice for customer successful
     Then create invoice success
      
      
+ 
+Scenario: create an invice for customer successful
+    Given order with id "3" for the user's id "3" has been completed 
+    When the price of the order  "23"
+    And the price for delivery  "15"
+    And the toltal price  "35"
+    Then create an invoice success
      
+         
      
 
  Scenario: create invice for customer not successful
