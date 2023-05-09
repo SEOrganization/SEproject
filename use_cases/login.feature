@@ -22,6 +22,9 @@ And I chek for email and   password is "minna@gmail.com" "minna67"
 Then the user log in succeeds
 
 
+
+
+
 Scenario: user  cannot login
 Given that the user is not logged in
 And I chek for email and   password is "wrong" "wrong"
