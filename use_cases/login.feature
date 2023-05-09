@@ -8,6 +8,9 @@ Feature: login and logout
     And I check for the email  and pass <email><pass>
     Then the admin login is  <status> 
 
+
+
+
     Examples: 
       | email             | pass        |status |
       | "hala@gmail.com"  | "hala12"    |success|

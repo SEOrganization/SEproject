@@ -10,9 +10,12 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @CucumberOptions(
    
     features = "use_cases",
+    		plugin = {"summary","html:target/cucumber/wikipedia.html"} ,
+    				monochrome=true,
+    						snippets = SnippetType.CAMELCASE,
     glue = "mypackage"
-    ,plugin = {"pretty","html:target/outcucumber.html"} )
-
+    
+)
 public class test {
 
 }

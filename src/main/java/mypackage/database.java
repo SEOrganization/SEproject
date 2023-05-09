@@ -24,7 +24,8 @@ public  ArrayList <work> dbworker=new ArrayList <work> ();
 		public work obj8=new work();
 		public work obj9=new work();
 		public work obj10=new work();
-		
+		public user obj51=new user();
+		public order obj71=new order();
 
 
 	public database() {
@@ -261,6 +262,31 @@ return	 null;
 		obj10.workhouers="100";
 		obj10.available=true;
 		dbworker.add(obj10);
+		
+		
+	
+		obj51.id="5";
+		obj51.address="zawata";
+		obj51.name="Rami";
+		obj51.phone="0597124134";
+		obj51.email="Rami@gmail.com";
+		obj51.password="Rami15";
+		obj51.log=true;
+		obj51.point=500;
+
+		dbuser.add(obj51);
+		
+		obj71.idorder="6";
+		obj71.id="5";
+		obj71.count=1;
+		obj71.lateDate=LocalDate.of(2023,4,30);
+		obj71.name="curtains";
+		obj71.timeReceipt=1;
+		obj71.price=40;
+		obj71.paid=false;
+		obj71.total_price1=40;
+		obj71.name_worker="salehshakhshir";
+		dborder.add(obj71);
 		
 		
 		
