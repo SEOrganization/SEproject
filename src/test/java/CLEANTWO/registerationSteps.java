@@ -1,4 +1,4 @@
-package clean2;
+package CLEANTWO;
 
 import static org.junit.Assert.assertTrue;
 
@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+
+import CLEANTWO.DATABASE;
+import CLEANTWO.USER;
 
 import static org.junit.Assert.assertFalse;
 

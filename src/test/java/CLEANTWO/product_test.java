@@ -1,7 +1,10 @@
-package clean2;
-import clean2.*;
+package CLEANTWO;
+
 import static org.junit.Assert.assertTrue;
 
+import CLEANTWO.DATABASE;
+import CLEANTWO.PRODUCT;
+import CLEANTWO.USER;
 import io.cucumber.java.en.*;
 
 public class product_test {

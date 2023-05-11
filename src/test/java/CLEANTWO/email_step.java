@@ -1,7 +1,9 @@
-package clean2;
+package CLEANTWO;
 
 import static org.junit.Assert.assertTrue;
 
+import CLEANTWO.DATABASE;
+import CLEANTWO.EMAIL;
 import io.cucumber.java.en.*;
 
 public class email_step {

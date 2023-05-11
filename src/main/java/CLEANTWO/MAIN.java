@@ -1,4 +1,4 @@
-package clean2;
+package CLEANTWO;
 import java.lang.System.Logger.Level;
 import java.util.Scanner;
 import java.util.logging.Logger;

@@ -1,7 +1,9 @@
-package clean2;
+package CLEANTWO;
 
 import static org.junit.Assert.assertTrue;
 
+import CLEANTWO.ADMIN;
+import CLEANTWO.USER;
 import io.cucumber.java.en.*;
 
 

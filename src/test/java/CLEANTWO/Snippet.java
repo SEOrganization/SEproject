@@ -1,4 +1,4 @@
-package clean2;
+package CLEANTWO;
 
 public class Snippet {
 	public static void main(String[] args) {

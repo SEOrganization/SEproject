@@ -1,4 +1,4 @@
-package clean2;
+package CLEANTWO;
 
 public class REPORT {
 	
