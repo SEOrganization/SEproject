@@ -1,4 +1,4 @@
-package CLEANTWO;
+package hala;
 
 public class STATES {
 	

@@ -1,9 +1,9 @@
-package CLEANTWO;
+package hala;
 
 import static org.junit.Assert.assertTrue;
 
-import CLEANTWO.ADMIN;
-import CLEANTWO.REPORT;
+import hala.ADMIN;
+import hala.REPORT;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

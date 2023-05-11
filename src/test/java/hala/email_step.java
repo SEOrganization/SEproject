@@ -1,9 +1,9 @@
-package CLEANTWO;
+package hala;
 
 import static org.junit.Assert.assertTrue;
 
-import CLEANTWO.DATABASE;
-import CLEANTWO.EMAIL;
+import hala.DATABASE;
+import hala.EMAIL;
 import io.cucumber.java.en.*;
 
 public class email_step {

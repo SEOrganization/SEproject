@@ -1,4 +1,4 @@
-package CLEANTWO;
+package hala;
 import org.junit.runner.RunWith;
 
 

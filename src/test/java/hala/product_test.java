@@ -1,10 +1,10 @@
-package CLEANTWO;
+package hala;
 
 import static org.junit.Assert.assertTrue;
 
-import CLEANTWO.DATABASE;
-import CLEANTWO.PRODUCT;
-import CLEANTWO.USER;
+import hala.DATABASE;
+import hala.PRODUCT;
+import hala.USER;
 import io.cucumber.java.en.*;
 
 public class product_test {

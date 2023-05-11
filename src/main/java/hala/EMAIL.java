@@ -1,4 +1,4 @@
-package CLEANTWO;
+package hala;
 import java.util.Properties;
 
 import javax.mail.Message;

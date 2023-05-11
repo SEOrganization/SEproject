@@ -1,4 +1,4 @@
-package CLEANTWO;
+package hala;
 
 public class Snippet {
 	public static void main(String[] args) {

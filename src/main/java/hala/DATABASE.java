@@ -1,4 +1,4 @@
-package CLEANTWO;
+package hala;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class DATABASE {
 		 List <ORDER> dborder=new ArrayList <ORDER> ();
 		 List <PRODUCT> dbproduct=new ArrayList <PRODUCT> ();
 		  List <WORK> dbworker=new ArrayList <WORK> ();
-		  private static final Logger logger = Logger.getLogger(MAIN.class.getName());
+		  private static final Logger logger = Logger.getLogger(DATABASE.class.getName());
 			 USER obj1=new USER();
 			 USER obj2=new USER();
 			 PRODUCT obj3=new PRODUCT();

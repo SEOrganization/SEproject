@@ -1,10 +1,10 @@
-package CLEANTWO;
+package hala;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import CLEANTWO.DATABASE;
-import CLEANTWO.ORDER;
+import hala.DATABASE;
+import hala.ORDER;
 import io.cucumber.java.en.*;
 
 public class invoice_step {
