@@ -4,4 +4,55 @@
   <artifactId>CLEAN</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>HALA</name>
+  
+  
+ <dependencies>
+<dependency>
+<groupId>io.cucumber</groupId>
+<artifactId>cucumber-picocontainer</artifactId>
+<version>7.3.4</version>
+<scope>test</scope>
+</dependency>
+
+<dependency>
+<groupId>io.cucumber</groupId>
+<artifactId>cucumber-java</artifactId>
+<version>7.3.4</version>
+</dependency>
+<dependency>
+<groupId>io.cucumber</groupId>
+<artifactId>cucumber-core</artifactId>
+<version>7.3.4</version>
+</dependency>
+<dependency>
+<groupId>io.cucumber</groupId>
+<artifactId>cucumber-junit</artifactId>
+<version>7.3.4</version>
+<scope>test</scope>
+</dependency>
+
+
+
+
+
+
+
+
+    <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+ 
+
+</dependencies>
+
+<properties>
+
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
+  <sonar.organization>seorganization</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
 </project>
