@@ -9,15 +9,15 @@ public class PRODUCT {
 
 	
 
-	    public String SN;
-		public String Category;
-		public String name;
-		public String picture;
-		public String description;
-		public int  price;
+	     String sn;
+	 String category;
+	 String name;
+	 String picture;
+		 String description;
+		 int  price;
 
 
-	public static DATABASE db=new DATABASE();
+	 static DATABASE db=new DATABASE();
 
 	}
 

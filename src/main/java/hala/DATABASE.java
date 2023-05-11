@@ -74,7 +74,7 @@ public class DATABASE {
 				
 				LocalDate currentDate  = LocalDate.now();
 		   
-		obj.StartDate=currentDate;
+		obj.startdate=currentDate;
 			long days=0;
 		    for(int j=0;j<dborder.size();j++) {
 		    	
@@ -97,8 +97,8 @@ public class DATABASE {
 					
 		 for(int i=0;i<dbworker.size();i++) {
 			 if(dbworker.get(i).available) {
-				obj.id_worker= dbworker.get(i).id;
-				obj.name_worker= dbworker.get(i).name;
+				obj.idworker= dbworker.get(i).id;
+				obj.nameworker= dbworker.get(i).name;
 				 dbworker.get(i).idorder=idord;
 				 dbworker.get(i).available=false;
 			 }
@@ -107,7 +107,7 @@ public class DATABASE {
 				
 		 	obj.lateDate=date2;
 
-			obj.total_price1= (obj.discount+15);
+			obj.totalprice1= (obj.discount+15);
 
 			
 					dborder.add(obj);
@@ -170,29 +170,29 @@ public class DATABASE {
 
 				dbuser.add(obj2);
 				
-				obj3.Category="carpet";
+				obj3.category="carpet";
 				obj3.name="carpet saxony";
 				obj3.picture="c2";
-				obj3.SN="1";
+				obj3.sn="1";
 				obj3.description="wool";
 				obj3.price=20;
 				
 				dbproduct.add(obj3);
 
-				obj4.Category="covers";
+				obj4.category="covers";
 				obj4.name="covers saxony";
 				obj4.picture="c1";
-				obj4.SN="2";
+				obj4.sn="2";
 				obj4.description="wool";
 				obj4.price=15;
 				
 				dbproduct.add(obj4);
 
 				 
-				obj5.Category="callten";
+				obj5.category="callten";
 				obj5.name="curtains saxony";
 				obj5.picture="c3";
-				obj5.SN="3";
+				obj5.sn="3";
 				obj5.description="fabric";
 				obj5.price=10;
 				
@@ -207,9 +207,9 @@ public class DATABASE {
 				obj6.timeReceipt=0;
 				obj6.paid=false;
 				obj6.price=20;
-				obj6.name_worker="farahjabe";
-				obj6.id_worker="4";
-				obj6.total_price1=35;
+				obj6.nameworker="farahjabe";
+				obj6.idworker="4";
+				obj6.totalprice1=35;
 				
 				dborder.add(obj6);
 				
@@ -223,8 +223,8 @@ public class DATABASE {
 				obj7.timeReceipt=3;
 				obj7.price=40;
 				obj7.paid=false;
-				obj7.total_price1=55;
-				obj7.name_worker="salehaqad";
+				obj7.totalprice1=55;
+				obj7.nameworker="salehaqad";
 				dborder.add(obj7);
 				
 				obj8.address="jenen";
@@ -286,8 +286,8 @@ public class DATABASE {
 				obj71.timeReceipt=1;
 				obj71.price=40;
 				obj71.paid=false;
-				obj71.total_price1=40;
-				obj71.name_worker="salehshakhshir";
+				obj71.totalprice1=40;
+				obj71.nameworker="salehshakhshir";
 				dborder.add(obj71);
 				
 				
@@ -367,11 +367,11 @@ public class DATABASE {
 			{ PRODUCT obj16=new PRODUCT();
 				
 				
-					obj16.SN=Integer.toString(1+dbproduct.size());
+					obj16.sn=Integer.toString(1+dbproduct.size());
 
 				
 				
-				obj16.Category=category1;
+				obj16.category=category1;
 				obj16.name=name1;
 				obj16.picture=picture1;
 				obj16.description=description1;
@@ -432,23 +432,23 @@ public class DATABASE {
 			
 			public  void updateprod(String sn1,String category,String name1,String picture1,String description1) {
 				
-				PRODUCT obj1=new PRODUCT();
-				obj1.SN=sn1;
-				obj1.Category=category;
-				obj1.name=name1;
-				obj1.picture=picture1;
-				obj1.description=description1;
+				PRODUCT obj18=new PRODUCT();
+				obj18.sn=sn1;
+				obj18.category=category;
+				obj18.name=name1;
+				obj18.picture=picture1;
+				obj18.description=description1;
 				for (int i=0 ;i <dbproduct.size();i++)
 				{
-				if (dbproduct.get(i).SN.equals(sn1))
-					dbproduct.set(i,obj1);
+				if (dbproduct.get(i).sn.equals(sn1))
+					dbproduct.set(i,obj18);
 				}
 				
 			}
 			public  void deleteprod(String id) {
 				for (int i=0 ;i < dbproduct.size();i++)
 				{
-					if (dbproduct.get(i).SN.equals(id))
+					if (dbproduct.get(i).sn.equals(id))
 				{
 						dbproduct.remove(i);
 					
@@ -486,7 +486,7 @@ public class DATABASE {
 					logger.info(" | days left= "+dborder.get(i).timeReceipt);
 				
 					logger.info(" | count= "+dborder.get(i).count);
-					logger.info(" | name worker= "+dborder.get(i).name_worker);
+					logger.info(" | name worker= "+dborder.get(i).nameworker);
 					logger.info("\n");
 				}
 				return true;
@@ -572,11 +572,11 @@ public class DATABASE {
 			for(int i=0;i<dbproduct.size();i++ ) {
 				if(dbproduct.get(i).name.equals(name)) {
 				
-					logger.info("product's SN: "+dbproduct.get(i).SN);
+					logger.info("product's SN: "+dbproduct.get(i).sn);
 					logger.info("product's Name: "+dbproduct.get(i).name);
 					logger.info("product's description: "+dbproduct.get(i).description);
 					logger.info("product's price: "+dbproduct.get(i).price);
-					logger.info("product's Category: "+dbproduct.get(i).Category);
+					logger.info("product's Category: "+dbproduct.get(i).category);
 					 
 				 
 					return true;
@@ -829,7 +829,7 @@ public class DATABASE {
 
 					for (int i=0 ;i < dbproduct.size();i++)
 					{
-						if (dbproduct.get(i).SN.equals(sn))
+						if (dbproduct.get(i).sn.equals(sn))
 						{
 							return true;
 						}

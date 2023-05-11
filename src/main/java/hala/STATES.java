@@ -1,10 +1,12 @@
 package hala;
 
-public class STATES {
-	
+import java.util.logging.Logger;
 
-		public float encom;
-		public DATABASE db=new DATABASE();
+public class STATES {
+	  private static final Logger logger = Logger.getLogger(STATES.class.getName());
+
+		float encom;
+		 DATABASE db=new DATABASE();
 	 static  float deptamount;
 		
 		
@@ -13,10 +15,10 @@ public class STATES {
 
 	boolean flag=false;
 
-		public boolean Pay() {
+		public boolean pay() {
 			for (int i=0;i<db.dborder.size();i++) {
 				if(db.dborder.get(i).timeReceipt==0) {
-					System.out.println("order received and paid for: order number= "+db.dborder.get(i).idorder+"order price= "+db.dborder.get(i).price);
+logger.info("order received and paid for: order number= "+db.dborder.get(i).idorder+"order price= "+db.dborder.get(i).price);
 					flag=true;  
 				}
 			}	 

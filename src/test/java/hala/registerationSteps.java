@@ -38,7 +38,7 @@ public class registerationSteps {
 	}
 	@When("the user with id {string}   register in the App")
 	public void the_user_with_id_register_in_the_app(String string) {
-		 register=dbu.check_if_exist(string);
+		 register=dbu.checkifexist(string);
 	}
 	  
 	 
@@ -71,8 +71,8 @@ public void that_the_user_opened_sign_up_page() {
 }
 @When("the user with id {string} , phone {string} , name {string},email {string} ,address {string} , and password {string} is register")
 public void the_user_with_id_phone_name_email_address_and_password_is_register(String string, String string2, String string3, String string4, String string5, String string6) {
-	register2=dbu.check_if_exist(string);
-	fill=dbu.check_fill_fields(string,string2,string3,string4,string5,string6);
+	register2=dbu.checkifexist(string);
+	fill=dbu.checkfillfields(string,string2,string3,string4,string5,string6);
 	
 }
 
@@ -80,7 +80,7 @@ public void the_user_with_id_phone_name_email_address_and_password_is_register(S
 public void one_or_more_fields_are_not_filled() {
   if(register2 && fill&&signup)ass2=false;
   else if(!(register2 && fill)){ ass2=true;
-	dbu.message_for_user();
+	//dbu.messageforuser();
   }
 }
 
@@ -105,9 +105,9 @@ public void that_the_user_is_trying_to_log_into_the_application() {
 public void the_user_with_id_is_already_registered(String string) {
 	   logApp=dbu.logApp(string);
    if(logApp) {
-	   register3=dbu.check_if_exist(string);
+	   register3=dbu.checkifexist(string);
 	   if(!register3) {ass3=true;
-		dbu.message_for_user1();
+	//	dbu.messageforuser1();
 	   }
    }
 }
@@ -127,19 +127,19 @@ boolean removu,debt;
 @Given("that the user with id {string} register")
 public void that_the_user_with_id_register(String string) {
    logApp1=dbu.logApp(string);
-   f=dbu.check_if_exist(string);
+   f=dbu.checkifexist(string);
    id3=string;
 }
 
 @When("the user has no dabts to the company")
 public void the_user_has_no_dabts_to_the_company() {
-   debt=dbu.check_if_debt(id3);
+   debt=dbu.checkifdebt(id3);
 }
 
 @When("the user try to log out from the Application")
 public void the_user_try_to_log_out_from_the_application() {
     if(!f && logApp1) {
-    	removu= dbu.logout_completely(id3);
+    	removu= dbu.logoutcompletely(id3);
     }
 }
 

@@ -30,14 +30,14 @@ public class product_test {
 		 flag_created=false;
 		
 		 
-		flag_email=db.check_email(email);
+		flag_email=db.checkemail(email);
 		 
 
 	}
 
 	@And("there is a prodect  with Category {string} ,name {string},picture {string}, description {string}")
 	public void there_is_a_prodect_with_category_name_picture_description( String string2, String string3, String string4, String string5) {
-		db.create_prod( string2, string3, string4, string5,10);
+		db.createprod( string2, string3, string4, string5,10);
 		flag_created=true;
 	}
 
@@ -53,7 +53,7 @@ public class product_test {
 	public void that_the_user_with_email_want_to_delete_product(String email2) {
 		delete =false;
 
-		 flag_email=db.check_email(email2);
+		 flag_email=db.checkemail(email2);
 	   
 	   
 	   
@@ -61,7 +61,7 @@ public class product_test {
 
 	@Given("the producte with SN {string}")
 	public void the_producte_with_sn(String id) {
-	db.delete_prod(id);
+	db.deleteprod(id);
 	delete =true;
 	}
 
@@ -78,12 +78,12 @@ public class product_test {
 	@Given("that the user is created product with SN {string} successfully")
 	public void that_the_user_is_created_product_with_sn_successfully(String string) {
 		update=false;
-		flag_created=db.check_SN(string);
+		flag_created=db.checkSN(string);
 	}
 
 	@Given("the product with SN {string} , Category {string} ,name {string},picture {string}, description {string}")
 	public void the_product_with_sn_category_name_picture_description(String string, String string2, String string3, String string4, String string5) {
-		db.update_prod(string, string2, string3, string4,string5);
+		db.updateprod(string, string2, string3, string4,string5);
 		update=true;
 	}
 

@@ -1,5 +1,6 @@
 package hala;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -9,14 +10,13 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 public class EMAIL {
-	
+	  private static final Logger logger = Logger.getLogger(EMAIL.class.getName());
 
 		DATABASE db=new DATABASE();
-		public boolean send_email(String string2, String string) {
+		public boolean sendemail(String string2, String string) {
 			final String username = "softwareengn65@gmail.com";
 	        final String password = "ruvqofqzpfdlsuzs";
-
-	        Properties props = new Properties();
+	          Properties props = new Properties();
 	        props.put("mail.smtp.auth", "true");
 	        props.put("mail.smtp.starttls.enable", "true");
 	        props.put("mail.smtp.host", "smtp.gmail.com");
@@ -24,6 +24,7 @@ public class EMAIL {
 
 	        Session session = Session.getInstance(props,
 	          new javax.mail.Authenticator() {
+	            @Override
 	            protected PasswordAuthentication getPasswordAuthentication() {
 	                return new PasswordAuthentication(username, password);
 	            }
@@ -42,14 +43,14 @@ public class EMAIL {
 
 	            Transport.send(message);
 
-	            System.out.println("Notification Email Sent!");
+	            logger.info("Notification Email Sent!");
 
 	        } 
 	        catch (MessagingException e) {
 	        	
 	        	return false;
 	        }
-	       db. make_paid_true(string);
+	       db. makepaidtrue(string);
 	       
 			return true;
 		}

@@ -33,7 +33,7 @@ public void the_user_wants_to_modify_his_phone_to_name_to_email_to_adderss_to_an
 	address=string4;
 	password=string5;
 	if(log) {
-		modify=db.check_info_True(0,id,string,string3,string5);	//i don't think is needed
+		modify=db.checkinfoTrue(0,id,string,string3,string5);	//i don't think is needed
 		
 		
 	} 
@@ -44,7 +44,7 @@ public void the_user_wants_to_modify_his_phone_to_name_to_email_to_adderss_to_an
 public void the_user_modified_his_information_without_enter_wrong_or_similar_information_another_user() {
 if(modify) {
 		
-    	db.modify_information(id,phone,name,email,address,password);
+    	db.modifyinformation(id,phone,name,email,address,password);
     	
     }
 }

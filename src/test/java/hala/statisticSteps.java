@@ -84,7 +84,7 @@ public void that_the_administrator_with_email_and_password_asks_for_debts_that_h
 @When("examines the orders received and pay their cost")
 public void examines_the_orders_received_and_pay_their_cost() {
 	if(log==1) {
-		pay=stat.Pay();	
+		pay=stat.pay();	
 	}  
 }
 

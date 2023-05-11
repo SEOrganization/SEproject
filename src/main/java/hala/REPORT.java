@@ -1,27 +1,31 @@
 package hala;
 
+import java.util.logging.Logger;
+
 public class REPORT {
 	
-	
-		 static boolean encom=false,dep=false,paay=false;
+	 private static final Logger logger = Logger.getLogger(REPORT.class.getName());
+		 static boolean encom=false;
+		 static boolean dep=false;
+		 static	 boolean	 paay=false;
 		 static STATES stat=new STATES();
 		static DATABASE db4=new DATABASE();
 		
 		
 		public static  boolean showall() {
 			
-			  System.out.println("encome of the company: ");
+			logger.info("encome of the company: ");
 			   encom=db4.encome();
-			   System.out.println();
-			   System.out.println("show all orders in the company: ");
+			 
+			   logger.info("show all orders in the company: ");
 			   db4.showAllOrder();
 			   dep= db4.dept();
 			   if(!dep) {
-				   System.out.println("There is no dept to the users.");
+				   logger.info("There is no dept to the users.");
 			   }
-			   paay=stat.Pay();
+			   paay=stat.pay();
 			   if(!paay) {
-				   System.out.println("There are no orders delivered and depts paid by users.");
+				   logger.info("There are no orders delivered and depts paid by users.");
 			   }
 			return true;
 		}

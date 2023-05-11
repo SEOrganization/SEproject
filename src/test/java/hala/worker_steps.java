@@ -17,7 +17,7 @@ public class worker_steps {
 	@Given("that the worker  with email {string} and pass {string} want to log in to the application")
 	public void that_the_worker_with_email_and_pass_want_to_log_in_to_the_application(String string, String string2) {
 	    
-		db.check_if_exi8( string,  string2);
+		db.checkifexi8( string,  string2);
 		
 	}
 
@@ -44,7 +44,7 @@ String bala;
 boolean pas=false;
 @Given("that the worker  with email {string} and pass {string} want to enter the houres")
 public void that_the_worker_with_email_and_pass_want_to_enter_the_houres(String string, String string2) {
-	pas=db.check_email(string, string2);
+	pas=db.checkemail(string, string2);
 	if(pas)
 	log_wo=true;
 	  
@@ -53,7 +53,7 @@ public void that_the_worker_with_email_and_pass_want_to_enter_the_houres(String 
 
 @When("the worker records the number of hours worked per day {string}  and worker with id {string}")
 public void the_worker_records_the_number_of_hours_worked_per_day_and_worker_with_id(String string, String string2) {
-	bala=db.clac_balace(string2, string);
+	bala=db.clacbalace(string2, string);
 }
 
 

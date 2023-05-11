@@ -10,30 +10,28 @@ public class ORDER {
 	
 
 	
-		 public  String idorder;
-	     public  String SN;
-			public  String name;
-			public  String id;
-			public  int count;
-			public  float price;
+	  String idorder;
+	     String sn;
+			  String name;
+		 String id;
+			 int count;
+			  float price;
 			
-			public  float discount=0;
+		 float discount=0;
 			
-			public  long timeReceipt;
+		 long timeReceipt;
 		
-			public  LocalDate lateDate;
-			public  LocalDate StartDate;
+		  LocalDate lateDate;
+			  LocalDate startdate;
 		
-			public static DATABASE db=new DATABASE();
+			 static DATABASE db=new DATABASE();
 		
-			public float total_price1;
+			 float totalprice1;
 		
-			public  String name_worker ;
-			public   String id_worker;
-			public boolean paid=false;
-			public ORDER() {
-				
-			}
+			  String nameworker ;
+		   String idworker;
+			 boolean paid=false;
+		
 			
 			
 			
@@ -42,9 +40,9 @@ public class ORDER {
 			
 			
 		
-			public boolean is_price(float order_price,String iduser, String id) {
+			public boolean isprice(float orderprice,String iduser, String id) {
 				for(int i=0;i<db.dborder.size();i++) {
-					if(db.dborder.get(i).price== (order_price) && db.dborder.get(i).id.equals(iduser)&&db.dborder.get(i).idorder.equals(id)) 
+					if(db.dborder.get(i).price== (orderprice) && db.dborder.get(i).id.equals(iduser)&&db.dborder.get(i).idorder.equals(id)) 
 						return true;
 				}
 				

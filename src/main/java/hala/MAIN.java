@@ -85,8 +85,8 @@ public class MAIN {
 					{
 						
 						
-						idw=db.return_id(ew,pw);
-						logger.log(null,"The Balance of worker with email "+ew+"\t is:"+db.clac_balace(idw, houres));
+						idw=db.returnid(ew,pw);
+						logger.info("The Balance of worker with email "+ew+"\t is:"+db.clacbalace(idw, houres));
 						
 						
 						break;
@@ -102,12 +102,12 @@ public class MAIN {
 						EMAIL e=new EMAIL();
 						logger.info("enter the id order :");
 						ido=scan.nextLine();
-						eo=db.re_id(ido);
-						idu=db.re_id_user(ido);
-						f=db.is_complete(idu, ido);
+						eo=db.reid(ido);
+						idu=db.reiduser(ido);
+						f=db.iscomplete(idu, ido);
 						if (f) {
 							logger.info("wait to send email........");
-						e.send_email(eo,ido);
+						e.sendemail(eo,ido);
 						logger.log(null, eo+ido);
 						}
 						
@@ -148,7 +148,7 @@ public class MAIN {
 					pw=s.next();
 					
 					
-					worlogin=	db.check_if_exi8(ew,pw);
+					worlogin=	db.checkifexi8(ew,pw);
 				
 					
 					
@@ -188,6 +188,7 @@ public class MAIN {
 					case 1:
 					{
 						ca1();
+						break;
 					}
 					
 					 
@@ -313,13 +314,13 @@ public class MAIN {
 
 	logger.info("Product created successfully, if you want to check it enter 1  ");
 	if (s1.nextInt()==1)
-	{db.create_prod( category, name, picture, description,10);
+	{db.createprod( category, name, picture, description,10);
 	for (int i=0 ;i < db.dbproduct.size();i++)
 	{
 
-	logger.info("  "+db.dbproduct.get(i).SN);
+	logger.info("  "+db.dbproduct.get(i).sn);
 	logger.info("  "+db.dbproduct.get(i).name);
-	logger.info("  "+db.dbproduct.get(i).Category);
+	logger.info("  "+db.dbproduct.get(i).category);
 	logger.info("  "+db.dbproduct.get(i).description);
 		
 	logger.info("  "+db.dbproduct.get(i).picture);
@@ -348,12 +349,12 @@ public class MAIN {
 	logger.info("new pdescription:\n");
 	description=s1.next();
 
-	db.update_prod(sn, category, name, picture, description);
+	db.updateprod(sn, category, name, picture, description);
 	for (int i=0 ;i < db.dbproduct.size();i++)
 	{
 
-	logger.info(db.dbproduct.get(i).SN);
-	logger.info(db.dbproduct.get(i).Category);
+	logger.info(db.dbproduct.get(i).sn);
+	logger.info(db.dbproduct.get(i).category);
 	logger.info(db.dbproduct.get(i).description);
 		logger.info(db.dbproduct.get(i).name);
 		logger.info("\n");
@@ -369,12 +370,12 @@ public class MAIN {
 	logger.info("SN\n");
 	sn=s1.next();
 
-	db.delete_prod(sn);
+	db.deleteprod(sn);
 	for (int i=0 ;i <db.dbproduct.size();i++)
 	{
 
-		logger.info(db.dbproduct.get(i).SN);
-		logger.info(db.dbproduct.get(i).Category);
+		logger.info(db.dbproduct.get(i).sn);
+		logger.info(db.dbproduct.get(i).category);
 		logger.info(db.dbproduct.get(i).description);
 		logger.info(db.dbproduct.get(i).name);
 		logger.info(db.dbproduct.get(i).picture);
@@ -432,7 +433,7 @@ public class MAIN {
 
 	namuser=	s8.nextLine ();
 
-	db.search_user(namuser);
+	db.searchuser(namuser);
 	break;
 
 	}
@@ -445,7 +446,7 @@ public class MAIN {
 
 	namPRO=	s9.nextLine ();
 
-	db.search_product(namPRO);
+	db.searchproduct(namPRO);
 	break;
 
 	}
@@ -491,6 +492,7 @@ public class MAIN {
 			{	
 				
 				cas1();
+				break;
 			
 	}
 			
@@ -585,8 +587,8 @@ public class MAIN {
 		
 		logger.info("\n Your Password::::");
 		password=s.next();
-		userlog=db.check_email(email)&&db.check_pass(password);
-		String iduser=db.return_id2(email,password);
+		userlog=db.checkemail(email)&&db.checkpass(password);
+		String iduser=db.returnid2(email,password);
 		
 		
 		if (!userlog )
@@ -617,7 +619,7 @@ public class MAIN {
 		id1=scan.nextLine();
 		
 		
-		existing=db.check_if_exist(id1);
+		existing=db.checkifexist(id1);
 		if(!existing) {
 			
 			
@@ -634,17 +636,17 @@ public class MAIN {
 	        email=scan.nextLine();	
 	        logger.info("  enter new password:");	
 	    	password=scan.nextLine();
-	    	fill=db.check_fill_fields(id1, phone1, name1, email, address1, password);
+	    	fill=db.checkfillfields(id1, phone1, name1, email, address1, password);
 			if(!fill) {
 				logger.info("All fields are required! Please re_enter your information ");
 				menuuser();		continue;
 			}
-			info=db.check_info_True(2,id1,phone1,email,password);	
+			info=db.checkinfoTrue(2,id1,phone1,email,password);	
 			if(!info) {
 				menuuser();	continue;
 			}
 		
-			db.modify_information(id1, phone1, name1, email, address1, password);
+			db.modifyinformation(id1, phone1, name1, email, address1, password);
 			
 			
 			
@@ -664,7 +666,7 @@ public class MAIN {
 			boolean log=false;
 			boolean debt=true;
 			boolean logout=false ;
-			logout=db.logout_completely(iduser);	
+			logout=db.logoutcompletely(iduser);	
 			logger.info("id_user:"+iduser);
 	    		
 	    	
@@ -696,7 +698,7 @@ public class MAIN {
 	    		 count=scan.nextInt();
 	    		 
 	    		 db.createNewOrder(idorder, iduser, count, type);
-	    		 System.out.print(" your order is created  ");
+	    		 logger.info(" your order is created  ");
 	    		 
 	    		 for(int i=0;i<db.dborder.size();i++) {
 	    			 if ( db.dborder.get(i).id.equals(iduser)&&db.dborder.get(i).idorder.equals(idorder))
@@ -745,7 +747,7 @@ public class MAIN {
 			logger.info(" enter your id of order:");
 				idorder=scan.nextLine();
 		          scan.nextLine();
-			db.request_status(iduser, idorder);
+			db.requeststatus(iduser, idorder);
 			
 			for(int i=0;i<db.dborder.size();i++) {
 				 
@@ -765,7 +767,7 @@ public class MAIN {
 			
 			idorder=sca.nextLine();
 	         
-			db.info_order(iduser,idorder );
+			db.infoorder(iduser,idorder );
 			
 			break;
 		}
@@ -782,7 +784,7 @@ public class MAIN {
 			idorder=scan.nextLine();
 	          scan.nextLine();
 
-			com=db.is_complete(iduser, idorder);
+			com=db.iscomplete(iduser, idorder);
 			
 			if (!com)
 			{
@@ -803,7 +805,7 @@ public class MAIN {
 			        +o.id+"\n The id order:"+o.idorder+"\n The type "
 			        +o.name+"\n The price: "+o.price+
 			         "\n The price after discount: "+o.discount+"\n The count :"
-					+o.count+" \n delvery= 15 "+"\n The total price"+o.total_price1,"Invoice",JOptionPane.INFORMATION_MESSAGE);
+					+o.count+" \n delvery= 15 "+"\n The total price"+o.totalprice1,"Invoice",JOptionPane.INFORMATION_MESSAGE);
 			
 			}
 			break;
@@ -834,6 +836,7 @@ public class MAIN {
 		
 			}
 			}
+		break;
 		}
 		
 		case 2: 
@@ -858,19 +861,19 @@ public class MAIN {
 	   
 		
 		
-	    		 fill=db.check_fill_fields(id1, phone1, name1, email, address1, password);
+	    		 fill=db.checkfillfields(id1, phone1, name1, email, address1, password);
 		if(!fill) {
 			logger.info("All fields are required! Please re_enter your information ");
 			menuuser(); continue;
 		} 
-		exist=db.check_if_exist(id1);
+		exist=db.checkifexist(id1);
 		if(!exist) {
 			logger.info("You already have an account.Please re_enter your information 1010 ");
 			menuuser();continue;
 		}
 		
 		 
-		info=db.check_info_True(1,id1,phone1,email,password);	
+		info=db.checkinfoTrue(1,id1,phone1,email,password);	
 		
 		if(!info) {
 			menuuser();		continue;
@@ -922,6 +925,7 @@ public class MAIN {
 		case 1:
 		{
 			 user ();
+			 break;
 		
 		}
 		
@@ -932,6 +936,7 @@ public class MAIN {
 		case 2:
 		{
 			worker();
+			break;
 		}
 				
 		
@@ -940,6 +945,7 @@ public class MAIN {
 		case 3:
 		{
 			admin();
+			break;
 		
 		}
 		

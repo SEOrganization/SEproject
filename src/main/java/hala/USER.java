@@ -1,7 +1,7 @@
 package hala;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.List;
 import javax.swing.JOptionPane;
 public class USER {
 	
@@ -10,13 +10,13 @@ public class USER {
 
 
 	
-		public String address;
-		public String email;
-		public String name;
-		public String id;
-		public String password;
-		public String phone;
-		public float point=0;
+		 String address;
+		 String email;
+	 String name;
+		 String id;
+	 String password;
+		 String phone;
+		 float point=0;
 		
 		
 		
@@ -28,21 +28,21 @@ public class USER {
 		
 
 		USER u1;
-		 public static ArrayList <USER> user_array=new ArrayList <USER> ();
-		 public boolean log=false;
-			public static DATABASE db=new DATABASE();
+		 public static List <USER> userarray=new  ArrayList <USER> ();
+		 boolean log=false;
+			 static DATABASE db=new DATABASE();
 			
 		 
 		 public USER()
 		 {
-			 this.initial_user();
+			 this.initialuser();
 		 }
 		 
 		 
 		
 		
 		
-		public  void initial_user() {
+		public  void initialuser() {
 			this.address="nablus";
 			this.email="ahmad@gmail.com";
 			this.id="1";
@@ -50,7 +50,7 @@ public class USER {
 			this.phone="056998521";
 			this.name="ahmadjabe";
 		
-			user_array.add(this);
+			userarray.add(this);
 				}
 		
 

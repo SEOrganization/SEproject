@@ -25,7 +25,7 @@ public class invoice_step {
 	
 	@Given("order with id {string} for the user with id {string} has been completed")
 	public void order_with_id_for_the_user_with_id_has_been_completed(String string, String string2) {
-		flag_completed=	db.is_complete(string2,string);
+		flag_completed=	db.iscomplete(string2,string);
 	id_user=string;
 	id=string2;
 		
@@ -35,7 +35,7 @@ public class invoice_step {
 	public void the_price_of_the_order_is(String string) {
 		toloal_price=Integer.parseInt(string);
 		order_price= Float.parseFloat(string);
-		if (o_obj1.is_price(order_price,id_user,id) )
+		if (o_obj1.isprice(order_price,id_user,id) )
 		{flag_pric=true;
 			
 		}
@@ -72,7 +72,7 @@ public class invoice_step {
 	
 	@Given("rder with id {string} for the user with id {string} has been completed")
 	public void rder_with_id_for_the_user_with_id_has_been_completed(String string, String string2) {
-		flag_completed2=	db.is_complete(string2,string);
+		flag_completed2=	db.iscomplete(string2,string);
 
 	}
 

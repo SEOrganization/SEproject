@@ -67,7 +67,7 @@ boolean stat=false;
 @When("the user with number {string} requests the status of order number {string}")
 public void the_user_with_number_requests_the_status_of_order_number(String string, String string2) {
 	if(log) {
-	stat=db.request_status(string,string2);	
+	stat=db.requeststatus(string,string2);	
 	}
 }
 
@@ -84,7 +84,7 @@ boolean info=false;
 @When("the user with number {string} requests information about his order number {string}")
 public void the_user_with_number_requests_information_about_his_order_number(String string, String string2) {
 	if(log) {
-		info=db.info_order(string,string2);
+		info=db.infoorder(string,string2);
 	}
   
 }
@@ -99,7 +99,7 @@ boolean complete=false;
 public void that_the_user_with_number_wants_to_receive_his_order_with_no_was_in_a_state_of_completion(String string, String string2) {
 	log=db.logApp(string);  
 	 if(log) {
-		   complete=db.is_complete(string,string2);
+		   complete=db.iscomplete(string,string2);
 	   }
 }
  

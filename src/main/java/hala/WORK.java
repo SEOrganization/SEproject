@@ -13,7 +13,7 @@ public class WORK {
 		 String phone;
 		 String wageforhoure;
 		 String balance ;
-	boolean logworker=false;
+	static boolean logworker=false;
 		
 		
 		 
