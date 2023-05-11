@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
     		plugin = {"summary","html:target/cucumber/wikipedia.html"} ,
     				monochrome=true,
     						snippets = SnippetType.CAMELCASE,
-    glue = "CLEANTWO"
+    glue = "hala"
     
 )
 

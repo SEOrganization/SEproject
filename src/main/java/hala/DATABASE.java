@@ -84,14 +84,12 @@ public class DATABASE {
 		    
 		 	LocalDate date2=currentDate.plusDays(days+2);
 		 	long daysDiff = 0;
-		 	 try {
+		 	
 		 	 LocalDate dateBefore = currentDate;
 		        LocalDate dateAfter =date2 ;
 		         daysDiff = ChronoUnit.DAYS.between(dateBefore, dateAfter);
 		        
-		 	   }catch(Exception e){
-		            e.printStackTrace();
-		        }
+		 	   
 				
 		 	obj.timeReceipt=daysDiff;
 		    obj.paid=false;
@@ -118,9 +116,9 @@ public class DATABASE {
 			
 			}
 			
-		public ORDER ret(String IDUSER,String IDORDER) {
+		public ORDER ret(String iduser,String idorder) {
 			for(int i=0;i<dborder.size();i++) {
-				if(dborder.get(i).id.equals(IDUSER)&& dborder.get(i).idorder.equals(IDORDER)) {
+				if(dborder.get(i).id.equals(iduser)&& dborder.get(i).idorder.equals(idorder)) {
 					return dborder.get(i);
 				}
 			}
@@ -129,9 +127,9 @@ public class DATABASE {
 			public boolean cancleorder(String iduser, String idord) {
 				 for(int k=0;k<dborder.size();k++) {
 					
-					 if(dborder.get(k).id.equals(iduser)&&dborder.get(k).idorder.equals(idord) && dborder.get(k).timeReceipt>2) {
+					 if( dborder.get(k).id.equals(iduser)&&dborder.get(k).idorder.equals(idord) && dborder.get(k).timeReceipt>2) {
 						
-						
+					
 						dborder.remove(k);
 						
 						for(int i=0;i<dborder.size();i++) {
@@ -191,7 +189,7 @@ public class DATABASE {
 				dbproduct.add(obj4);
 
 				 
-				obj5.Category="curtains";
+				obj5.Category="callten";
 				obj5.name="curtains saxony";
 				obj5.picture="c3";
 				obj5.SN="3";
@@ -204,7 +202,7 @@ public class DATABASE {
 				obj6.idorder="3";
 				obj6.id="3";
 				obj6.count=2;
-				obj6.name="curtains";
+				obj6.name="caler";
 			    obj6.lateDate=LocalDate.of(2023,4,19);
 				obj6.timeReceipt=0;
 				obj6.paid=false;
@@ -226,7 +224,7 @@ public class DATABASE {
 				obj7.price=40;
 				obj7.paid=false;
 				obj7.total_price1=55;
-				obj7.name_worker="salehshakhshir";
+				obj7.name_worker="salehaqad";
 				dborder.add(obj7);
 				
 				obj8.address="jenen";
@@ -239,7 +237,7 @@ public class DATABASE {
 				obj8.wageforhoure="50";
 				obj8.workhouers="0";
 				obj8.available=false;
-				//obj9.available=true;
+				
 				dbworker.add(obj8);
 			
 				obj9.address="nablus";
@@ -299,15 +297,15 @@ public class DATABASE {
 				
 			}
 			
-			public boolean is_complete(String iduser, String id) {
+			public boolean iscomplete(String iduser, String id) {
 				for(int i=0;i<dborder.size();i++) {
 					if(dborder.get(i).id.equals(iduser)&&dborder.get(i).idorder.equals(id)) {
 						if(dborder.get(i).timeReceipt==0) {
-							System.out.println("The order is ready for pickup.cash payment upon receipt of the order");
+							logger.info("The order is ready for pickup.cash payment upon receipt of the order");
 							dborder.get(i).paid=true;
 								return true;
 						}else {
-							System.out.println("The order is not ready for pickup.");
+							logger.info("The order is not ready for pickup.");
 								
 							return false;
 						}
@@ -315,79 +313,79 @@ public class DATABASE {
 					
 					
 				}
-				System.out.println("There is no order with this number to request its information.");
+				logger.info("There is no order with this number to request its information.");
 			
 				return false;
 			}
 			
-			public boolean request_status(String iduser, String idord) {
+			public boolean requeststatus(String iduser, String idord) {
 				for(int i=0;i<dborder.size();i++) {
 					if(dborder.get(i).id.equals(iduser)&&dborder.get(i).idorder.equals(idord)) {
 						if(dborder.get(i).timeReceipt>2) {
-							System.out.println("The order is currently pending.");
+							logger.info("The order is currently pending.");
 							return true;
 						}else if(dborder.get(i).timeReceipt==0) {
-							System.out.println("The order is ready for pickup.");
+							logger.info("The order is ready for pickup.");
 							return true;
 						}else if(dborder.get(i).timeReceipt<=2) {
-							System.out.println("The order is in progress and soon it will be ready for delivery.");
+							logger.info("The order is in progress and soon it will be ready for delivery.");
 							return true;
 						}
 						
 						
 					}
 				}
-					System.out.println("There is no order with this number to request its status.");
+				logger.info("There is no order with this number to request its status.");
 						
 				
 					return false;
 				}
 			
-			public boolean info_order(String iduser, String id) {
+			public boolean infoorder(String iduser, String id) {
 				for(int i=0;i<dborder.size();i++) {
 					if(dborder.get(i).id.equals(iduser)&&dborder.get(i).idorder.equals(id)) {
-						System.out.println("id= "+dborder.get(i).idorder+" , id user= "+dborder.get(i).id+" , type of order= "+dborder.get(i).name+" , discount= "+dborder.get(i).discount
+						logger.info("id= "+dborder.get(i).idorder+" , id user= "+dborder.get(i).id+" , type of order= "+dborder.get(i).name+" , discount= "+dborder.get(i).discount
 								+" , price= "+dborder.get(i).price+" , received date= "+dborder.get(i).lateDate+" , days left= "+dborder.get(i).timeReceipt+" , count= "+dborder.get(i).count);
 					return true;
 					}
 					
 				}
-				System.out.println("There is no order with this number to request its information.");
+				logger.info("There is no order with this number to request its information.");
 				return false;
 			}
 			public void creatNewUser(String id,String phone,String name,String email, String address, String password ) {
-				USER obj1=new USER();
-				obj1.id=id;
-				obj1.address=address;
-				obj1.name=name;
-				obj1.phone=phone;
-				obj1.email=email;
-				obj1.password=password;
-				dbuser.add(obj1);
+				USER obj17=new USER();
+				obj17.id=id;
+				obj17.address=address;
+				obj17.name=name;
+				obj17.phone=phone;
+				obj17.email=email;
+				obj17.password=password;
+				dbuser.add(obj17);
 			}
-			public  void create_prod(String Category1,String name1,String picture1,String description1,int price1)
-			{ PRODUCT obj1=new PRODUCT();
+			public  void createprod(String category1,String name1,String picture1,String description1,int price1)
+			{ PRODUCT obj16=new PRODUCT();
 				
 				
-					obj1.SN=Integer.toString(1+dbproduct.size());
+					obj16.SN=Integer.toString(1+dbproduct.size());
 
 				
 				
-				obj1.Category=Category1;
-				obj1.name=name1;
-				obj1.picture=picture1;
-				obj1.description=description1;
-				obj1.price=price1;
+				obj16.Category=category1;
+				obj16.name=name1;
+				obj16.picture=picture1;
+				obj16.description=description1;
+				obj16.price=price1;
 
-			if (!dbproduct.contains(obj1))
-					dbproduct.add(obj1);
+			if (!dbproduct.contains(obj16))
+					dbproduct.add(obj16);
 					
 					
 				
 				
 				
 			}
-			public void modify_information(String id2, String phone, String name, String email, String adders,
+			public void modifyinformation(String id2, String phone, String name, String email, String adders,
 					String password) {
 				for(int i=0;i< dbuser.size();i++ ) {
 					if(dbuser.get(i).id.equals(id2)){
@@ -398,15 +396,15 @@ public class DATABASE {
 						dbuser.get(i).password=password;
 						dbuser.get(i).log=true;
 					}}	
-				System.out.print("Your information has been modified ,this is your new information:");
+				logger.info("Your information has been modified ,this is your new information:");
 				for(int i=0;i< dbuser.size();i++ ) {
 					if(dbuser.get(i).id.equals(id2)){
-						System.out.print("name: "+dbuser.get(i).name);
-						System.out.print(" phone:"+dbuser.get(i).phone);
+						logger.info("name: "+dbuser.get(i).name);
+						logger.info(" phone:"+dbuser.get(i).phone);
 						
-						System.out.print(" email:"+dbuser.get(i).email);
-						System.out.print(" address:"+dbuser.get(i).address);
-						System.out.println(" password:"+dbuser.get(i).password);
+						logger.info(" email:"+dbuser.get(i).email);
+						logger.info(" address:"+dbuser.get(i).address);
+						logger.info(" password:"+dbuser.get(i).password);
 						
 					}}	 
 				
@@ -414,7 +412,7 @@ public class DATABASE {
 			
 			
 			
-			public boolean logout_completely(String id3) {
+			public boolean logoutcompletely(String id3) {
 				
 				for(int i=0;i< dbuser.size();i++ ) {
 					if(dbuser.get(i).id.equals(id3)) {
@@ -422,7 +420,7 @@ public class DATABASE {
 
 						for (int j=0 ;j <dbuser.size();j++)
 						{
-						System.out.print(dbuser.get(j).name+"  ");
+							logger.info(dbuser.get(j).name+"  ");
 						}
 						return true;
 					}
@@ -432,22 +430,22 @@ public class DATABASE {
 				return false;
 			}
 			
-			public  void update_prod(String SN1,String Category1,String name1,String picture1,String description1) {
+			public  void updateprod(String sn1,String category,String name1,String picture1,String description1) {
 				
 				PRODUCT obj1=new PRODUCT();
-				obj1.SN=SN1;
-				obj1.Category=Category1;
+				obj1.SN=sn1;
+				obj1.Category=category;
 				obj1.name=name1;
 				obj1.picture=picture1;
 				obj1.description=description1;
 				for (int i=0 ;i <dbproduct.size();i++)
 				{
-				if (dbproduct.get(i).SN.equals(SN1))
+				if (dbproduct.get(i).SN.equals(sn1))
 					dbproduct.set(i,obj1);
 				}
 				
 			}
-			public  void delete_prod(String id) {
+			public  void deleteprod(String id) {
 				for (int i=0 ;i < dbproduct.size();i++)
 				{
 					if (dbproduct.get(i).SN.equals(id))
@@ -470,7 +468,7 @@ public class DATABASE {
 					en+=dbuser.get(i).point;
 				}
 				finalInc=en-count;
-				System.out.println("Final Inceam :"+finalInc+"$");
+				logger.info("Final Inceam :"+finalInc+"$");
 				return true;
 			}
 			 
@@ -479,17 +477,17 @@ public class DATABASE {
 				for(int i=0;i<dborder.size();i++) {
 			 
 					
-				System.out.print("id= "+dborder.get(i).idorder);
-				System.out.print(" | id user= "+dborder.get(i).id);
-				System.out.print(" | type of order= "+dborder.get(i).name);
-				System.out.print(" | discount= "+dborder.get(i).discount);
-				System.out.print(" | price= "+dborder.get(i).price);
-				System.out.print(" | received date= "+dborder.get(i).lateDate);
-				System.out.print(" | days left= "+dborder.get(i).timeReceipt);
+					logger.info("id= "+dborder.get(i).idorder);
+					logger.info(" | id user= "+dborder.get(i).id);
+					logger.info(" | type of order= "+dborder.get(i).name);
+					logger.info(" | discount= "+dborder.get(i).discount);
+					logger.info(" | price= "+dborder.get(i).price);
+					logger.info(" | received date= "+dborder.get(i).lateDate);
+					logger.info(" | days left= "+dborder.get(i).timeReceipt);
 				
-				System.out.print(" | count= "+dborder.get(i).count);
-				System.out.print(" | name worker= "+dborder.get(i).name_worker);
-				System.out.println();
+					logger.info(" | count= "+dborder.get(i).count);
+					logger.info(" | name worker= "+dborder.get(i).name_worker);
+					logger.info("\n");
 				}
 				return true;
 			}
@@ -497,8 +495,8 @@ public class DATABASE {
 			public boolean dept() {
 				for (int i=0;i<dborder.size();i++) {
 					if(dborder.get(i).timeReceipt<=2&&!dborder.get(i).paid) {
-						System.out.println("The amount of dept owed by users: "+dborder.get(i).price);
-						STATES.dept_amount=dborder.get(i).price;
+						logger.info("The amount of dept owed by users: "+dborder.get(i).price);
+						STATES.deptamount=dborder.get(i).price;
 						
 					}
 				}
@@ -506,7 +504,7 @@ public class DATABASE {
 					}
 
 			
-		public boolean check_if_exi8(String string, String string2) {
+		public boolean checkifexi8(String string, String string2) {
 				
 				for(int i=0;i<dbworker.size();i++) {
 					if( dbworker.get(i).email.equals(string) &&  dbworker.get(i).password.equals(string2)) {
@@ -517,7 +515,7 @@ public class DATABASE {
 				}
 				return false;
 			}
-		public String clac_balace(String id,String hourse)
+		public String clacbalace(String id,String hourse)
 		{String ret="";
 		int v=0;
 		if(hourse.equals("")||hourse.equals(null)) {
@@ -549,48 +547,48 @@ public class DATABASE {
 
 
 
-		public boolean search_user(String nameuser)
+		public boolean searchuser(String nameuser)
 		{
 			for(int i=0;i<dbuser.size();i++ ) {
 				if(dbuser.get(i).name.equals(nameuser)) {
-					System.out.println("user's id: "+dbuser.get(i).id);
-					System.out.println("user's Name: "+dbuser.get(i).name);
-					System.out.println("user's Address: "+dbuser.get(i).address);
-					System.out.println("user's Email: "+dbuser.get(i).email);
-				    System.out.println("user's Phone: "+dbuser.get(i).phone);
-					System.out.println("user's Point: "+dbuser.get(i).point);
+					logger.info("user's id: "+dbuser.get(i).id);
+					logger.info("user's Name: "+dbuser.get(i).name);
+					logger.info("user's Address: "+dbuser.get(i).address);
+					logger.info("user's Email: "+dbuser.get(i).email);
+					logger.info("user's Phone: "+dbuser.get(i).phone);
+					logger.info("user's Point: "+dbuser.get(i).point);
 				 
 					return true;
 				}
 			}
-			System.out.println("there is in user with this name.");
+			logger.info("there is in user with this name.");
 			return false;
 			
 		}
 
-		public boolean search_product(String name)
+		public boolean searchproduct(String name)
 		{
 
 			for(int i=0;i<dbproduct.size();i++ ) {
 				if(dbproduct.get(i).name.equals(name)) {
 				
-					System.out.println("product's SN: "+dbproduct.get(i).SN);
-					System.out.println("product's Name: "+dbproduct.get(i).name);
-					System.out.println("product's description: "+dbproduct.get(i).description);
-					System.out.println("product's price: "+dbproduct.get(i).price);
-				    System.out.println("product's Category: "+dbproduct.get(i).Category);
+					logger.info("product's SN: "+dbproduct.get(i).SN);
+					logger.info("product's Name: "+dbproduct.get(i).name);
+					logger.info("product's description: "+dbproduct.get(i).description);
+					logger.info("product's price: "+dbproduct.get(i).price);
+					logger.info("product's Category: "+dbproduct.get(i).Category);
 					 
 				 
 					return true;
 				}
 			}
-			 System.out.println("there is in product with this name.");
+			logger.info("there is in product with this name.");
 			return false;
 			
 		}
 
 
-		public void make_paid_true(String id) {
+		public void makepaidtrue(String id) {
 			for(int i=0;i<dborder.size();i++)
 			{
 				if(dborder.get(i).idorder.equals(id)) {
@@ -600,30 +598,31 @@ public class DATABASE {
 		}
 
 
-		public String re_id(String id_o) {
-			String idu="",email="";
+		public String reid(String ido) {
+			String idu="";
+					String	email10 ="";
 			for(int i=0;i<dborder.size();i++)
 			{
-				if(dborder.get(i).idorder.equals(id_o)) {
+				if(dborder.get(i).idorder.equals(ido)) {
 					idu=dborder.get(i).id;
 				}
 			}
 			for(int i=0;i<dbuser.size();i++)
 			{
 				if(dbuser.get(i).id.equals(idu)) {
-					email=dbuser.get(i).email;
+					email10=dbuser.get(i).email;
 				}
 			}
-			return email ;
+			return email10 ;
 			
 			
 		}
 
-		public String re_id_user(String id_o) {
+		public String reiduser(String ido) {
 			String idu="";
 			for(int i=0;i<dborder.size();i++)
 			{
-				if(dborder.get(i).idorder.equals(id_o)) {
+				if(dborder.get(i).idorder.equals(ido)) {
 					idu=dborder.get(i).id;
 				}
 			}
@@ -632,7 +631,7 @@ public class DATABASE {
 			
 			
 		}
-		public String return_id(String email,String pass) {
+		public String returnid(String email,String pass) {
 			for(int i=0;i<dbworker.size();i++) {
 				
 				if(dbworker.get(i).email.equals(email)&&dbworker.get(i).password.equals(pass)) {
@@ -643,7 +642,7 @@ public class DATABASE {
 			return null;
 		}
 
-		public   boolean check_email(String email,String pass)
+		public   boolean checkemail(String email,String pass)
 		{  for (int i=0 ;i < dbworker.size();i++)
 			{
 				if (dbworker.get(i).email.equals(email) && (dbworker.get(i).password.equals(pass))){
@@ -659,7 +658,7 @@ public class DATABASE {
 
 
 
-		public   boolean check_email(String email)
+		public   boolean checkemail(String email)
 		{  for (int i=0 ;i < dbuser.size();i++)
 			{
 				if (dbuser.get(i).email.equals(email))
@@ -671,7 +670,7 @@ public class DATABASE {
 
 
 
-		public  boolean check_pass(String pass)
+		public  boolean checkpass(String pass)
 		{  for (int i=0 ;i < dbuser.size();i++)
 			{
 				if (dbuser.get(i).password.equals(pass))
@@ -699,7 +698,7 @@ public class DATABASE {
 
 
 
-			public  boolean check_if_exist(String id){
+			public  boolean checkifexist(String id){
 				
 				for(int i=0;i< dbuser.size();i++ ) {
 				if(dbuser.get(i).id.equals(id)) {
@@ -711,7 +710,7 @@ public class DATABASE {
 			}
 			
 			
-			public boolean check_fill_fields(String string, String string2, String string3, String string4, String string5,
+			public boolean checkfillfields(String string, String string2, String string3, String string4, String string5,
 					String string6) {
 				boolean fill=true;
 				if(string.equals("")||string2.equals("")||string3.equals("")||string4.equals("")||string5.equals("")||string6.equals("")) {
@@ -722,16 +721,9 @@ public class DATABASE {
 				
 				return fill;
 			}
-			public void message_for_user() {
-				
-			}
-			
-			public void message_for_user1() {
-				
-				
-			}
+		
 
-			public boolean check_if_debt(String id3) {
+			public boolean checkifdebt(String id3) {
 				for(int i=0;i< dbuser.size();i++ ) {
 					if(dbuser.get(i).id.equals(id3)) {
 					
@@ -740,15 +732,16 @@ public class DATABASE {
 				return false;
 				
 			}
-			public void message_to_fail_logout() {
-				
-			}
+			
 
 
-			public boolean check_info_True(int num,String id,String phon, String mail, String passwor) {
-				boolean f=false,f1=false,f2=false,f4=false;
+			public boolean checkinfoTrue(int num,String id,String phon, String mail, String passwor) {
+				boolean f=false;
+				boolean f1=false;
+				boolean f2=false;
+				boolean f4=false;
 		String a="";
-		if(dbuser.size()==0)return false;
+		if(dbuser.isEmpty())return false;
 		for(int i=0;i< dbuser.size();i++ ) {
 			
 			if(dbuser.get(i).id.equals(id)) {
@@ -780,13 +773,13 @@ public class DATABASE {
 						
 						 if(!(mail.contains("@"))) {
 							f4=true;
-							System.out.println("The email you entered is wrong");
+							logger.info("The email you entered is wrong");
 						} if(!(phon.length()>=10)) {
-							System.out.println("The phone number you entered is incorrect");
+							logger.info("The phone number you entered is incorrect");
 							f4=true;
 						}
 						 if(!(passwor.length()>=6)) {
-								System.out.println("The password you entered is weak");
+							 logger.info("The password you entered is weak");
 							f4=true;
 						}
 						
@@ -797,8 +790,8 @@ public class DATABASE {
 				if(f || (f1&&f2) ||f4) {
 					if(f ||(f1&&f2)) {
 						if(num==1)
-						System.out.println("You already have an account.Please re_enter your information ");
-						else if(num==2)	System.out.println("The email and password are not valid. Please enter another ");
+							logger.info("You already have an account.Please re_enter your information ");
+						else if(num==2)	logger.info("The email and password are not valid. Please enter another ");
 					}
 					return false; 
 				}
@@ -820,7 +813,7 @@ public class DATABASE {
 			}
 			
 			
-			public String return_id2(String email,String pass) {
+			public String returnid2(String email,String pass) {
 				for(int i=0;i<dbuser.size();i++) {
 					
 					if(dbuser.get(i).email.equals(email)&&dbuser.get(i).password.equals(pass)) {
@@ -831,7 +824,7 @@ public class DATABASE {
 				
 				return null;
 			}
-			 public  boolean check_SN(String sn) {
+			 public  boolean checkSN(String sn) {
 					
 
 					for (int i=0 ;i < dbproduct.size();i++)

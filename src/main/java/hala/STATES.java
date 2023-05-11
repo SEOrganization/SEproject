@@ -5,7 +5,7 @@ public class STATES {
 
 		public float encom;
 		public DATABASE db=new DATABASE();
-		 public static  float dept_amount;
+	 static  float deptamount;
 		
 		
 
