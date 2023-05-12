@@ -1,8 +1,5 @@
 package hala;
 
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
 public class PRODUCT {
 	
 
@@ -20,5 +17,4 @@ public class PRODUCT {
 	 static DATABASE db=new DATABASE();
 
 	}
-
 

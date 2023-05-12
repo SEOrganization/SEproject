@@ -820,12 +820,12 @@ public class DATABASE {
 				boolean f1=false;
 				boolean f2=false;
 				boolean f4=false;
-		String a="";
+		String a99;
 		if(dbuser.isEmpty())return false;
 		for(int i=0;i< dbuser.size();i++ ) {
 			
 			if(dbuser.get(i).id.equals(id)) {
-				a=id;
+				a99=id;
 			
 			}
 		}
@@ -854,11 +854,11 @@ public class DATABASE {
 						 if(!(mail.contains("@"))) {
 							f4=true;
 							logger.info("The email you entered is wrong");
-						} if(!(phon.length()>=10)) {
+						} if(!(phon.length()==10 || phon.length()>10)) {
 							logger.info("The phone number you entered is incorrect");
 							f4=true;
 						}
-						 if(!(passwor.length()>=6)) {
+						 if(!(passwor.length()>6 || passwor.length()==6)) {
 							 logger.info("The password you entered is weak");
 							f4=true;
 						}
@@ -923,5 +923,4 @@ public class DATABASE {
 			
 			
 		}
-
 

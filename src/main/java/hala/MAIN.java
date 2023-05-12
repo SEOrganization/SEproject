@@ -86,9 +86,10 @@ public class MAIN {
 						
 						
 						idw=db.returnid(ew,pw);
-						logger.info("The Balance of worker with email "+ew+"\t is:"+db.clacbalace(idw, houres));
-						
-						
+						logger.info("The Balance of worker with email ");
+						logger.info(ew);
+						logger.info("\t is:");
+						logger.info(db.clacbalace(idw, houres));
 						break;
 					}
 					
@@ -311,19 +312,22 @@ public class MAIN {
 	description=s1.next();
 
 
-
+String spa="  ";
 	logger.info("Product created successfully, if you want to check it enter 1  ");
 	if (s1.nextInt()==1)
 	{db.createprod( category, name, picture, description,10);
 	for (int i=0 ;i < db.dbproduct.size();i++)
 	{
-
-	logger.info("  "+db.dbproduct.get(i).sn);
-	logger.info("  "+db.dbproduct.get(i).name);
-	logger.info("  "+db.dbproduct.get(i).category);
-	logger.info("  "+db.dbproduct.get(i).description);
-		
-	logger.info("  "+db.dbproduct.get(i).picture);
+logger.info(spa);
+	logger.info(db.dbproduct.get(i).sn);
+		logger.info(spa);
+	logger.info(db.dbproduct.get(i).name);
+		logger.info(spa);
+	logger.info(db.dbproduct.get(i).category);
+		logger.info(spa);
+	logger.info(db.dbproduct.get(i).description);
+	logger.info(spa);
+	logger.info(db.dbproduct.get(i).picture);
 	logger.info("\n");
 	}
 	}
@@ -662,12 +666,12 @@ public class MAIN {
 		{
 			
 			
-			boolean e=false;
-			boolean log=false;
-			boolean debt=true;
+			
+			
 			boolean logout=false ;
 			logout=db.logoutcompletely(iduser);	
-			logger.info("id_user:"+iduser);
+			logger.info("id_user:");
+			logger.info(iduser);
 	    		
 	    	
 	     if(logout)logger.info("Your account has been cancelled");
@@ -686,8 +690,8 @@ public class MAIN {
 		case 3:
 		{
 			logger.info(" enter your information about order:");
-			
-			logger.info(" enter your id of order:");
+			String sas1=" enter your id of order:";
+			logger.info(sas1);
 		       	
 	        idorder=scan.nextLine();
 	          scan.nextLine();
@@ -702,9 +706,32 @@ public class MAIN {
 	    		 
 	    		 for(int i=0;i<db.dborder.size();i++) {
 	    			 if ( db.dborder.get(i).id.equals(iduser)&&db.dborder.get(i).idorder.equals(idorder))
-	    				{logger.info("id= "+db.dborder.get(i).idorder+" , id user= "+db.dborder.get(i).id+" , type of order= "+db.dborder.get(i).name+" , discount= "+db.dborder.get(i).discount
-	    						+" , price= "+db.dborder.get(i).price+" , received date= "+db.dborder.get(i).lateDate+" , days left= "+db.dborder.get(i).timeReceipt+" , count= "+db.dborder.get(i).count);}
-	    				}
+	    				{
+					 logger.info("id= ");
+	    				
+				 logger.info(db.dborder.get(i).idorder);
+				 logger.info(" , id user= ");
+				 logger.info(db.dborder.get(i).id);
+				 logger.info(" , type of order= ");
+				 logger.info(db.dborder.get(i).name);
+				 logger.info(" , discount= "); 
+				 String s0 ="" +db.dborder.get(i).discount;
+				 logger.info(s0); 
+				 logger.info(" , price= ");
+				 String h0=""+db.dborder.get(i).price;
+				 logger.info(h0);
+				 logger.info(" , received date= "); 
+				 String p0=""+db.dborder.get(i).lateDate;
+				 logger.info(p0);
+				 logger.info(" , days left= ");
+				 String f0=""+db.dborder.get(i).timeReceipt;
+				 logger.info(f0);
+				 String r0=db.dborder.get(i).count+"";
+				 logger.info(" , count= ");
+				 logger.info(r0);
+					 }
+			 
+			 }
 	    		 
 			
 			break;
@@ -744,16 +771,36 @@ public class MAIN {
 		
 		case 5 :
 		{
-			logger.info(" enter your id of order:");
+			String df=" enter your id of order:";
+			logger.info(df);
 				idorder=scan.nextLine();
 		          scan.nextLine();
 			db.requeststatus(iduser, idorder);
 			
 			for(int i=0;i<db.dborder.size();i++) {
 				 
-				logger.info("id= "+db.dborder.get(i).idorder+" , id user= "+db.dborder.get(i).id+" , type of order= "+db.dborder.get(i).name+" , discount= "+db.dborder.get(i).discount
-						+" , price= "+db.dborder.get(i).price+" , received date= "+db.dborder.get(i).lateDate+" , days left= "+db.dborder.get(i).timeReceipt+" , count= "+db.dborder.get(i).count);
-				}
+				logger.info("id= ");
+			logger.info(db.dborder.get(i).idorder);
+				logger.info(" , id user= ");
+			logger.info(db.dborder.get(i).id);
+			logger.info(" , type of order= ");
+			logger.info(db.dborder.get(i).name);
+			logger.info(" , discount= ");
+				String dis3=""+db.dborder.get(i).discount;
+			logger.info(dis3);
+			logger.info(" , price= ");
+				String pr3=db.dborder.get(i).price+"";
+			logger.info(pr3);
+			logger.info(" , received date= ");
+				String h3=""+db.dborder.get(i).lateDate;
+			logger.info(h3);	
+				logger.info(" , days left= ");	
+				String t3=""+db.dborder.get(i).timeReceipt;
+				logger.info(t3);
+				String co3=""+db.dborder.get(i).count;
+				logger.info(" , count= ");
+				logger.info(co3);
+			}
 			break;
 		}
 		
@@ -779,8 +826,9 @@ public class MAIN {
 		case 7:
 		{String nuser="";
 		String addres="";
+		 String hgf=" enter your id of order:";
 			boolean  com;
-			logger.info(" enter your id of order:");
+			logger.info(hgf);
 			idorder=scan.nextLine();
 	          scan.nextLine();
 
@@ -1005,5 +1053,4 @@ public class MAIN {
 		
 		}
 	}
-
 
