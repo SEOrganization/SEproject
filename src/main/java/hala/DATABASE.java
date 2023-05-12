@@ -135,9 +135,32 @@ public class DATABASE {
 						
 						for(int i=0;i<dborder.size();i++) {
 			    			 
+							logger.info("id= ");
 							logger.info(dborder.get(i).idorder);
-									
+						logger.info(" , id user= ");
+							logger.info(dborder.get(i).id);
+							logger.info(" , type of order= ");
+								logger.info(dborder.get(i).name);
+							logger.info(" , discount= ");
+							String n=dborder.get(i).discount+"";
+							logger.info(n);
+							logger.info(" , price= ");
+							String h=dborder.get(i).price+"";
+							logger.info(h);
+										logger.info(" , received date= ");
+										String  o=dborder.get(i).lateDate+"";
+										logger.info(o);
+										logger.info(" , days left= ");
+										String l=dborder.get(i).timeReceipt+"";
+										logger.info(l);
+										logger.info(" , count= ");
+										String p=dborder.get(i).count+"";
+										logger.info(p);
+										
+							
+																																								
 						}
+						
 					
 						 return true;
 						
