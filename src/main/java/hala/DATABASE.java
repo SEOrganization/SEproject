@@ -125,7 +125,7 @@ public class DATABASE {
 		return	 null;
 		}
 			public boolean cancleorder(String iduser, String idord) {
-				if(dborder.isEmpty()) {
+				
 				 for(int k=0;k<dborder.size();k++) {
 					
 					 if( dborder.get(k).id.equals(iduser)&&dborder.get(k).idorder.equals(idord) && dborder.get(k).timeReceipt>2) {
@@ -136,14 +136,15 @@ public class DATABASE {
 						for(int i=0;i<dborder.size();i++) {
 			    			 
 							logger.info("id= "+dborder.get(i).idorder+" , id user= "+dborder.get(i).id+" , type of order= "+dborder.get(i).name+" , discount= "+dborder.get(i).discount
-		    						+" , price= "+dborder.get(i).price+" , received date= "+dborder.get(i).lateDate+" , days left= "+dborder.get(i).timeReceipt+" , count= "+dborder.get(i).count);
+		    						);
+							logger.info(" , price= "+dborder.get(i).price+" , received date= "+dborder.get(i).lateDate+" , days left= "+dborder.get(i).timeReceipt+" , count= "+dborder.get(i).count);
+
 		    				}
-						
 					
 						 return true;
 						
 					 }
-				 }}
+				 }
 				return false;
 			
 			}
