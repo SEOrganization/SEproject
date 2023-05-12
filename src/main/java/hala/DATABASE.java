@@ -29,6 +29,7 @@ public class DATABASE {
 				 WORK obj10=new WORK();
 				 USER obj51=new USER();
 				 ORDER obj71=new ORDER();
+				// STATES obj88 =new STATES();
 
 
 			public DATABASE() {
@@ -78,7 +79,7 @@ public class DATABASE {
 			long days=0;
 		    for(int j=0;j<dborder.size();j++) {
 		    	
-		    	days+=dborder.get(j).timeReceipt;
+		    	days=days+dborder.get(j).timeReceipt;
 		    
 		    }
 		    
@@ -596,7 +597,7 @@ public class DATABASE {
 		dbworker.get(i).balance= Integer.toString(x);
 
 		ret=dbworker.get(i).balance;
-		dbworker.get(i).workhouers+=Integer.parseInt(hourse);
+		dbworker.get(i).workhouers=dbworker.get(i).workhouers+	Integer.parseInt(hourse);
 		dbworker.get(i).balance=ret;
 
 				}
