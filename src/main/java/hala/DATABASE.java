@@ -598,7 +598,9 @@ public class DATABASE {
 		dbworker.get(i).balance= Integer.toString(x);
 
 		ret=dbworker.get(i).balance;
-		dbworker.get(i).workhouers=dbworker.get(i).workhouers+	Integer.parseInt(hourse);
+		int str6=Integer.parseInt(dbworker.get(i).workhouers);
+		str6=str6	+Integer.parseInt(hourse);
+		dbworker.get(i).workhouers=str6+"";
 		dbworker.get(i).balance=ret;
 
 				}
