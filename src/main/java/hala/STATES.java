@@ -23,14 +23,14 @@ logger.info("order received and paid for: order number= ");
 					logger.info("order price= ");
 					String hh0=db.dborder.get(i).price+"";
 					logger.info(hh0);
-					flag=true;  
+					flag=true; 
+					
 				}
-			}	 
-			if(flag) {
-				return true;	
 			}
-			else
-			return false;
+			
+		boolean ii=(flag? true: false);
+		return ii;
+		
 		}
 
 
