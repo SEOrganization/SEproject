@@ -15,6 +15,10 @@ Feature: login and logout
       | email             | pass        |status |
       | "hala@gmail.com"  | "hala12"    |success|
       | "marah@gmail.com" | "marah34"   |Fail   |
+       Scenario: Login an admin 
+    Given that an admin is not logged in
+    And I check for the email  and pass email "marah@gmail.com" pass "1234"
+    Then the admin login 
 @testlogin_user      
 Scenario: user can login
 Given that the user is not logged in

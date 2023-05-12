@@ -4,6 +4,8 @@ package hala;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import hala.ADMIN;
@@ -19,6 +21,22 @@ public class statisticSteps {
 	ADMIN adm=new ADMIN();
  boolean encom=false;
  DATABASE db= new DATABASE();
+ @Given("that an administrator with email {string} and password {string} asks for debts that have been paid")
+ public void that_an_administrator_with_email_and_password_asks_for_debts_that_have_been_paid(String string, String string2) {
+ 	log=adm.check(string, string2); 
+ }
+
+ @When("examines orders received and pay their cost")
+ public void examines_orders_received_and_pay_their_cost() {
+ 	if(log==1) {
+ 		pay=stat.pay();	
+ 	}   
+ }
+
+ @Then("view info. for paid orders")
+ public void view_info_for_paid_orders() {
+ 	assertFalse(pay); 
+ }
 @Given("that the administrator with email {string} and password {string} wants to know the income of the company")
 public void that_the_administrator_with_email_and_password_wants_to_know_the_income_of_the_company(String string, String string2) {
 	 log=adm.check(string, string2);

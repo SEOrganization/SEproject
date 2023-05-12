@@ -1,5 +1,6 @@
 package hala;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import hala.ADMIN;
@@ -19,7 +20,27 @@ public class login_logout_test{
 		user1=user2;
 	}
 	
+	@Given("that an admin is not logged in")
+	public void that_an_admin_is_not_logged_in() {
+		 flag_login=false ;
+	}
 
+	@Given("I check for the email  and pass email {string} pass {string}")
+	public void i_check_for_the_email_and_pass_email_pass(String string1, String string2) {
+		adm.email=string1;
+		adm.password=string2;
+		if( adm.check(string1,string2)==1) {
+			 flag_login=true;
+		}
+		if( adm.check(string1,string2)==0) {
+			 flag_login=false;
+		}
+	}
+
+	@Then("the admin login")
+	public void the_admin_login() {
+		 assertFalse(flag_login);
+	}
 
 	@Given("that the admin is not logged in")
 	public void that_the_admin_is_not_logged_in() {

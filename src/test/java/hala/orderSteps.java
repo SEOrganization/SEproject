@@ -17,6 +17,57 @@ USER u=new USER();
 boolean log=false,neworder=false,cancel=false;	
 ORDER ord=new ORDER();	
 DATABASE db=new DATABASE();
+@Given("that The user submits a new order in his bag and  he is already registered in the application")
+public void that_the_user_submits_a_new_order_in_his_bag_and_he_is_already_registered_in_the_application() {
+
+}
+boolean log1=false;
+boolean neword=false;
+@When("the user  number {string} enters the information of order which the number {string} quantity {int} and type is {string}")
+public void the_user_number_enters_the_information_of_order_which_the_number_quantity_and_type_is(String string, String string2, Integer int1, String string3) {
+	 log1=db.logApp(string); 
+	 if(log1)
+		 neword= db.createNewOrder(string2,string,int1,string3);
+}
+
+@Then("the request is registered successfuly")
+public void the_request_is_registered_successfuly() {
+	 assertTrue(neword);
+}
+
+@Given("that the user with the no. {string} requests to cancel an order with number {string} before starting work on it")
+public void that_the_user_with_the_no_requests_to_cancel_an_order_with_number_before_starting_work_on_it(String string, String string2) {
+	 log=db.logApp(string); 
+}
+
+@When("the user with no {string} cancels his order with number {string}")
+public void the_user_with_no_cancels_his_order_with_number(String string, String string2) {
+	 if(log) {
+		  cancel =db.cancleorder(string,string2);  
+	  }
+}
+
+@Then("the order  cancele successfully")
+public void the_order_cancele_successfully() {
+	 assertTrue(cancel);
+}
+
+
+@Given("that user with the number {string} requests the status of his request")
+public void that_user_with_the_number_requests_the_status_of_his_request(String string) {
+	log=db.logApp(string); 
+}
+
+@When("the user with no {string} requests the status of order number {string}")
+public void the_user_with_no_requests_the_status_of_order_number(String string, String string2) {
+	if(log) {
+		info=db.infoorder(string,string2);
+	}}
+
+@Then("the order status will be displayed")
+public void the_order_status_will_be_displayed() {
+	assertFalse(info);
+}
 @Given("that The user submits a new order and  he is already registered in the application")
 public void that_the_user_submits_a_new_order_and_he_is_already_registered_in_the_application() {
 
