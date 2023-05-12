@@ -822,13 +822,7 @@ public class DATABASE {
 				boolean f4=false;
 	
 		if(dbuser.isEmpty())return false;
-		for(int i=0;i< dbuser.size();i++ ) {
-			
-			if(dbuser.get(i).id.equals(id)) {
-				String 	a99=id;
-			
-			}
-		}
+	
 
 				if(phon.equals("")||mail.equals("")||passwor.equals("")){return false;}
 				else {
