@@ -89,7 +89,8 @@ public class MAIN {
 						logger.info("The Balance of worker with email ");
 						logger.info(ew);
 						logger.info("\t is:");
-						logger.info(db.clacbalace(idw, houres));
+						String isd=db.clacbalace(idw, houres);
+						logger.info(isd);
 						break;
 					}
 					
@@ -109,7 +110,8 @@ public class MAIN {
 						if (f) {
 							logger.info("wait to send email........");
 						e.sendemail(eo,ido);
-						logger.log(null, eo+ido);
+						String as= eo+ido;
+						logger.log(null,as);
 						}
 						
 						break;
@@ -750,7 +752,7 @@ logger.info(spa);
 		{
 			Scanner san=new Scanner(System.in);
 			
-			logger.info(" enter your id of order:");
+			logger.info(" enter your id of order :");
 			idorder=san.nextLine();
 	         
 			
@@ -771,7 +773,7 @@ logger.info(spa);
 		
 		case 5 :
 		{
-			String df=" enter your id of order:";
+			String df=" enter id of order:";
 			logger.info(df);
 				idorder=scan.nextLine();
 		          scan.nextLine();
@@ -810,7 +812,7 @@ logger.info(spa);
 		{
 			Scanner sca = new Scanner(System.in);
 
-			logger.info(" enter your id of order:");
+			logger.info(" enter your id of order. : ");
 			
 			idorder=sca.nextLine();
 	         
@@ -826,7 +828,7 @@ logger.info(spa);
 		case 7:
 		{String nuser="";
 		String addres="";
-		 String hgf=" enter your id of order:";
+		 String hgf=" enter your id order:";
 			boolean  com;
 			logger.info(hgf);
 			idorder=scan.nextLine();

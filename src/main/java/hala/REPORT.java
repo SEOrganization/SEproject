@@ -11,7 +11,7 @@ public class REPORT {
 		 static STATES stat=new STATES();
 		static DATABASE db4=new DATABASE();
 		
-		
+		 REPORT() {}
 		public static  boolean showall() {
 			
 			logger.info("encome of the company: ");

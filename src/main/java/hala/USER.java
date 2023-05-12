@@ -26,7 +26,7 @@ public class USER {
 		
 
 		USER u1;
-		 public static List <USER> userarray=new  ArrayList <USER> ();
+		  static List <USER> userarray=new  ArrayList <USER> ();
 		 boolean log=false;
 			 static DATABASE db=new DATABASE();
 			
