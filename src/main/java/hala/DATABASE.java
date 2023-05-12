@@ -820,12 +820,12 @@ public class DATABASE {
 				boolean f1=false;
 				boolean f2=false;
 				boolean f4=false;
-		String a99;
+	
 		if(dbuser.isEmpty())return false;
 		for(int i=0;i< dbuser.size();i++ ) {
 			
 			if(dbuser.get(i).id.equals(id)) {
-				a99=id;
+				String 	a99=id;
 			
 			}
 		}
