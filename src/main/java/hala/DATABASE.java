@@ -29,7 +29,7 @@ public class DATABASE {
 				 WORK obj10=new WORK();
 				 USER obj51=new USER();
 				 ORDER obj71=new ORDER();
-				// STATES obj88 =new STATES();
+			
 
 
 			public DATABASE() {
