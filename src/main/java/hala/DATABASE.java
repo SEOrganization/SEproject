@@ -135,7 +135,7 @@ public class DATABASE {
 						
 						for(int i=0;i<dborder.size();i++) {
 			    			 
-							logger.info(String.format("id= %s",dborder.get(i).idorder));
+							logger.info(dborder.get(i).idorder);
 									
 						}
 					
