@@ -125,11 +125,12 @@ public class DATABASE {
 		return	 null;
 		}
 			public boolean cancleorder(String iduser, String idord) {
+				if(dborder.isEmpty()) {
 				 for(int k=0;k<dborder.size();k++) {
 					
 					 if( dborder.get(k).id.equals(iduser)&&dborder.get(k).idorder.equals(idord) && dborder.get(k).timeReceipt>2) {
 						
-					
+					 
 						dborder.remove(k);
 						
 						for(int i=0;i<dborder.size();i++) {
@@ -142,10 +143,10 @@ public class DATABASE {
 						 return true;
 						
 					 }
-				 }
+				 }}
 				return false;
-			}
 			
+			}
 			
 			void f(){
 				obj1.id="3";
