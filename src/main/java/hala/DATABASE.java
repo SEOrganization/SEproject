@@ -367,9 +367,29 @@ public class DATABASE {
 			public boolean infoorder(String iduser, String id) {
 				for(int i=0;i<dborder.size();i++) {
 					if(dborder.get(i).id.equals(iduser)&&dborder.get(i).idorder.equals(id)) {
-						logger.info("id= "+dborder.get(i).idorder+" , id user= "+dborder.get(i).id+" , type of order= "+dborder.get(i).name+" , discount= "+dborder.get(i).discount
-								+" , price= "+dborder.get(i).price+" , received date= "+dborder.get(i).lateDate+" , days left= "+dborder.get(i).timeReceipt+" , count= "+dborder.get(i).count);
-					return true;
+					
+						logger.info("id= ");
+						logger.info(dborder.get(i).idorder);
+						logger.info(" , id user= ");
+						logger.info(dborder.get(i).id);
+						logger.info(" , type of order= ");
+						logger.info(dborder.get(i).name);
+						logger.info(" , discount= ");
+						String a=dborder.get(i).discount+"";
+						String b=dborder.get(i).price+"";
+						logger.info(a);
+						logger.info(" , price= ");
+						logger.info(b);
+						logger.info(" , received date= ");
+						String c=dborder.get(i).lateDate+"";
+						logger.info(c);
+						logger.info(" , days left= ");
+						String d=dborder.get(i).timeReceipt+"";
+						logger.info(d);
+						logger.info(" , count= ");
+						String e=dborder.get(i).count+"";
+						logger.info(e);
+						return true;
 					}
 					
 				}
@@ -422,12 +442,16 @@ public class DATABASE {
 				logger.info("Your information has been modified ,this is your new information:");
 				for(int i=0;i< dbuser.size();i++ ) {
 					if(dbuser.get(i).id.equals(id2)){
-						logger.info("name: "+dbuser.get(i).name);
-						logger.info(" phone:"+dbuser.get(i).phone);
-						
-						logger.info(" email:"+dbuser.get(i).email);
-						logger.info(" address:"+dbuser.get(i).address);
-						logger.info(" password:"+dbuser.get(i).password);
+						logger.info("name: ");
+						logger.info(dbuser.get(i).name);
+						logger.info(" phone:");
+						logger.info(dbuser.get(i).phone);
+						logger.info(" email:");
+						logger.info(dbuser.get(i).email);
+						logger.info(" address:");
+						logger.info(dbuser.get(i).address);
+						logger.info(" password:");
+						logger.info(dbuser.get(i).password);
 						
 					}}	 
 				
@@ -443,7 +467,8 @@ public class DATABASE {
 
 						for (int j=0 ;j <dbuser.size();j++)
 						{
-							logger.info(dbuser.get(j).name+"  ");
+							logger.info(dbuser.get(j).name);
+							logger.info("  ");
 						}
 						return true;
 					}
@@ -491,7 +516,10 @@ public class DATABASE {
 					en+=dbuser.get(i).point;
 				}
 				finalInc=en-count;
-				logger.info("Final Inceam :"+finalInc+"$");
+				logger.info("Final Inceam :");
+				String j=finalInc+"";
+				logger.info(j);
+				logger.info("$");
 				return true;
 			}
 			 
@@ -499,17 +527,31 @@ public class DATABASE {
 			public boolean showAllOrder() {
 				for(int i=0;i<dborder.size();i++) {
 			 
-					
-					logger.info("id= "+dborder.get(i).idorder);
-					logger.info(" | id user= "+dborder.get(i).id);
-					logger.info(" | type of order= "+dborder.get(i).name);
-					logger.info(" | discount= "+dborder.get(i).discount);
-					logger.info(" | price= "+dborder.get(i).price);
-					logger.info(" | received date= "+dborder.get(i).lateDate);
-					logger.info(" | days left= "+dborder.get(i).timeReceipt);
+					logger.info("id= ");
+					logger.info(dborder.get(i).idorder);
+					logger.info(" | id user= ");
+					logger.info(dborder.get(i).id);
+					logger.info(" | type of order= ");
+					logger.info(dborder.get(i).name);
+					logger.info(" | discount= ");
+					String a=""+dborder.get(i).discount;
+					String b=""+dborder.get(i).price;
+					String c=""+dborder.get(i).lateDate;
+					String d=""+dborder.get(i).timeReceipt;
+					String e=""+dborder.get(i).count;			
+					logger.info(a);
+					logger.info(" | price= ");
+					logger.info(b);
+					logger.info(" | received date= ");
+					logger.info(c);
+					logger.info(" | days left= ");
+					logger.info(d);
+					logger.info(" | count= ");
 				
-					logger.info(" | count= "+dborder.get(i).count);
-					logger.info(" | name worker= "+dborder.get(i).nameworker);
+					logger.info(e);
+					logger.info(" | name worker= ");
+					logger.info(dborder.get(i).nameworker);
+					
 					logger.info("\n");
 				}
 				return true;
@@ -518,7 +560,9 @@ public class DATABASE {
 			public boolean dept() {
 				for (int i=0;i<dborder.size();i++) {
 					if(dborder.get(i).timeReceipt<=2&&!dborder.get(i).paid) {
-						logger.info("The amount of dept owed by users: "+dborder.get(i).price);
+						logger.info("The amount of dept owed by users: ");
+						String hh=""+dborder.get(i).price;
+						logger.info(hh);
 						STATES.deptamount=dborder.get(i).price;
 						
 					}
@@ -574,12 +618,19 @@ public class DATABASE {
 		{
 			for(int i=0;i<dbuser.size();i++ ) {
 				if(dbuser.get(i).name.equals(nameuser)) {
-					logger.info("user's id: "+dbuser.get(i).id);
-					logger.info("user's Name: "+dbuser.get(i).name);
-					logger.info("user's Address: "+dbuser.get(i).address);
-					logger.info("user's Email: "+dbuser.get(i).email);
-					logger.info("user's Phone: "+dbuser.get(i).phone);
-					logger.info("user's Point: "+dbuser.get(i).point);
+					logger.info("user's id: ");
+					logger.info(dbuser.get(i).id);
+					logger.info("user's Name: ");
+					logger.info(dbuser.get(i).name);
+					logger.info("user's Address: ");
+					logger.info(dbuser.get(i).address);
+					logger.info("user's Email: ");
+					logger.info(dbuser.get(i).email);
+					logger.info("user's Phone: ");
+					logger.info(dbuser.get(i).phone);
+					logger.info("user's Point: ");
+					String oo=dbuser.get(i).point+"";
+					logger.info(oo);
 				 
 					return true;
 				}
@@ -594,12 +645,17 @@ public class DATABASE {
 
 			for(int i=0;i<dbproduct.size();i++ ) {
 				if(dbproduct.get(i).name.equals(name)) {
-				
-					logger.info("product's SN: "+dbproduct.get(i).sn);
-					logger.info("product's Name: "+dbproduct.get(i).name);
-					logger.info("product's description: "+dbproduct.get(i).description);
-					logger.info("product's price: "+dbproduct.get(i).price);
-					logger.info("product's Category: "+dbproduct.get(i).category);
+					logger.info("product's SN: ");
+					logger.info(dbproduct.get(i).sn);
+					logger.info("product's Name: ");
+					logger.info(dbproduct.get(i).name);
+					logger.info("product's description: ");
+					logger.info(dbproduct.get(i).description);
+					logger.info("product's price: ");
+					String jj=""+dbproduct.get(i).price;
+					logger.info(jj);
+					logger.info("product's Category: ");
+					logger.info(dbproduct.get(i).category);
 					 
 				 
 					return true;
