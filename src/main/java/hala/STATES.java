@@ -28,8 +28,8 @@ logger.info("order received and paid for: order number= ");
 				}
 			}
 			
-		boolean ii=(flag? true: false);
-		return ii;
+		return (flag? true: false);
+		
 		
 		}
 
