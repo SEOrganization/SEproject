@@ -135,11 +135,9 @@ public class DATABASE {
 						
 						for(int i=0;i<dborder.size();i++) {
 			    			 
-							logger.info("id= "+dborder.get(i).idorder+" , id user= "+dborder.get(i).id+" , type of order= "+dborder.get(i).name+" , discount= "+dborder.get(i).discount
-		    						);
-							logger.info(" , price= "+dborder.get(i).price+" , received date= "+dborder.get(i).lateDate+" , days left= "+dborder.get(i).timeReceipt+" , count= "+dborder.get(i).count);
-
-		    				}
+							logger.info(String.format("id= %s",dborder.get(i).idorder));
+									
+						}
 					
 						 return true;
 						
