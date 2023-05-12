@@ -29,6 +29,7 @@ logger.info("order received and paid for: order number= ");
 			if(flag) {
 				return true;	
 			}
+			else
 			return false;
 		}
 

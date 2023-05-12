@@ -262,7 +262,7 @@ public class MAIN {
 		
 		Scanner s1=new Scanner(System.in);
 		while(true) {
-			three:{
+			
 		
 		
 				logger.info("\n Your email:::");
@@ -459,7 +459,7 @@ logger.info(spa);
 
 	case 10:
 	{
-	break three;
+	break ;
 	}
 
 
@@ -478,7 +478,7 @@ logger.info(spa);
 	} 
 			}}	
 
-	}
+	
 	static void admin() {
 
 		int ch ;
@@ -569,8 +569,7 @@ logger.info(spa);
 	{
 		while(true)
 		{
-		one2:
-		{
+	
 	account ();
 		 
 		 
@@ -585,8 +584,7 @@ logger.info(spa);
 		case 1: 
 		{
 		while(true) {
-			one:
-			{
+		
 				
 				logger.info("\n Your email::::");
 		email=s.next();
@@ -863,11 +861,11 @@ logger.info(spa);
 		case 8:
 		{
 			
-			break one;
+			break ;
 		}
 		case 9:
 		{
-			break one2;
+			break;
 		}
 		default :
 			logger.info("The enter is wrong!");
@@ -885,7 +883,7 @@ logger.info(spa);
 		
 		
 			}
-			}
+			
 		break;
 		}
 		
@@ -955,7 +953,7 @@ logger.info(spa);
 		
 		
 	}
-	}
+	
 		}
 	}
 
