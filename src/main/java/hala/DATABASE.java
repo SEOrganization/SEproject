@@ -128,10 +128,11 @@ public class DATABASE {
 			public boolean cancleorder(String iduser, String idord) {
 				
 				 for(int k=0;k<dborder.size();k++) {
-					
+					 if (!dborder.isEmpty())
+					 {
 					 if( dborder.get(k).id.equals(iduser)&&dborder.get(k).idorder.equals(idord) && dborder.get(k).timeReceipt>2) {
 						
-					 
+						
 						dborder.remove(k);
 						
 						for(int i=0;i<dborder.size();i++) {
@@ -166,7 +167,7 @@ public class DATABASE {
 						 return true;
 						
 					 }
-				 }
+				 }}
 				return false;
 			
 			}
