@@ -24,11 +24,11 @@ logger.info("order received and paid for: order number= ");
 					String hh0=db.dborder.get(i).price+"";
 					logger.info(hh0);
 					flag=true; 
-					
+					return true;
 				}
 			}
 			
-		return (flag? true: false);
+		return false;
 		
 		
 		}
