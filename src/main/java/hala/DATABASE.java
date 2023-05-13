@@ -498,7 +498,8 @@ public class DATABASE {
 			public  void deleteprod(String id) {
 				for (int i=0 ;i < dbproduct.size();i++)
 				{
-					if (dbproduct.get(i).sn.equals(id))
+					if(dbproduct.isEmpty())break;
+					else if (dbproduct.get(i).sn.equals(id))
 				{
 						dbproduct.remove(i);
 					
