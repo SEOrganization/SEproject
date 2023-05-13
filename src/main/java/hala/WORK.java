@@ -15,14 +15,6 @@ public class WORK {
 		 String balance ;
 	static boolean logworker=false;
 		
-	public WORK(boolean o) {
-		WORK.logworker=o;
-	}
-		 
-	public WORK() {
-		WORK.logworker=false;;
-	} 
-			
 
 	}
 
