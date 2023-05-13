@@ -1,5 +1,8 @@
 package hala;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
+
 import java.util.logging.Logger;
 
 import javax.mail.Message;
@@ -10,12 +13,15 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 public class EMAIL {
+	List <String> pass1=new ArrayList <String>();
+
 	  private static final Logger logger = Logger.getLogger(EMAIL.class.getName());
 
 		DATABASE db=new DATABASE();
 		public boolean sendemail(String string2, String string) {
+			pass1.add("ruvqofqzpfdlsuzs");
 			final String username = "softwareengn65@gmail.com";
-	        final String password = "ruvqofqzpfdlsuzs";
+	        final String password =pass1.get(0);
 	          Properties props = new Properties();
 	        props.put("mail.smtp.auth", "true");
 	        props.put("mail.smtp.starttls.enable", "true");
