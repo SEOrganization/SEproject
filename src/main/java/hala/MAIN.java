@@ -643,11 +643,15 @@ logger.info(spa);
 	    	fill=db.checkfillfields(id1, phone1, name1, email, address1, password);
 			if(!fill) {
 				logger.info("All fields are required! Please re_enter your information ");
-				menuuser();		continue;
+				menuuser();		
+				
+				continue;
 			}
 			info=db.checkinfoTrue(2,id1,phone1,email,password);	
 			if(!info) {
-				menuuser();	continue;
+				menuuser();	
+				
+				continue;
 			}
 		
 			db.modifyinformation(id1, phone1, name1, email, address1, password);

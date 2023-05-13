@@ -128,11 +128,10 @@ public class DATABASE {
 			public boolean cancleorder(String iduser, String idord) {
 				
 				 for(int k=0;k<dborder.size();k++) {
-					 if (!dborder.isEmpty())
-					 {
-					 if( dborder.get(k).id.equals(iduser)&&dborder.get(k).idorder.equals(idord) && dborder.get(k).timeReceipt>2) {
+					 if(dborder.isEmpty())break;
+					 else if( dborder.get(k).id.equals(iduser)&&dborder.get(k).idorder.equals(idord) && dborder.get(k).timeReceipt>2) {
 						
-						
+					
 						dborder.remove(k);
 						
 						for(int i=0;i<dborder.size();i++) {
@@ -167,7 +166,7 @@ public class DATABASE {
 						 return true;
 						
 					 }
-				 }}
+				 }
 				return false;
 			
 			}
@@ -464,7 +463,9 @@ public class DATABASE {
 			public boolean logoutcompletely(String id3) {
 				
 				for(int i=0;i< dbuser.size();i++ ) {
-					if(dbuser.get(i).id.equals(id3)) {
+					 if(dbuser.isEmpty())break;
+					 
+					 else if(dbuser.get(i).id.equals(id3)) {
 						dbuser.remove(i);
 
 						for (int j=0 ;j <dbuser.size();j++)
