@@ -1,4 +1,6 @@
 package hala;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -170,14 +172,42 @@ public class DATABASE {
 				return false;
 			
 			}
-			
 			void f(){
+			String encryptedpassword = null; 
+			String password="Taha45";
+	        try   
+	        {  
+	            /* MessageDigest instance for MD5. */  
+	            MessageDigest m = MessageDigest.getInstance("MD5");  
+	              
+	            /* Add plain-text password bytes to digest using MD5 update() method. */  
+	            m.update(password.getBytes());  
+	              
+	            /* Convert the hash value into bytes */   
+	            byte[] bytes = m.digest();  
+	              
+	            /* The bytes array has bytes in decimal form. Converting it into hexadecimal format. */  
+	            StringBuilder s = new StringBuilder();  
+	            for(int i=0; i< bytes.length ;i++)  
+	            {  
+	                s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));  
+	            }  
+	              
+	            /* Complete hashed password in hexadecimal format */  
+	            encryptedpassword = s.toString();  
+	        }   
+	        catch (NoSuchAlgorithmException e)   
+	        {  
+	            e.printStackTrace();  
+	        }
+			
+			
 				obj1.id="3";
 				obj1.address="zawata";
 				obj1.name="Taha";
 				obj1.phone="0599874634";
 				obj1.email="tahasoftware080@gmail.com";
-				obj1.password="Taha45";
+				obj1.password=encryptedpassword;
 				obj1.log=true;
 				obj1.point=60;
 				dbuser.add(obj1);
