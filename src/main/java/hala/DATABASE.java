@@ -12,7 +12,7 @@ public class DATABASE {
 
 	
 	
-
+List <String> pass=new ArrayList <String>();
 		 List <USER> dbuser=new ArrayList <USER> ();
 		 List <ORDER> dborder=new ArrayList <ORDER> ();
 		 List <PRODUCT> dbproduct=new ArrayList <PRODUCT> ();
@@ -35,6 +35,13 @@ public class DATABASE {
 
 
 			public DATABASE() {
+				pass.add("Taha45");
+				pass.add("Rami15");
+				pass.add("farah1112");
+				pass.add("saleh1112");
+				pass.add("noor1112");
+			
+				
 				f();
 				
 			}
@@ -173,33 +180,7 @@ public class DATABASE {
 			
 			}
 			void f(){
-			String encryptedpassword = null; 
-			String password="Taha45";
-	        try   
-	        {  
-	            /* MessageDigest instance for MD5. */  
-	            MessageDigest m = MessageDigest.getInstance("MD5");  
-	              
-	            /* Add plain-text password bytes to digest using MD5 update() method. */  
-	            m.update(password.getBytes());  
-	              
-	            /* Convert the hash value into bytes */   
-	            byte[] bytes = m.digest();  
-	              
-	            /* The bytes array has bytes in decimal form. Converting it into hexadecimal format. */  
-	            StringBuilder s = new StringBuilder();  
-	            for(int i=0; i< bytes.length ;i++)  
-	            {  
-	                s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));  
-	            }  
-	              
-	            /* Complete hashed password in hexadecimal format */  
-	            encryptedpassword = s.toString();  
-	        }   
-	        catch (NoSuchAlgorithmException e)   
-	        {  
-	            e.printStackTrace();  
-	        }
+	
 			
 			
 				obj1.id="3";
@@ -207,7 +188,7 @@ public class DATABASE {
 				obj1.name="Taha";
 				obj1.phone="0599874634";
 				obj1.email="tahasoftware080@gmail.com";
-				obj1.password=encryptedpassword;
+				obj1.password=pass.get(0);
 				obj1.log=true;
 				obj1.point=60;
 				dbuser.add(obj1);
@@ -218,7 +199,7 @@ public class DATABASE {
 				obj2.name="Rami";
 				obj2.phone="0597124134";
 				obj2.email="Rami@gmail.com";
-				obj2.password="Rami15";
+				obj2.password=pass.get(1);
 				obj2.log=true;
 				obj2.point=100;
 
@@ -284,7 +265,7 @@ public class DATABASE {
 				obj8.address="jenen";
 				obj8.email="farah@gmail.com";
 				obj8.id="4";
-				obj8.password="farah1112";
+				obj8.password=pass.get(2);
 				obj8.phone="056928521";
 				obj8.name="farahjabe";
 				obj8.balance="0";
@@ -297,7 +278,7 @@ public class DATABASE {
 				obj9.address="nablus";
 				obj9.email="saleh@gmail.com";
 				obj9.id="5";
-				obj9.password="saleh1112";
+				obj9.password=pass.get(3);
 				obj9.phone="056928522";
 				obj9.name="salehshakhshir";
 				obj9.balance="2500";
@@ -310,7 +291,7 @@ public class DATABASE {
 				obj10.address="nablus";
 				obj10.email="noor@gmail.com";
 				obj10.id="6";
-				obj10.password="noor1112";
+				obj10.password=pass.get(4);
 				obj10.phone="056935522";
 				obj10.name="noorjabe";
 				obj10.balance="5000";
@@ -326,7 +307,7 @@ public class DATABASE {
 				obj51.name="Rami";
 				obj51.phone="0597124134";
 				obj51.email="Rami@gmail.com";
-				obj51.password="Rami15";
+				obj51.password=pass.get(1);
 				obj51.log=true;
 				obj51.point=500;
 
