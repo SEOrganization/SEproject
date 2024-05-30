@@ -15,4 +15,7 @@ customer frequently uses the service with an amount of money >400 NIS, he can ge
 debts.
 8. Distribute the orders on the available workers.
 9. Notify the customer by sending email when the order is complete.
-    
+And this is report to show all result:
+
+
+[soft_re.pdf](https://github.com/SEOrganization/SEproject/files/15496327/soft_re.pdf)
