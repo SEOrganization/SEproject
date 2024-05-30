@@ -19,3 +19,4 @@ And this is report to show all result:
 
 
 [soft_re.pdf](https://github.com/SEOrganization/SEproject/files/15496327/soft_re.pdf)
+![image](https://github.com/SEOrganization/SEproject/assets/124292985/ddbaa45d-993c-4067-8cf4-6d8545826107)
